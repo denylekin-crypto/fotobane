@@ -368,40 +368,239 @@ section {
 
 
 /* ==================================================
-   GALERIJA
+   NAŠ TIM
+================================================== */
+
+.team-section {
+    background: #f6f7f5;
+}
+
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+}
+
+.team-card {
+    position: relative;
+    height: 480px;
+    overflow: hidden;
+    border-radius: 28px;
+    background: #ddd;
+    box-shadow: 0 15px 45px rgba(23,63,53,.10);
+}
+
+.team-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform .7s cubic-bezier(.2,.7,.2,1);
+}
+
+.team-card::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0,0,0,.78), rgba(0,0,0,.08) 62%, transparent);
+}
+
+.team-card:hover img {
+    transform: scale(1.05);
+}
+
+.team-info {
+    position: absolute;
+    z-index: 2;
+    left: 24px;
+    right: 24px;
+    bottom: 24px;
+    color: white;
+}
+
+.team-info small {
+    display: block;
+    color: #dfc48d;
+    font-size: 11px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-bottom: 6px;
+}
+
+.team-info h3 {
+    font-size: 23px;
+    margin-bottom: 3px;
+}
+
+.team-info p {
+    font-size: 12px;
+    color: rgba(255,255,255,.78);
+}
+
+/* ==================================================
+   MODERNA GALERIJA — 3D TOČAK
 ================================================== */
 
 .gallery {
     background: white;
-}
-
-.gallery-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 15px;
-}
-
-.gallery-item {
-    height: 300px;
-
     overflow: hidden;
-
-    border-radius: 20px;
-
-    background: #ddd;
 }
 
-.gallery-item img {
+.gallery-stage {
+    position: relative;
+    height: 570px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    perspective: 1200px;
+    margin-top: 10px;
+}
+
+.gallery-carousel {
+    position: relative;
+    width: min(900px, 100%);
+    height: 470px;
+    transform-style: preserve-3d;
+}
+
+.gallery-slide {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: min(570px, 72vw);
+    height: 390px;
+    border-radius: 28px;
+    overflow: hidden;
+    background: #ddd;
+    box-shadow: 0 22px 60px rgba(23,63,53,.18);
+    transform: translate(-50%, -50%);
+    transition:
+        transform .65s cubic-bezier(.2,.75,.2,1),
+        opacity .65s ease,
+        filter .65s ease,
+        z-index .65s ease;
+    cursor: pointer;
+    user-select: none;
+}
+
+.gallery-slide img {
     width: 100%;
     height: 100%;
-
     object-fit: cover;
-
-    transition: transform .5s ease;
+    pointer-events: none;
 }
 
-.gallery-item:hover img {
-    transform: scale(1.05);
+.gallery-slide::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0,0,0,.55), transparent 55%);
+}
+
+.gallery-caption {
+    position: absolute;
+    z-index: 2;
+    left: 24px;
+    bottom: 20px;
+    color: white;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.gallery-slide.pos-0 {
+    transform: translate(-50%, -50%) translateZ(130px) scale(1);
+    opacity: 1;
+    filter: none;
+    z-index: 5;
+}
+
+.gallery-slide.pos-left {
+    transform: translate(-50%, -50%) translateX(-390px) rotateY(24deg) scale(.82);
+    opacity: .62;
+    filter: saturate(.75);
+    z-index: 3;
+}
+
+.gallery-slide.pos-right {
+    transform: translate(-50%, -50%) translateX(390px) rotateY(-24deg) scale(.82);
+    opacity: .62;
+    filter: saturate(.75);
+    z-index: 3;
+}
+
+.gallery-slide.pos-far-left {
+    transform: translate(-50%, -50%) translateX(-650px) rotateY(34deg) scale(.62);
+    opacity: 0;
+    z-index: 1;
+}
+
+.gallery-slide.pos-far-right {
+    transform: translate(-50%, -50%) translateX(650px) rotateY(-34deg) scale(.62);
+    opacity: 0;
+    z-index: 1;
+}
+
+.gallery-controls {
+    position: absolute;
+    z-index: 10;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    gap: 18px;
+}
+
+.gallery-arrow {
+    width: 46px;
+    height: 46px;
+    border: 1px solid var(--border);
+    border-radius: 50%;
+    background: white;
+    color: var(--primary-green);
+    display: grid;
+    place-items: center;
+    cursor: pointer;
+    box-shadow: 0 8px 25px rgba(23,63,53,.10);
+    transition: .2s ease;
+}
+
+.gallery-arrow:hover {
+    background: var(--primary-green);
+    color: white;
+    transform: translateY(-2px);
+}
+
+.gallery-dots {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+}
+
+.gallery-dot {
+    width: 7px;
+    height: 7px;
+    border: 0;
+    border-radius: 50%;
+    padding: 0;
+    background: #cfd6d2;
+    cursor: pointer;
+    transition: .25s ease;
+}
+
+.gallery-dot.active {
+    width: 25px;
+    border-radius: 10px;
+    background: var(--gold);
+}
+
+/* ==================================================
+   STARI NAZIVI GALERIJE — kompatibilnost
+================================================== */
+
+.gallery-grid,
+.gallery-item {
+    display: none;
 }
 
 
@@ -1212,6 +1411,31 @@ footer {
     .gallery-grid {
         grid-template-columns: repeat(2, 1fr);
     }
+
+    .team-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .team-card {
+        height: 430px;
+    }
+
+    .gallery-stage {
+        height: 520px;
+    }
+
+    .gallery-slide {
+        width: min(520px, 68vw);
+        height: 350px;
+    }
+
+    .gallery-slide.pos-left {
+        transform: translate(-50%, -50%) translateX(-285px) rotateY(20deg) scale(.80);
+    }
+
+    .gallery-slide.pos-right {
+        transform: translate(-50%, -50%) translateX(285px) rotateY(-20deg) scale(.80);
+    }
 }
 
 
@@ -1306,6 +1530,49 @@ footer {
     .scratch-wrapper {
         height: 230px;
     }
+
+    .team-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .team-card {
+        height: 430px;
+    }
+
+    .gallery-stage {
+        height: 455px;
+        margin-left: -14px;
+        margin-right: -14px;
+    }
+
+    .gallery-carousel {
+        height: 390px;
+    }
+
+    .gallery-slide {
+        width: min(430px, 82vw);
+        height: 310px;
+        border-radius: 23px;
+    }
+
+    .gallery-slide.pos-left {
+        transform: translate(-50%, -50%) translateX(-135px) rotateY(15deg) scale(.78);
+        opacity: .35;
+    }
+
+    .gallery-slide.pos-right {
+        transform: translate(-50%, -50%) translateX(135px) rotateY(-15deg) scale(.78);
+        opacity: .35;
+    }
+
+    .gallery-slide.pos-far-left,
+    .gallery-slide.pos-far-right {
+        opacity: 0;
+    }
+
+    .gallery-controls {
+        bottom: 2px;
+    }
 }
 
 
@@ -1317,6 +1584,21 @@ footer {
 
     .gallery-grid {
         grid-template-columns: 1fr;
+    }
+
+    .gallery-stage {
+        height: 430px;
+    }
+
+    .gallery-slide {
+        width: 84vw;
+        height: 285px;
+    }
+
+    .gallery-slide.pos-left,
+    .gallery-slide.pos-right {
+        transform: translate(-50%, -50%) scale(.76);
+        opacity: .25;
     }
 
     .service-card {
@@ -1369,12 +1651,16 @@ footer {
                 Usluge
             </a>
 
-            <a href="#galerija">
-                Galerija
-            </a>
-
             <a href="#kalkulator">
                 Kalkulator
+            </a>
+
+            <a href="#tim">
+                Naš tim
+            </a>
+
+            <a href="#galerija">
+                Galerija
             </a>
 
             <a href="#kontakt" class="nav-contact">
@@ -1569,100 +1855,7 @@ footer {
 
 
 <!-- ==================================================
-     GALERIJA
-================================================== -->
-
-<section
-    class="gallery"
-    id="galerija">
-
-    <div class="container">
-
-
-        <div class="section-head">
-
-            <div class="section-label">
-                Galerija
-            </div>
-
-
-            <h2 class="section-title">
-
-                Trenuci koje<br>
-                vredi sačuvati.
-
-            </h2>
-
-        </div>
-
-
-        <div class="gallery-grid">
-
-
-            <div class="gallery-item">
-
-                <img
-                    src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1000&q=85"
-                    alt="Venčanje">
-
-            </div>
-
-
-            <div class="gallery-item">
-
-                <img
-                    src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=1000&q=85"
-                    alt="Mladenci">
-
-            </div>
-
-
-            <div class="gallery-item">
-
-                <img
-                    src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=1000&q=85"
-                    alt="Fotografisanje venčanja">
-
-            </div>
-
-
-            <div class="gallery-item">
-
-                <img
-                    src="https://images.unsplash.com/photo-1527529482837-4698179dc6ce?auto=format&fit=crop&w=1000&q=85"
-                    alt="Proslava">
-
-            </div>
-
-
-            <div class="gallery-item">
-
-                <img
-                    src="https://images.unsplash.com/photo-1530103862676-de8c9debad1d?auto=format&fit=crop&w=1000&q=85"
-                    alt="Rođendan">
-
-            </div>
-
-
-            <div class="gallery-item">
-
-                <img
-                    src="https://images.unsplash.com/photo-1516035069371-29a1b244cc32?auto=format&fit=crop&w=1000&q=85"
-                    alt="Fotograf">
-
-            </div>
-
-
-        </div>
-
-    </div>
-
-</section>
-
-
-
-<!-- ==================================================
-     KALKULATOR
+     KALKULATOR — ODMAH POSLE USLUGA
 ================================================== -->
 
 <section
@@ -1671,46 +1864,34 @@ footer {
 
     <div class="container">
 
-
         <div class="section-head">
 
             <div class="section-label">
                 Brza procena
             </div>
 
-
             <h2 class="section-title">
                 Izračunajte cenu.
             </h2>
 
-
             <p class="section-description">
-
                 Izaberite paket i dodatne usluge.
                 Cena se automatski izračunava.
-
             </p>
 
         </div>
 
-
         <div class="calculator">
-
 
             <h3>
                 Vaš paket
             </h3>
 
-
             <p class="calculator-intro">
-
                 Pomerite klizač i izaberite uslugu.
-
             </p>
 
-
             <div class="package-area">
-
 
                 <div class="package-label">
 
@@ -1718,13 +1899,11 @@ footer {
                         Paket
                     </strong>
 
-
                     <span id="paket-naziv">
                         Izaberite paket
                     </span>
 
                 </div>
-
 
                 <div class="range-wrapper">
 
@@ -1737,56 +1916,27 @@ footer {
                         step="1"
                         value="0">
 
-
-                    <!-- OVO SU OZNAKE ISPOD SLIDERA -->
-
                     <div class="slider-labels">
 
-
-                        <div
-                            class="slider-label active"
-                            data-value="0">
-
+                        <div class="slider-label active" data-value="0">
                             Izaberite<br>paket
-
                         </div>
 
-
-                        <div
-                            class="slider-label"
-                            data-value="1">
-
+                        <div class="slider-label" data-value="1">
                             Studijsko<br>fotografisanje
-
                         </div>
 
-
-                        <div
-                            class="slider-label"
-                            data-value="2">
-
+                        <div class="slider-label" data-value="2">
                             Rođendan /<br>punoletstvo
-
                         </div>
 
-
-                        <div
-                            class="slider-label"
-                            data-value="3">
-
+                        <div class="slider-label" data-value="3">
                             Krštenje
-
                         </div>
 
-
-                        <div
-                            class="slider-label"
-                            data-value="4">
-
+                        <div class="slider-label" data-value="4">
                             Venčanje
-
                         </div>
-
 
                     </div>
 
@@ -1794,12 +1944,9 @@ footer {
 
             </div>
 
-
             <div class="options">
 
-
                 <div class="option">
-
 
                     <div class="option-text">
 
@@ -1813,7 +1960,6 @@ footer {
 
                     </div>
 
-
                     <label class="switch">
 
                         <input
@@ -1826,9 +1972,7 @@ footer {
 
                 </div>
 
-
                 <div class="option">
-
 
                     <div class="option-text">
 
@@ -1842,7 +1986,6 @@ footer {
 
                     </div>
 
-
                     <label class="switch">
 
                         <input
@@ -1855,12 +1998,9 @@ footer {
 
                 </div>
 
-
             </div>
 
-
             <div class="total-box">
-
 
                 <div>
 
@@ -1868,30 +2008,23 @@ footer {
                         UKUPNA CENA
                     </small>
 
-
                     <strong id="ukupna-cena">
                         0 €
                     </strong>
 
                 </div>
 
-
                 <div>
-
                     <i class="fa-solid fa-camera fa-2x"></i>
-
                 </div>
 
-
             </div>
-
 
         </div>
 
     </div>
 
 </section>
-
 
 
 <!-- ==================================================
@@ -1902,19 +2035,15 @@ footer {
 
     <div class="container">
 
-
         <div class="section-head">
-
 
             <div class="section-label">
                 Malo iznenađenje
             </div>
 
-
             <h2 class="section-title">
                 Probajte sreću.
             </h2>
-
 
             <p
                 class="section-description"
@@ -1926,14 +2055,9 @@ footer {
 
         </div>
 
-
         <div class="scratch-container">
 
-
             <div class="scratch-wrapper">
-
-
-                <!-- SADRŽAJ ISPOD SREBRNE POVRŠINE -->
 
                 <div class="scratch-content">
 
@@ -1941,16 +2065,13 @@ footer {
                         <i class="fa-solid fa-gift"></i>
                     </div>
 
-
                     <h3>
                         Čestitamo!
                     </h3>
 
-
                     <p>
                         Vaš kod za popust je:
                     </p>
-
 
                     <div
                         class="scratch-code"
@@ -1962,13 +2083,7 @@ footer {
 
                 </div>
 
-
-                <!-- CANVAS KOJI SE GREBE -->
-
-                <canvas
-                    id="scratchCanvas">
-                </canvas>
-
+                <canvas id="scratchCanvas"></canvas>
 
                 <div
                     class="scratch-instruction"
@@ -1979,18 +2094,14 @@ footer {
 
                 </div>
 
-
             </div>
-
 
             <div
                 class="scratch-success"
                 id="scratchSuccess">
             </div>
 
-
         </div>
-
 
         <p class="scratch-note">
 
@@ -2000,11 +2111,266 @@ footer {
 
         </p>
 
+    </div>
+
+</section>
+
+
+<!-- ==================================================
+     NAŠ TIM
+================================================== -->
+
+<section class="team-section" id="tim">
+
+    <div class="container">
+
+        <div class="section-head">
+
+            <div class="section-label">
+                Naš tim
+            </div>
+
+            <h2 class="section-title">
+                Ljudi iza<br>
+                svakog kadra.
+            </h2>
+
+            <p class="section-description">
+                Iskustvo, kreativnost i pažnja prema detaljima —
+                od prvog snimka do poslednje fotografije.
+            </p>
+
+        </div>
+
+        <div class="team-grid">
+
+            <div class="team-card">
+
+                <img
+                    src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=900&q=90"
+                    alt="Profesionalni fotograf">
+
+                <div class="team-info">
+                    <small>Fotograf</small>
+                    <h3>Fotograf</h3>
+                    <p>Portreti · Venčanja · Proslave</p>
+                </div>
+
+            </div>
+
+            <div class="team-card">
+
+                <img
+                    src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=900&q=90"
+                    alt="Profesionalni fotograf i snimatelj">
+
+                <div class="team-info">
+                    <small>Fotograf & video</small>
+                    <h3>Snimatelj</h3>
+                    <p>Video produkcija · Dron · Montaža</p>
+                </div>
+
+            </div>
+
+            <div class="team-card">
+
+                <img
+                    src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=900&q=90"
+                    alt="Profesionalna fotografkinja">
+
+                <div class="team-info">
+                    <small>Fotograf</small>
+                    <h3>Fotografkinja</h3>
+                    <p>Portreti · Studijsko fotografisanje</p>
+                </div>
+
+            </div>
+
+        </div>
 
     </div>
 
 </section>
 
+
+<!-- ==================================================
+     MODERNA GALERIJA
+================================================== -->
+
+<section
+    class="gallery"
+    id="galerija">
+
+    <div class="container">
+
+        <div class="section-head">
+
+            <div class="section-label">
+                Galerija
+            </div>
+
+            <h2 class="section-title">
+                Trenuci koje<br>
+                vredi sačuvati.
+            </h2>
+
+            <p class="section-description">
+                Pogledajte deo atmosfere koju beležimo kroz naše fotografije.
+            </p>
+
+        </div>
+
+        <div class="gallery-stage">
+
+            <div class="gallery-carousel" id="galleryCarousel">
+
+                <div class="gallery-slide">
+                    <img
+                        src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1200&q=90"
+                        alt="Venčanje">
+                    <div class="gallery-caption">Venčanje</div>
+                </div>
+
+                <div class="gallery-slide">
+                    <img
+                        src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=1200&q=90"
+                        alt="Mladenci">
+                    <div class="gallery-caption">Mladenci</div>
+                </div>
+
+                <div class="gallery-slide">
+                    <img
+                        src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=1200&q=90"
+                        alt="Fotografisanje venčanja">
+                    <div class="gallery-caption">Važan trenutak</div>
+                </div>
+
+                <div class="gallery-slide">
+                    <img
+                        src="https://images.unsplash.com/photo-1527529482837-4698179dc6ce?auto=format&fit=crop&w=1200&q=90"
+                        alt="Proslava">
+                    <div class="gallery-caption">Proslava</div>
+                </div>
+
+                <div class="gallery-slide">
+                    <img
+                        src="https://images.unsplash.com/photo-1530103862676-de8c9debad1d?auto=format&fit=crop&w=1200&q=90"
+                        alt="Rođendan">
+                    <div class="gallery-caption">Rođendan</div>
+                </div>
+
+                <div class="gallery-slide">
+                    <img
+                        src="https://images.unsplash.com/photo-1516035069371-29a1b244cc32?auto=format&fit=crop&w=1200&q=90"
+                        alt="Fotograf">
+                    <div class="gallery-caption">Iza objektiva</div>
+                </div>
+
+
+                <div class="gallery-slide">
+                    <img src="https://images.unsplash.com/photo-1519167758481-83f550bb49b3?auto=format&fit=crop&w=1200&q=90" alt="Svadbena proslava" loading="lazy">
+                    <div class="gallery-caption">Svadbena proslava</div>
+                </div>
+
+                <div class="gallery-slide">
+                    <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=1200&q=90" alt="Mlada i mladoženja" loading="lazy">
+                    <div class="gallery-caption">Mlada i mladoženja</div>
+                </div>
+
+                <div class="gallery-slide">
+                    <img src="https://images.unsplash.com/photo-1507504031003-b417219a0fde?auto=format&fit=crop&w=1200&q=90" alt="Svadbeni detalji" loading="lazy">
+                    <div class="gallery-caption">Svadbeni detalji</div>
+                </div>
+
+                <div class="gallery-slide">
+                    <img src="https://images.unsplash.com/photo-1520854221256-17451cc331bf?auto=format&fit=crop&w=1200&q=90" alt="Romantičan trenutak" loading="lazy">
+                    <div class="gallery-caption">Romantičan trenutak</div>
+                </div>
+
+                <div class="gallery-slide">
+                    <img src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=1200&q=90" alt="Proslava" loading="lazy">
+                    <div class="gallery-caption">Proslava</div>
+                </div>
+
+                <div class="gallery-slide">
+                    <img src="https://images.unsplash.com/photo-1464349153735-7db50ed83c84?auto=format&fit=crop&w=1200&q=90" alt="Rođendan" loading="lazy">
+                    <div class="gallery-caption">Rođendan</div>
+                </div>
+
+                <div class="gallery-slide">
+                    <img src="https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&w=1200&q=90" alt="Punoletstvo" loading="lazy">
+                    <div class="gallery-caption">Punoletstvo</div>
+                </div>
+
+                <div class="gallery-slide">
+                    <img src="https://images.unsplash.com/photo-1609220136736-443140cffec6?auto=format&fit=crop&w=1200&q=90" alt="Porodični trenutak" loading="lazy">
+                    <div class="gallery-caption">Porodični trenutak</div>
+                </div>
+
+                <div class="gallery-slide">
+                    <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=1200&q=90" alt="Portret" loading="lazy">
+                    <div class="gallery-caption">Portret</div>
+                </div>
+
+                <div class="gallery-slide">
+                    <img src="https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=1200&q=90" alt="Studio" loading="lazy">
+                    <div class="gallery-caption">Studio</div>
+                </div>
+
+                <div class="gallery-slide">
+                    <img src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1200&q=90" alt="Fotografija para" loading="lazy">
+                    <div class="gallery-caption">Fotografija para</div>
+                </div>
+
+                <div class="gallery-slide">
+                    <img src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=1200&q=90" alt="Svečani trenutak" loading="lazy">
+                    <div class="gallery-caption">Svečani trenutak</div>
+                </div>
+
+                <div class="gallery-slide">
+                    <img src="https://images.unsplash.com/photo-1544078751-58fee2d8a03b?auto=format&fit=crop&w=1200&q=90" alt="Mlada" loading="lazy">
+                    <div class="gallery-caption">Mlada</div>
+                </div>
+
+                <div class="gallery-slide">
+                    <img src="https://images.unsplash.com/photo-1505236858219-8359eb29e329?auto=format&fit=crop&w=1200&q=90" alt="Događaj" loading="lazy">
+                    <div class="gallery-caption">Događaj</div>
+                </div>
+            </div>
+
+            <div class="gallery-controls">
+
+                <button
+                    class="gallery-arrow"
+                    id="galleryPrev"
+                    aria-label="Prethodna fotografija">
+
+                    <i class="fa-solid fa-arrow-left"></i>
+
+                </button>
+
+                <div
+                    class="gallery-dots"
+                    id="galleryDots"
+                    aria-label="Izbor fotografije">
+                </div>
+
+                <button
+                    class="gallery-arrow"
+                    id="galleryNext"
+                    aria-label="Sledeća fotografija">
+
+                    <i class="fa-solid fa-arrow-right"></i>
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
 
 
 <!-- ==================================================
@@ -3122,6 +3488,292 @@ window.addEventListener(
 
     }
 );
+
+
+
+/* ==================================================
+   MODERNA GALERIJA — 3D TOČAK / SLIDER
+================================================== */
+
+const gallerySlides =
+    document.querySelectorAll(".gallery-slide");
+
+const galleryDots =
+    document.getElementById("galleryDots");
+
+const galleryPrev =
+    document.getElementById("galleryPrev");
+
+const galleryNext =
+    document.getElementById("galleryNext");
+
+let galleryIndex = 0;
+let galleryTimer = null;
+let galleryStartX = 0;
+let galleryMoved = false;
+
+
+/* tačke ispod galerije */
+
+gallerySlides.forEach(function(_, index) {
+
+    const dot =
+        document.createElement("button");
+
+    dot.className = "gallery-dot";
+
+    dot.type = "button";
+
+    dot.setAttribute(
+        "aria-label",
+        "Otvori fotografiju " + (index + 1)
+    );
+
+    dot.addEventListener(
+        "click",
+        function() {
+
+            galleryIndex = index;
+
+            osveziGaleriju();
+
+            pokreniGaleriju();
+
+        }
+    );
+
+    galleryDots.appendChild(dot);
+
+});
+
+
+function osveziGaleriju() {
+
+    const total =
+        gallerySlides.length;
+
+    gallerySlides.forEach(
+        function(slide, index) {
+
+            slide.classList.remove(
+                "pos-0",
+                "pos-left",
+                "pos-right",
+                "pos-far-left",
+                "pos-far-right"
+            );
+
+            let diff =
+                index - galleryIndex;
+
+            if (diff > total / 2) {
+                diff -= total;
+            }
+
+            if (diff < -total / 2) {
+                diff += total;
+            }
+
+            if (diff === 0) {
+                slide.classList.add("pos-0");
+            } else if (diff === -1) {
+                slide.classList.add("pos-left");
+            } else if (diff === 1) {
+                slide.classList.add("pos-right");
+            } else if (diff < 0) {
+                slide.classList.add("pos-far-left");
+            } else {
+                slide.classList.add("pos-far-right");
+            }
+
+        }
+    );
+
+
+    galleryDots
+        .querySelectorAll(".gallery-dot")
+        .forEach(function(dot, index) {
+
+            dot.classList.toggle(
+                "active",
+                index === galleryIndex
+            );
+
+        });
+
+}
+
+
+function sledecaGalerija() {
+
+    galleryIndex =
+        (galleryIndex + 1) %
+        gallerySlides.length;
+
+    osveziGaleriju();
+
+}
+
+
+function prethodnaGalerija() {
+
+    galleryIndex =
+        (galleryIndex - 1 + gallerySlides.length) %
+        gallerySlides.length;
+
+    osveziGaleriju();
+
+}
+
+
+function pokreniGaleriju() {
+
+    clearInterval(galleryTimer);
+
+    galleryTimer =
+        setInterval(
+            sledecaGalerija,
+            4500
+        );
+
+}
+
+
+/* strelice */
+
+galleryNext.addEventListener(
+    "click",
+    function() {
+
+        sledecaGalerija();
+
+        pokreniGaleriju();
+
+    }
+);
+
+
+galleryPrev.addEventListener(
+    "click",
+    function() {
+
+        prethodnaGalerija();
+
+        pokreniGaleriju();
+
+    }
+);
+
+
+/* klik na bočnu fotografiju */
+
+gallerySlides.forEach(
+    function(slide, index) {
+
+        slide.addEventListener(
+            "click",
+            function() {
+
+                if (index !== galleryIndex) {
+
+                    galleryIndex = index;
+
+                    osveziGaleriju();
+
+                    pokreniGaleriju();
+
+                }
+
+            }
+        );
+
+    }
+);
+
+
+/* swipe na telefonu + prevlačenje mišem */
+
+const galleryCarousel =
+    document.getElementById("galleryCarousel");
+
+galleryCarousel.addEventListener(
+    "touchstart",
+    function(e) {
+
+        galleryStartX =
+            e.touches[0].clientX;
+
+        galleryMoved = false;
+
+    },
+    { passive: true }
+);
+
+
+galleryCarousel.addEventListener(
+    "touchmove",
+    function(e) {
+
+        const delta =
+            e.touches[0].clientX -
+            galleryStartX;
+
+        if (Math.abs(delta) > 30) {
+            galleryMoved = true;
+        }
+
+    },
+    { passive: true }
+);
+
+
+galleryCarousel.addEventListener(
+    "touchend",
+    function(e) {
+
+        if (!galleryMoved) {
+            return;
+        }
+
+        const endX =
+            e.changedTouches[0].clientX;
+
+        const delta =
+            endX - galleryStartX;
+
+        if (delta < -45) {
+            sledecaGalerija();
+        } else if (delta > 45) {
+            prethodnaGalerija();
+        }
+
+        pokreniGaleriju();
+
+    }
+);
+
+
+galleryCarousel.addEventListener(
+    "mouseenter",
+    function() {
+        clearInterval(galleryTimer);
+    }
+);
+
+
+galleryCarousel.addEventListener(
+    "mouseleave",
+    function() {
+        pokreniGaleriju();
+    }
+);
+
+
+/* početno stanje */
+
+osveziGaleriju();
+
+pokreniGaleriju();
 
 
 
