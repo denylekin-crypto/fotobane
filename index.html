@@ -1,382 +1,1776 @@
 <!DOCTYPE html>
-<html lang="sr-Latn">
+<html lang="sr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
     <title>Foto Bane | Despotovac</title>
-    <!-- Fontovi i ikonice -->
+
+    <!-- Fontovi -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Ikonice -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
+
     <style>
-        /* SVETLA TEMA - DEFINICIJE BOJA */
+
+        /* =====================================================
+           OSNOVNE BOJE
+        ===================================================== */
+
         :root {
-            --primary-green: #1a7a58; 
-            --primary-green-hover: #135d42;
+            --primary-green: #1a7a58;
+            --primary-green-dark: #135d42;
+            --primary-green-light: #eaf6f1;
+
             --bg-white: #ffffff;
-            --bg-light-gray: #f2f5f8; 
-            --text-dark: #1d1d1f; 
-            --text-light: #86868b;
+            --bg-light: #f6f8f7;
+
+            --text-dark: #202523;
+            --text-light: #68716d;
+
             --accent-gold: #d4af37;
-            --border-color: rgba(0, 0, 0, 0.1);
+            --accent-gold-light: #f8efd0;
+
+            --border: #e3e9e6;
+
+            --shadow-soft: 0 10px 35px rgba(0,0,0,0.06);
+            --shadow-medium: 0 20px 50px rgba(0,0,0,0.10);
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Montserrat', sans-serif; scroll-behavior: smooth; }
-        
-        body { 
-            background-color: var(--bg-light-gray); 
-            color: var(--text-dark); 
-            line-height: 1.6; 
+
+        /* =====================================================
+           RESET
+        ===================================================== */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Montserrat', sans-serif;
+            scroll-behavior: smooth;
         }
 
-        /* GLASSMORPHISM - APPLE STIL */
-        .glass-effect {
-            background: rgba(255, 255, 255, 0.65);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
-            border: 1px solid rgba(255, 255, 255, 0.5);
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.04);
-            border-radius: 24px;
-        }
-        
-        h1, h2, h3 { font-weight: 700; color: var(--primary-green); }
-        h2 { font-size: 2.2rem; text-align: center; margin-bottom: 2rem; position: relative; padding-bottom: 10px; }
-        h2::after { content: ''; position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); width: 60px; height: 3px; background-color: var(--accent-gold); border-radius: 2px;}
-        a { text-decoration: none; color: inherit; }
-        
-        .btn { display: inline-block; padding: 14px 32px; border-radius: 30px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; transition: all 0.3s ease; cursor: pointer; border: none; text-align: center; font-size: 0.9rem;}
-        .btn-primary { background-color: var(--primary-green); color: var(--bg-white); box-shadow: 0 8px 20px rgba(26, 122, 88, 0.25); }
-        .btn-primary:hover { background-color: var(--primary-green-hover); transform: translateY(-2px); box-shadow: 0 10px 25px rgba(26, 122, 88, 0.35); }
-        
-        /* NAVIGACIJA - STAKLO */
-        nav { position: fixed; top: 0; width: 100%; background: rgba(255, 255, 255, 0.7); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border-bottom: 1px solid rgba(255, 255, 255, 0.5); padding: 12px 5%; display: flex; justify-content: space-between; align-items: center; z-index: 1000; transition: all 0.3s ease; }
-        .logo-container img { height: 45px; width: auto; }
-        .nav-links { display: flex; gap: 30px; list-style: none; }
-        .nav-links a { font-weight: 600; color: var(--text-dark); font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.5px; transition: color 0.3s; }
-        .nav-links a:hover { color: var(--primary-green); }
-        .menu-toggle { display: none; font-size: 1.5rem; color: var(--primary-green); cursor: pointer; }
-        
-        section { padding: 100px 5%; }
-        
-        /* HERO SEKCIJA */
-        .hero { height: 100vh; display: flex; align-items: center; justify-content: center; text-align: center; background: url('https://images.unsplash.com/photo-1511895426328-dc8714191300?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat; position: relative;}
-        .hero::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(to bottom, rgba(255,255,255,0.7), rgba(242, 245, 248, 1)); pointer-events: none; }
-        .hero-content { max-width: 800px; padding: 50px; z-index: 1; }
-        .badge { display: inline-block; background-color: var(--accent-gold); color: var(--bg-white); padding: 6px 16px; border-radius: 20px; font-size: 0.75rem; font-weight: 700; margin-bottom: 25px; text-transform: uppercase; letter-spacing: 1px; box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);}
-        .hero h1 { font-size: 3.5rem; margin-bottom: 20px; color: var(--text-dark); line-height: 1.2; letter-spacing: -1px;}
-        .hero h1 span { color: var(--primary-green); }
-        .hero p { font-size: 1.15rem; color: var(--text-light); margin-bottom: 35px; }
-        
-        /* PORTFOLIO */
-        #portfolio { background-color: var(--bg-light-gray); }
-        .portfolio-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 50px; }
-        .portfolio-item { position: relative; border-radius: 20px; overflow: hidden; box-shadow: 0 15px 35px rgba(0,0,0,0.06); transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1); }
-        .portfolio-item:hover { transform: translateY(-10px); }
-        .portfolio-item img { width: 100%; height: 300px; object-fit: cover; display: block; }
-        .portfolio-info { position: absolute; bottom: 15px; left: 15px; right: 15px; padding: 15px; text-align: center; background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border-radius: 15px; }
-        .portfolio-info h3 { font-size: 1.1rem; color: var(--text-dark); margin: 0; }
-        
-        /* KALKULATOR SA SLAJDEROM - APPLE STIL */
-        #kalkulator { background-image: radial-gradient(circle at top right, #e2e8f0 0%, transparent 40%), radial-gradient(circle at bottom left, #e2e8f0 0%, transparent 40%); }
-        .kalkulator-container { max-width: 650px; margin: 0 auto; padding: 45px; }
-        .slider-wrapper { margin-bottom: 45px; }
-        .slider-label { display: flex; justify-content: space-between; font-weight: 700; color: var(--text-dark); margin-bottom: 20px; font-size: 1.2rem; }
-        #paket-cijena { color: var(--primary-green); }
-        
-        /* Moderni Range Slider (iOS sličan) */
-        input[type=range] { -webkit-appearance: none; width: 100%; height: 8px; background: #d1d5db; border-radius: 8px; outline: none; transition: background 0.2s; }
-        input[type=range]::-webkit-slider-thumb { -webkit-appearance: none; appearance: none; width: 30px; height: 30px; border-radius: 50%; background: #ffffff; cursor: pointer; box-shadow: 0 4px 12px rgba(0,0,0,0.15); border: 1px solid rgba(0,0,0,0.05); transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
-        input[type=range]::-webkit-slider-thumb:active { transform: scale(1.15); }
-        
-        /* Moderni iOS Switchevi */
-        .switch-group { margin-bottom: 35px; background: rgba(255,255,255,0.4); border-radius: 16px; padding: 10px 20px; }
-        .switch-item { display: flex; justify-content: space-between; align-items: center; padding: 15px 0; border-bottom: 1px solid rgba(0,0,0,0.05); }
-        .switch-item:last-child { border-bottom: none; }
-        .switch-label { font-weight: 500; color: var(--text-dark); font-size: 1.05rem; }
-        
-        .switch { position: relative; display: inline-block; width: 52px; height: 30px; }
-        .switch input { opacity: 0; width: 0; height: 0; }
-        .slider-switch { position: absolute; cursor: pointer; top: 0; left: 0; right: 0; bottom: 0; background-color: #e5e5ea; transition: .4s; border-radius: 34px; }
-        .slider-switch:before { position: absolute; content: ""; height: 26px; width: 26px; left: 2px; bottom: 2px; background-color: white; transition: .4s; border-radius: 50%; box-shadow: 0 2px 5px rgba(0,0,0,0.2); }
-        input:checked + .slider-switch { background-color: #34C759; /* Apple zelena */ }
-        input:checked + .slider-switch:before { transform: translateX(22px); }
-        
-        .total-price { padding: 25px; background: rgba(26, 122, 88, 0.05); color: var(--primary-green); border-radius: 16px; text-align: center; font-size: 2rem; font-weight: 700; border: 1px solid rgba(26, 122, 88, 0.2); letter-spacing: -0.5px; }
-
-        /* GREB-GREB SEKCIJA */
-        .greb-sekcija { background: linear-gradient(135deg, var(--primary-green) 0%, var(--primary-green-hover) 100%); color: var(--bg-white); text-align: center; position: relative; overflow: hidden; }
-        .greb-sekcija h2 { color: var(--bg-white); }
-        .greb-sekcija h2::after { background-color: var(--accent-gold); }
-        .scratch-container { 
-            position: relative; width: 320px; height: 160px; margin: 0 auto; border-radius: 20px; 
-            overflow: hidden; background-color: var(--bg-white); display: flex; align-items: center; 
-            justify-content: center; box-shadow: 0 20px 50px rgba(0,0,0,0.3); border: 2px solid rgba(255,255,255,0.2);
-            user-select: none; -webkit-user-select: none; -webkit-touch-callout: none;
-        }
-        .scratch-content h4 { color: var(--text-light); font-size: 0.9rem; text-transform: uppercase; margin-bottom: 5px; }
-        .scratch-code { font-size: 2rem; font-weight: 700; color: var(--primary-green); letter-spacing: 2px;}
-        
-        /* Elegantno uputstvo ispod greb-greb polja */
-        .scratch-uputstvo {
-            margin: 20px auto 0;
-            max-width: 380px;
-            font-size: 0.85rem;
-            color: rgba(255, 255, 255, 0.85);
-            font-style: italic;
-            font-weight: 400;
-            line-height: 1.5;
-            letter-spacing: 0.3px;
-        }
-        
-        canvas { 
-            position: absolute; top: 0; left: 0; width: 100%; height: 100%; cursor: crosshair; z-index: 10; 
-            touch-action: none; 
+        body {
+            background: var(--bg-white);
+            color: var(--text-dark);
+            line-height: 1.6;
+            overflow-x: hidden;
         }
 
-        /* KONTAKT SEKCIJA */
-        .contact-container { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; padding: 45px; }
-        .info-item { display: flex; gap: 20px; margin-bottom: 30px; align-items: flex-start; }
-        .info-icon { width: 55px; height: 55px; background: linear-gradient(135deg, rgba(26, 122, 88, 0.1), rgba(26, 122, 88, 0.05)); color: var(--primary-green); border-radius: 16px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; flex-shrink: 0; box-shadow: inset 0 0 0 1px rgba(26, 122, 88, 0.1); }
-        .social-buttons { display: flex; gap: 12px; margin-top: 15px; flex-wrap: wrap; }
-        .btn-viber { background-color: #7360f2; color: white; padding: 10px 18px; border-radius: 12px; font-weight: 600; font-size: 0.9rem; display: flex; align-items: center; gap: 8px; transition: opacity 0.2s; }
-        .btn-whatsapp { background-color: #25D366; color: white; padding: 10px 18px; border-radius: 12px; font-weight: 600; font-size: 0.9rem; display: flex; align-items: center; gap: 8px; transition: opacity 0.2s; }
-        .btn-viber:hover, .btn-whatsapp:hover { opacity: 0.9; transform: translateY(-1px); }
-        .map-container { width: 100%; min-height: 100%; border-radius: 20px; overflow: hidden; border: 1px solid rgba(255,255,255,0.5); box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
-        
-        footer { background-color: #1a1a1a; color: #888888; text-align: center; padding: 40px 20px; font-size: 0.9rem; }
-        footer span { color: #aaaaaa; font-weight: 600; }
-
-        @media (max-width: 900px) { .contact-container { grid-template-columns: 1fr; } .map-container { min-height: 350px; } }
-        @media (max-width: 768px) {
-            .hero h1 { font-size: 2.8rem; }
-            .nav-links { position: fixed; top: 69px; right: -100%; flex-direction: column; background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); width: 260px; height: calc(100vh - 69px); padding: 40px 20px; transition: 0.4s cubic-bezier(0.4, 0, 0.2, 1); box-shadow: -10px 0 30px rgba(0,0,0,0.05); border-left: 1px solid rgba(255,255,255,0.5); }
-            .nav-links.active { right: 0; }
-            .menu-toggle { display: block; }
-            section { padding: 80px 5%; }
+        a {
+            text-decoration: none;
+            color: inherit;
         }
+
+        h1, h2, h3 {
+            font-weight: 700;
+        }
+
+        h2 {
+            font-size: 2.2rem;
+            text-align: center;
+            margin-bottom: 45px;
+            color: var(--primary-green);
+            position: relative;
+            padding-bottom: 12px;
+        }
+
+        h2::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 55px;
+            height: 3px;
+            border-radius: 10px;
+            background: var(--accent-gold);
+        }
+
+
+        /* =====================================================
+           DUGMAD
+        ===================================================== */
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 14px 28px;
+            border-radius: 50px;
+            font-weight: 600;
+            letter-spacing: .3px;
+            transition: .3s ease;
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn-primary {
+            background: var(--primary-green);
+            color: white;
+            box-shadow: 0 8px 25px rgba(26,122,88,.22);
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-green-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 12px 30px rgba(26,122,88,.30);
+        }
+
+
+        /* =====================================================
+           NAVIGACIJA
+        ===================================================== */
+
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            height: 80px;
+            background: rgba(255,255,255,.90);
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 5%;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(0,0,0,.04);
+        }
+
+        .logo-container img {
+            height: 50px;
+            width: auto;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+            align-items: center;
+        }
+
+        .nav-links a {
+            font-size: .85rem;
+            font-weight: 600;
+            color: var(--text-dark);
+            transition: .25s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-green);
+        }
+
+        .menu-toggle {
+            display: none;
+            font-size: 1.5rem;
+            color: var(--primary-green);
+            cursor: pointer;
+        }
+
+
+        /* =====================================================
+           SEKCIJE
+        ===================================================== */
+
+        section {
+            padding: 100px 5%;
+        }
+
+
+        /* =====================================================
+           HERO
+        ===================================================== */
+
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+
+            background:
+                linear-gradient(
+                    rgba(255,255,255,.88),
+                    rgba(255,255,255,.96)
+                ),
+                url("https://images.unsplash.com/photo-1511895426328-dc8714191300?auto=format&fit=crop&w=1920&q=80")
+                center/cover no-repeat;
+        }
+
+        .hero-content {
+            max-width: 850px;
+            padding: 40px 20px;
+        }
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--accent-gold);
+            color: white;
+            padding: 8px 18px;
+            border-radius: 30px;
+            font-size: .75rem;
+            font-weight: 700;
+            margin-bottom: 25px;
+            letter-spacing: .7px;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 6vw, 4.3rem);
+            line-height: 1.1;
+            margin-bottom: 25px;
+            color: var(--text-dark);
+        }
+
+        .hero h1 span {
+            color: var(--primary-green);
+        }
+
+        .hero p {
+            max-width: 700px;
+            margin: 0 auto 35px;
+            color: var(--text-light);
+            font-size: 1.15rem;
+        }
+
+
+        /* =====================================================
+           PORTFOLIO
+        ===================================================== */
+
+        #portfolio {
+            background: var(--bg-light);
+        }
+
+        .portfolio-grid {
+            max-width: 1100px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .portfolio-item {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: var(--shadow-soft);
+            transition: .35s ease;
+        }
+
+        .portfolio-item:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-medium);
+        }
+
+        .portfolio-item img {
+            width: 100%;
+            height: 260px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .portfolio-info {
+            padding: 22px;
+            text-align: center;
+        }
+
+        .portfolio-info h3 {
+            color: var(--primary-green);
+            font-size: 1rem;
+        }
+
+
+        /* =====================================================
+           KALKULATOR
+        ===================================================== */
+
+        #kalkulator {
+            background: white;
+        }
+
+        .calculator-intro {
+            text-align: center;
+            color: var(--text-light);
+            max-width: 650px;
+            margin: -25px auto 40px;
+        }
+
+        .kalkulator-container {
+            max-width: 700px;
+            margin: auto;
+            padding: 45px;
+            border-radius: 28px;
+            background: rgba(255,255,255,.95);
+            border: 1px solid var(--border);
+            box-shadow: var(--shadow-medium);
+        }
+
+        .calculator-header {
+            text-align: center;
+            margin-bottom: 35px;
+        }
+
+        .calculator-header small {
+            color: var(--text-light);
+            font-size: .8rem;
+        }
+
+        .calculator-event {
+            margin-top: 8px;
+            font-size: 1.7rem;
+            color: var(--primary-green);
+            font-weight: 800;
+        }
+
+        .calculator-price {
+            margin-top: 5px;
+            font-size: 2.3rem;
+            font-weight: 800;
+            color: var(--text-dark);
+        }
+
+
+        /* =====================================================
+           GLAVNI SLIDER
+        ===================================================== */
+
+        .main-slider {
+            margin: 35px 0 45px;
+        }
+
+        .main-slider input[type=range] {
+            width: 100%;
+        }
+
+        input[type=range] {
+            appearance: none;
+            -webkit-appearance: none;
+            height: 6px;
+            border-radius: 10px;
+            background: linear-gradient(
+                to right,
+                var(--primary-green) 0%,
+                var(--primary-green) 0%,
+                #e3e8e5 0%,
+                #e3e8e5 100%
+            );
+            outline: none;
+        }
+
+        input[type=range]::-webkit-slider-thumb {
+            appearance: none;
+            -webkit-appearance: none;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            background: white;
+            border: 7px solid var(--primary-green);
+            box-shadow: 0 3px 12px rgba(0,0,0,.18);
+            cursor: pointer;
+            transition: transform .15s ease;
+        }
+
+        input[type=range]::-webkit-slider-thumb:active {
+            transform: scale(1.18);
+        }
+
+        input[type=range]::-moz-range-thumb {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: var(--primary-green);
+            border: 5px solid white;
+            box-shadow: 0 3px 12px rgba(0,0,0,.18);
+            cursor: pointer;
+        }
+
+
+        /* =====================================================
+           OZNAKE PAKETA
+        ===================================================== */
+
+        .package-labels {
+            display: grid;
+            grid-template-columns: repeat(5,1fr);
+            margin-top: 15px;
+            gap: 5px;
+        }
+
+        .package-label {
+            text-align: center;
+            font-size: .68rem;
+            color: var(--text-light);
+            transition: .2s ease;
+        }
+
+        .package-label.active {
+            color: var(--primary-green);
+            font-weight: 700;
+        }
+
+
+        /* =====================================================
+           OPCIJE
+        ===================================================== */
+
+        .options {
+            margin-top: 30px;
+        }
+
+        .option {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 18px 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .option:last-child {
+            border-bottom: none;
+        }
+
+        .option-text strong {
+            display: block;
+            font-size: .95rem;
+        }
+
+        .option-text span {
+            color: var(--text-light);
+            font-size: .75rem;
+        }
+
+
+        /* =====================================================
+           APPLE STYLE SWITCH
+        ===================================================== */
+
+        .switch {
+            position: relative;
+            width: 52px;
+            height: 31px;
+            flex-shrink: 0;
+        }
+
+        .switch input {
+            display: none;
+        }
+
+        .switch-track {
+            position: absolute;
+            inset: 0;
+            border-radius: 30px;
+            background: #d9dfdc;
+            cursor: pointer;
+            transition: .3s ease;
+        }
+
+        .switch-track::before {
+            content: "";
+            position: absolute;
+            width: 25px;
+            height: 25px;
+            left: 3px;
+            top: 3px;
+            background: white;
+            border-radius: 50%;
+            box-shadow: 0 2px 7px rgba(0,0,0,.2);
+            transition: .3s ease;
+        }
+
+        .switch input:checked + .switch-track {
+            background: var(--primary-green);
+        }
+
+        .switch input:checked + .switch-track::before {
+            transform: translateX(21px);
+        }
+
+
+        /* =====================================================
+           UKUPNA CENA
+        ===================================================== */
+
+        .total-price {
+            margin-top: 35px;
+            padding: 25px;
+            border-radius: 18px;
+            background: var(--primary-green-light);
+            text-align: center;
+            color: var(--primary-green);
+            font-size: 1rem;
+        }
+
+        .total-price span {
+            display: block;
+            font-size: 2.2rem;
+            font-weight: 800;
+            margin-top: 3px;
+        }
+
+
+        /* =====================================================
+           GREB GREB
+        ===================================================== */
+
+        .greb-sekcija {
+            background: var(--primary-green);
+            color: white;
+            text-align: center;
+        }
+
+        .greb-sekcija h2 {
+            color: white;
+        }
+
+        .greb-sekcija p {
+            max-width: 650px;
+            margin: 0 auto 30px;
+            opacity: .92;
+        }
+
+        .scratch-container {
+            position: relative;
+            width: 320px;
+            height: 160px;
+            margin: auto;
+            background: white;
+            border: 4px solid var(--accent-gold);
+            border-radius: 18px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 15px 35px rgba(0,0,0,.2);
+            user-select: none;
+        }
+
+        .scratch-content {
+            text-align: center;
+            color: var(--primary-green);
+        }
+
+        .scratch-content h4 {
+            font-size: .8rem;
+            color: var(--text-light);
+            margin-bottom: 5px;
+        }
+
+        .scratch-code {
+            font-size: 1.7rem;
+            font-weight: 800;
+        }
+
+        canvas {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            cursor: crosshair;
+            touch-action: none;
+        }
+
+        .discount-note {
+            margin: 25px auto 0;
+            max-width: 600px;
+            font-size: .85rem;
+            line-height: 1.6;
+        }
+
+        .discount-note strong {
+            color: #ffeaa0;
+        }
+
+
+        /* =====================================================
+           KONTAKT
+        ===================================================== */
+
+        #kontakt {
+            background: var(--bg-light);
+        }
+
+        .contact-container {
+            max-width: 1100px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            background: white;
+            padding: 35px;
+            border-radius: 25px;
+            box-shadow: var(--shadow-soft);
+        }
+
+        .info-item {
+            display: flex;
+            gap: 18px;
+            margin-bottom: 28px;
+        }
+
+        .info-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--primary-green-light);
+            color: var(--primary-green);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+
+        .info-item h3 {
+            font-size: 1rem;
+            margin-bottom: 5px;
+            color: var(--primary-green);
+        }
+
+        .info-item p {
+            color: var(--text-light);
+            font-size: .9rem;
+        }
+
+        .social-buttons {
+            display: flex;
+            gap: 8px;
+            margin-top: 12px;
+            flex-wrap: wrap;
+        }
+
+        .btn-viber,
+        .btn-whatsapp {
+            padding: 8px 13px;
+            border-radius: 8px;
+            color: white;
+            font-size: .8rem;
+            font-weight: 600;
+        }
+
+        .btn-viber {
+            background: #7360f2;
+        }
+
+        .btn-whatsapp {
+            background: #25D366;
+        }
+
+        .map-container {
+            width: 100%;
+            min-height: 330px;
+            border-radius: 18px;
+            overflow: hidden;
+            background: #eee;
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            min-height: 330px;
+            border: 0;
+        }
+
+
+        /* =====================================================
+           FOOTER
+        ===================================================== */
+
+        footer {
+            background: #181b1a;
+            color: #999;
+            text-align: center;
+            padding: 30px 20px;
+            font-size: .85rem;
+        }
+
+
+        /* =====================================================
+           ANIMACIJE
+        ===================================================== */
+
+        @keyframes pricePulse {
+            0% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.04);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        .price-change {
+            animation: pricePulse .25s ease;
+        }
+
+
+        /* =====================================================
+           MOBILNI
+        ===================================================== */
+
+        @media(max-width:900px) {
+
+            .portfolio-grid {
+                grid-template-columns: 1fr;
+                max-width: 500px;
+            }
+
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+
+        @media(max-width:768px) {
+
+            nav {
+                height: 70px;
+            }
+
+            .logo-container img {
+                height: 43px;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
+            .nav-links {
+                position: fixed;
+                top: 70px;
+                right: -100%;
+                width: 270px;
+                height: calc(100vh - 70px);
+                background: rgba(255,255,255,.96);
+                backdrop-filter: blur(18px);
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 40px 30px;
+                gap: 25px;
+                box-shadow: -10px 0 30px rgba(0,0,0,.08);
+                transition: .4s ease;
+            }
+
+            .nav-links.active {
+                right: 0;
+            }
+
+            .hero {
+                min-height: 90vh;
+            }
+
+            section {
+                padding: 80px 5%;
+            }
+
+            h2 {
+                font-size: 1.9rem;
+            }
+
+            .kalkulator-container {
+                padding: 30px 22px;
+            }
+
+            .package-label {
+                font-size: .55rem;
+            }
+
+            .contact-container {
+                padding: 25px;
+            }
+        }
+
     </style>
 </head>
+
+
 <body>
-    <nav>
-        <div class="logo-container">
-            <img src="image_95375e.png" alt="Foto Bane Logo">
-        </div>
-        <div class="menu-toggle" onclick="toggleMenu()"><i class="fas fa-bars"></i></div>
-        <ul class="nav-links">
-            <li><a href="#pocetna" onclick="toggleMenu()">Početna</a></li>
-            <li><a href="#portfolio" onclick="toggleMenu()">Portfolio</a></li>
-            <li><a href="#kalkulator" onclick="toggleMenu()">Izračunaj cenu</a></li>
-            <li><a href="#popust" onclick="toggleMenu()" style="color: var(--accent-gold);"><i class="fas fa-gift"></i> Popust</a></li>
-            <li><a href="#kontakt" onclick="toggleMenu()">Kontakt</a></li>
-        </ul>
-    </nav>
 
-    <section id="pocetna" class="hero">
-        <div class="hero-content glass-effect">
-            <div class="badge">Tradicija 40 godina</div>
-            <h1>Čuvamo vaše <span>najvažnije uspomene</span></h1>
-            <p>Evropski standard fotografije i videa u srcu Despotovca. Gde se iskustvo susreće sa najmodernijom opremom.</p>
-            <a href="#kontakt" class="btn btn-primary">Zakaži snimanje</a>
-        </div>
-    </section>
 
-    <section id="portfolio">
-        <h2>Naš rad</h2>
-        <div class="portfolio-grid">
-            <div class="portfolio-item"><img src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=800&q=80" alt="Svadba"><div class="portfolio-info"><h3>Venčanja</h3></div></div>
-            <div class="portfolio-item"><img src="https://images.unsplash.com/photo-1519689680058-324335c77eba?auto=format&fit=crop&w=800&q=80" alt="Krštenje"><div class="portfolio-info"><h3>Krštenja i rođendani</h3></div></div>
-            <div class="portfolio-item"><img src="https://images.unsplash.com/photo-1554048612-b6a482bc67e5?auto=format&fit=crop&w=800&q=80" alt="Portreti"><div class="portfolio-info"><h3>Studijsko fotografisanje</h3></div></div>
-        </div>
-    </section>
+<!-- =====================================================
+     NAVIGACIJA
+===================================================== -->
 
-    <section id="kalkulator">
-        <h2>Sastavi svoj paket</h2>
-        <div class="kalkulator-container glass-effect">
-            
-            <div class="slider-wrapper">
-                <div class="slider-label">
-                    <span id="paket-naziv">Izaberi događaj...</span>
-                    <span id="paket-cijena">0 €</span>
-                </div>
-                <!-- Slajder dobija vizuelno popunjavanje kroz JS -->
-                <input type="range" id="paket-slider" min="0" max="4" value="0" step="1" oninput="azurirajKalkulator()">
+<nav>
+
+    <div class="logo-container">
+        <img src="image_95375e.png" alt="Foto Bane logo">
+    </div>
+
+    <div class="menu-toggle" onclick="toggleMenu()">
+        <i class="fas fa-bars"></i>
+    </div>
+
+    <ul class="nav-links">
+
+        <li>
+            <a href="#pocetna" onclick="toggleMenu()">Početna</a>
+        </li>
+
+        <li>
+            <a href="#portfolio" onclick="toggleMenu()">Portfolio</a>
+        </li>
+
+        <li>
+            <a href="#kalkulator" onclick="toggleMenu()">Izračunaj cenu</a>
+        </li>
+
+        <li>
+            <a href="#popust" onclick="toggleMenu()" style="color:var(--accent-gold);">
+                <i class="fas fa-gift"></i> Popust
+            </a>
+        </li>
+
+        <li>
+            <a href="#kontakt" onclick="toggleMenu()">Kontakt</a>
+        </li>
+
+    </ul>
+
+</nav>
+
+
+<!-- =====================================================
+     HERO
+===================================================== -->
+
+<section id="pocetna" class="hero">
+
+    <div class="hero-content">
+
+        <div class="badge">
+            <i class="fas fa-camera"></i>
+            Tradicija duža od 40 godina
+        </div>
+
+        <h1>
+            Čuvamo vaše
+            <span>najvažnije uspomene</span>
+        </h1>
+
+        <p>
+            Profesionalna fotografija i video produkcija u srcu Despotovca.
+            Iskustvo, savremena oprema i posvećenost svakom detalju.
+        </p>
+
+        <a href="#kontakt" class="btn btn-primary">
+            Zakažite snimanje
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     PORTFOLIO
+===================================================== -->
+
+<section id="portfolio">
+
+    <h2>Naš rad</h2>
+
+    <div class="portfolio-grid">
+
+        <div class="portfolio-item">
+
+            <img
+                src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=800&q=80"
+                alt="Venčanja"
+            >
+
+            <div class="portfolio-info">
+                <h3>Venčanja</h3>
             </div>
 
-            <div class="switch-group">
-                <div class="switch-item">
-                    <span class="switch-label">Profesionalni video (+150€)</span>
-                    <label class="switch">
-                        <input type="checkbox" id="video-opcija" onchange="azurirajKalkulator()">
-                        <span class="slider-switch"></span>
-                    </label>
-                </div>
-                <div class="switch-item">
-                    <span class="switch-label">Snimanje dronom iz vazduha (+80€)</span>
-                    <label class="switch">
-                        <input type="checkbox" id="dron-opcija" onchange="azurirajKalkulator()">
-                        <span class="slider-switch"></span>
-                    </label>
-                </div>
+        </div>
+
+
+        <div class="portfolio-item">
+
+            <img
+                src="https://images.unsplash.com/photo-1519689680058-324335c77eba?auto=format&fit=crop&w=800&q=80"
+                alt="Krštenja i rođendani"
+            >
+
+            <div class="portfolio-info">
+                <h3>Krštenja i rođendani</h3>
             </div>
 
-            <div class="total-price" id="ukupna-cijena">Ukupno: 0 €</div>
         </div>
-    </section>
 
-    <section id="popust" class="greb-sekcija">
-        <h2>Osvoji popust</h2>
-        <p style="margin-bottom: 30px; font-size: 1.1rem; opacity: 0.9;">Pređite prstom preko zlatnog polja i otkrijte tajni kod za 10% popusta!</p>
-        
-        <div class="scratch-container glass-effect" style="background: rgba(255,255,255,0.9);">
-            <div class="scratch-content">
-                <h4>Vaš promo kod:</h4>
-                <div class="scratch-code" id="kod-prikaz"></div>
+
+        <div class="portfolio-item">
+
+            <img
+                src="https://images.unsplash.com/photo-1554048612-b6a482bc67e5?auto=format&fit=crop&w=800&q=80"
+                alt="Studijski portreti"
+            >
+
+            <div class="portfolio-info">
+                <h3>Studijski portreti</h3>
             </div>
-            <canvas id="scratch-canvas"></canvas>
-        </div>
-        
-        <!-- Elegantno uputstvo -->
-        <p class="scratch-uputstvo">* Sačuvajte screenshot koda i pokažite nam ga prilikom zakazivanja. Popust od 10% se ostvaruje na pakete čija je ukupna cena veća od 150 €.</p>
-    </section>
 
-    <section id="kontakt">
-        <h2>Stupimo u kontakt</h2>
-        <div class="contact-container glass-effect">
-            <div class="contact-info">
-                <div class="info-item">
-                    <div class="info-icon"><i class="fas fa-map-marker-alt"></i></div>
-                    <div><h3 style="margin-bottom: 5px; color: var(--text-dark);">Naša adresa</h3><p style="color: var(--text-light);">Despota Stefana Lazarevića 76,<br>35213 Despotovac</p></div>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     KALKULATOR
+===================================================== -->
+
+<section id="kalkulator">
+
+    <h2>Kreirajte svoj paket</h2>
+
+    <p class="calculator-intro">
+        Pomerite klizač, izaberite vrstu događaja i dodajte usluge
+        koje želite. Cena se automatski izračunava.
+    </p>
+
+
+    <div class="kalkulator-container">
+
+        <div class="calculator-header">
+
+            <small>IZABRANI PAKET</small>
+
+            <div class="calculator-event" id="paket-naziv">
+                Izaberite paket
+            </div>
+
+            <div class="calculator-price" id="paket-cijena">
+                0 €
+            </div>
+
+        </div>
+
+
+        <!-- GLAVNI SLIDER -->
+
+        <div class="main-slider">
+
+            <input
+                type="range"
+                id="paket-slider"
+                min="0"
+                max="4"
+                value="0"
+                step="1"
+            >
+
+            <div class="package-labels">
+
+                <div class="package-label active">
+                    Izbor
                 </div>
-                <div class="info-item">
-                    <div class="info-icon"><i class="fas fa-phone-alt"></i></div>
-                    <div>
-                        <h3 style="margin-bottom: 5px; color: var(--text-dark);">Telefon</h3><p style="color: var(--text-light);">+381 63 140 8171</p>
-                        <div class="social-buttons">
-                            <a href="viber://chat?number=+381631408171" class="btn-viber"><i class="fab fa-viber"></i> Viber</a>
-                            <a href="https://wa.me/381631408171" target="_blank" class="btn-whatsapp"><i class="fab fa-whatsapp"></i> WhatsApp</a>
-                        </div>
+
+                <div class="package-label">
+                    Studijsko
+                </div>
+
+                <div class="package-label">
+                    Rođendan
+                </div>
+
+                <div class="package-label">
+                    Krštenje
+                </div>
+
+                <div class="package-label">
+                    Venčanje
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- DODATNE OPCIJE -->
+
+        <div class="options">
+
+            <div class="option">
+
+                <div class="option-text">
+
+                    <strong>Profesionalni video</strong>
+
+                    <span>
+                        Dodatna video produkcija · +150 €
+                    </span>
+
+                </div>
+
+                <label class="switch">
+
+                    <input
+                        type="checkbox"
+                        id="video-opcija"
+                    >
+
+                    <span class="switch-track"></span>
+
+                </label>
+
+            </div>
+
+
+            <div class="option">
+
+                <div class="option-text">
+
+                    <strong>Snimanje dronom</strong>
+
+                    <span>
+                        Atraktivni snimci iz vazduha · +80 €
+                    </span>
+
+                </div>
+
+                <label class="switch">
+
+                    <input
+                        type="checkbox"
+                        id="dron-opcija"
+                    >
+
+                    <span class="switch-track"></span>
+
+                </label>
+
+            </div>
+
+        </div>
+
+
+        <!-- UKUPNO -->
+
+        <div class="total-price">
+
+            Procena ukupne cene
+
+            <span id="ukupna-cijena">
+                0 €
+            </span>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     GREB GREB POPUST
+===================================================== -->
+
+<section id="popust" class="greb-sekcija">
+
+    <h2>Osvojite popust</h2>
+
+    <p>
+        Pređite prstom preko zlatnog polja i otkrijte svoj
+        promotivni kod.
+    </p>
+
+
+    <div class="scratch-container">
+
+        <div class="scratch-content">
+
+            <h4>VAŠ PROMO KOD</h4>
+
+            <div
+                class="scratch-code"
+                id="kod-prikaz"
+            >
+            </div>
+
+        </div>
+
+        <canvas id="scratch-canvas"></canvas>
+
+    </div>
+
+
+    <p class="discount-note">
+
+        <strong>Popust ostvarujete donošenjem screenshota ovog
+        promotivnog koda.</strong>
+
+        Popust važi za usluge čija je ukupna vrednost
+        <strong>veća od 150 €</strong>.
+
+    </p>
+
+</section>
+
+
+<!-- =====================================================
+     KONTAKT
+===================================================== -->
+
+<section id="kontakt">
+
+    <h2>Kontaktirajte nas</h2>
+
+
+    <div class="contact-container">
+
+
+        <div class="contact-info">
+
+
+            <div class="info-item">
+
+                <div class="info-icon">
+                    <i class="fas fa-map-marker-alt"></i>
+                </div>
+
+                <div>
+
+                    <h3>Naša adresa</h3>
+
+                    <p>
+                        Despota Stefana Lazarevića 76,<br>
+                        35213 Despotovac
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="info-item">
+
+                <div class="info-icon">
+                    <i class="fas fa-phone-alt"></i>
+                </div>
+
+                <div>
+
+                    <h3>Telefon</h3>
+
+                    <p>
+                        +381 63 140 8171
+                    </p>
+
+
+                    <div class="social-buttons">
+
+                        <a
+                            href="viber://chat?number=+381631408171"
+                            class="btn-viber"
+                        >
+                            <i class="fab fa-viber"></i>
+                            Viber
+                        </a>
+
+
+                        <a
+                            href="https://wa.me/381631408171"
+                            target="_blank"
+                            class="btn-whatsapp"
+                        >
+                            <i class="fab fa-whatsapp"></i>
+                            WhatsApp
+                        </a>
+
                     </div>
+
                 </div>
+
             </div>
-            <div class="map-container">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1m2!1s0x47514a60163351e3%3A0xe67db50dd7f4c71e!2sDespota%20Stefana%20Lazarevi%C4%87a%2076%2C%20Despotovac%2035213!5e0!3m2!1sen!2srs!4v1700000000000!5m2!1sen!2srs" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-            </div>
+
         </div>
-    </section>
 
-    <footer>
-        <p>&copy; 2026 Foto Bane Despotovac. Sva prava zadržana.</p>
-        <p style="font-size: 0.8rem; margin-top: 8px;">Izrada: <span>DL Biznis Konsalting</span></p>
-    </footer>
 
-    <script>
-        // Mobilni meni
-        function toggleMenu() { 
-            document.querySelector('.nav-links').classList.toggle('active'); 
+        <!-- GOOGLE MAPS -->
+
+        <div class="map-container">
+
+            <iframe
+                src="https://www.google.com/maps?q=Despota%20Stefana%20Lazarevi%C4%87a%2076,%20Despotovac,%20Serbia&output=embed"
+                allowfullscreen=""
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer>
+
+    <p>
+        &copy; 2026 Foto Bane Despotovac. Sva prava zadržana.
+    </p>
+
+    <p style="font-size:.75rem;margin-top:5px;color:#666;">
+        Izrada: DL Biznis Konsalting
+    </p>
+
+</footer>
+
+
+<!-- =====================================================
+     JAVASCRIPT
+===================================================== -->
+
+<script>
+
+
+/* =====================================================
+   MOBILNI MENI
+===================================================== */
+
+function toggleMenu() {
+
+    document
+        .querySelector('.nav-links')
+        .classList.toggle('active');
+
+}
+
+
+/* =====================================================
+   PODACI KALKULATORA
+===================================================== */
+
+const paketi = [
+
+    {
+        naziv: "Izaberite paket",
+        cijena: 0
+    },
+
+    {
+        naziv: "Studijsko slikanje",
+        cijena: 50
+    },
+
+    {
+        naziv: "Rođendan / punoletstvo",
+        cijena: 100
+    },
+
+    {
+        naziv: "Krštenje",
+        cijena: 150
+    },
+
+    {
+        naziv: "Venčanje",
+        cijena: 300
+    }
+
+];
+
+
+const slider = document.getElementById("paket-slider");
+
+const paketNaziv =
+    document.getElementById("paket-naziv");
+
+const paketCena =
+    document.getElementById("paket-cijena");
+
+const ukupnaCena =
+    document.getElementById("ukupna-cijena");
+
+const videoOpcija =
+    document.getElementById("video-opcija");
+
+const dronOpcija =
+    document.getElementById("dron-opcija");
+
+const packageLabels =
+    document.querySelectorAll(".package-label");
+
+
+/* =====================================================
+   ZVUK
+   Diskretan "tap" zvuk bez eksternih fajlova
+===================================================== */
+
+let audioContext = null;
+
+
+function napraviZvuk(frekvencija = 500, trajanje = 0.05) {
+
+    try {
+
+        if (!audioContext) {
+
+            audioContext =
+                new (window.AudioContext ||
+                window.webkitAudioContext)();
+
         }
-        
-        // Podaci za slajder kalkulator
-        const paketi = [
-            { naziv: "Povucite slajder za odabir...", cijena: 0 },
-            { naziv: "Studijsko fotografisanje", cijena: 50 },
-            { naziv: "Rođendan / Punoletstvo", cijena: 100 },
-            { naziv: "Krštenje", cijena: 150 },
-            { naziv: "Svadba (Osnovno)", cijena: 300 }
-        ];
 
-        // Apple-style popunjavanje pozadine slajdera
-        function updateSliderBackground(slider) {
-            const percentage = (slider.value - slider.min) / (slider.max - slider.min) * 100;
-            slider.style.background = `linear-gradient(to right, var(--primary-green) 0%, var(--primary-green) ${percentage}%, #d1d5db ${percentage}%, #d1d5db 100%)`;
+        const oscillator =
+            audioContext.createOscillator();
+
+        const gain =
+            audioContext.createGain();
+
+        oscillator.type = "sine";
+
+        oscillator.frequency.value =
+            frekvencija;
+
+        gain.gain.setValueAtTime(
+            0.0001,
+            audioContext.currentTime
+        );
+
+        gain.gain.exponentialRampToValueAtTime(
+            0.035,
+            audioContext.currentTime + 0.01
+        );
+
+        gain.gain.exponentialRampToValueAtTime(
+            0.0001,
+            audioContext.currentTime + trajanje
+        );
+
+        oscillator.connect(gain);
+
+        gain.connect(audioContext.destination);
+
+        oscillator.start();
+
+        oscillator.stop(
+            audioContext.currentTime + trajanje
+        );
+
+    } catch(e) {}
+
+}
+
+
+/* =====================================================
+   VIBRACIJA TELEFONA
+===================================================== */
+
+function vibriraj() {
+
+    if ("vibrate" in navigator) {
+
+        navigator.vibrate(8);
+
+    }
+
+}
+
+
+/* =====================================================
+   KALKULATOR
+===================================================== */
+
+function azurirajKalkulator(zvuk = false) {
+
+    const vrednost =
+        parseInt(slider.value);
+
+    const paket =
+        paketi[vrednost];
+
+
+    paketNaziv.innerText =
+        paket.naziv;
+
+    paketCena.innerText =
+        paket.cijena > 0
+        ? paket.cijena + " €"
+        : "0 €";
+
+
+    let ukupno =
+        paket.cijena;
+
+
+    if (paket.cijena > 0) {
+
+        if (videoOpcija.checked) {
+
+            ukupno += 150;
+
         }
 
-        // Inicijalno postavljanje pozadine slajdera
-        const sliderInput = document.getElementById('paket-slider');
-        updateSliderBackground(sliderInput);
+        if (dronOpcija.checked) {
 
-        function azurirajKalkulator() {
-            const slider = document.getElementById('paket-slider');
-            const sliderVrednost = slider.value;
-            const odabraniPaket = paketi[sliderVrednost];
-            
-            // Dinamičko bojenje pozadine slajdera pri pomeranju
-            updateSliderBackground(slider);
-            
-            document.getElementById('paket-naziv').innerText = odabraniPaket.naziv;
-            document.getElementById('paket-cijena').innerText = odabraniPaket.cijena > 0 ? odabraniPaket.cijena + " €" : "";
-            
-            let ukupno = odabraniPaket.cijena;
-            if(ukupno > 0) {
-                if(document.getElementById('video-opcija').checked) ukupno += 150;
-                if(document.getElementById('dron-opcija').checked) ukupno += 80;
+            ukupno += 80;
+
+        }
+
+    } else {
+
+        videoOpcija.checked = false;
+
+        dronOpcija.checked = false;
+
+    }
+
+
+    ukupnaCena.innerHTML =
+        ukupno + " €";
+
+
+    /* Aktivna oznaka */
+
+    packageLabels.forEach(
+        (label, index) => {
+
+            label.classList.toggle(
+                "active",
+                index === vrednost
+            );
+
+        }
+    );
+
+
+    /* Boja popunjenog slidera */
+
+    const procenat =
+        (vrednost / 4) * 100;
+
+    slider.style.background =
+        `linear-gradient(
+            to right,
+            var(--primary-green) 0%,
+            var(--primary-green) ${procenat}%,
+            #e3e8e5 ${procenat}%,
+            #e3e8e5 100%
+        )`;
+
+
+    /* Animacija cene */
+
+    ukupnaCena.classList.remove(
+        "price-change"
+    );
+
+    void ukupnaCena.offsetWidth;
+
+    ukupnaCena.classList.add(
+        "price-change"
+    );
+
+
+    if (zvuk) {
+
+        napraviZvuk(500, .045);
+
+        vibriraj();
+
+    }
+
+}
+
+
+/* =====================================================
+   SLIDER
+===================================================== */
+
+slider.addEventListener(
+    "input",
+    () => {
+
+        azurirajKalkulator(true);
+
+    }
+);
+
+
+/* =====================================================
+   SWITCH OPCIJE
+===================================================== */
+
+videoOpcija.addEventListener(
+    "change",
+    () => {
+
+        napraviZvuk(
+            videoOpcija.checked ? 650 : 400,
+            .07
+        );
+
+        vibriraj();
+
+        azurirajKalkulator();
+
+    }
+);
+
+
+dronOpcija.addEventListener(
+    "change",
+    () => {
+
+        napraviZvuk(
+            dronOpcija.checked ? 700 : 420,
+            .07
+        );
+
+        vibriraj();
+
+        azurirajKalkulator();
+
+    }
+);
+
+
+/* =====================================================
+   GREB GREB
+===================================================== */
+
+document.addEventListener(
+    "DOMContentLoaded",
+    () => {
+
+
+        /* Početno stanje kalkulatora */
+
+        azurirajKalkulator(false);
+
+
+        /* Promo kod */
+
+        const kod =
+            "BANE26-" +
+            Math.random()
+            .toString(36)
+            .substring(2,6)
+            .toUpperCase();
+
+
+        document.getElementById(
+            "kod-prikaz"
+        ).innerText = kod;
+
+
+        /* Canvas */
+
+        const canvas =
+            document.getElementById(
+                "scratch-canvas"
+            );
+
+        const ctx =
+            canvas.getContext("2d");
+
+
+        canvas.width = 320;
+        canvas.height = 160;
+
+
+        /* Zlatna površina */
+
+        ctx.fillStyle =
+            "#d4af37";
+
+        ctx.fillRect(
+            0,
+            0,
+            320,
+            160
+        );
+
+
+        /* Tekst */
+
+        ctx.font =
+            "700 21px Montserrat";
+
+        ctx.fillStyle =
+            "#ffffff";
+
+        ctx.textAlign =
+            "center";
+
+        ctx.fillText(
+            "PREĐITE PRSTOM",
+            160,
+            75
+        );
+
+        ctx.fillText(
+            "OVDE",
+            160,
+            105
+        );
+
+
+        let isDrawing = false;
+
+
+        function scratch(e) {
+
+            if (!isDrawing) return;
+
+
+            e.preventDefault();
+
+
+            const rect =
+                canvas.getBoundingClientRect();
+
+
+            let x;
+            let y;
+
+
+            if (e.touches) {
+
+                x =
+                    e.touches[0].clientX -
+                    rect.left;
+
+                y =
+                    e.touches[0].clientY -
+                    rect.top;
+
             } else {
-                // Ako nije izabran paket, isključi switch-eve
-                document.getElementById('video-opcija').checked = false;
-                document.getElementById('dron-opcija').checked = false;
+
+                x =
+                    e.clientX -
+                    rect.left;
+
+                y =
+                    e.clientY -
+                    rect.top;
+
             }
-            
-            document.getElementById('ukupna-cijena').innerText = ukupno > 0 ? "Ukupno: " + ukupno + " €" : "Ukupno: 0 €";
+
+
+            ctx.globalCompositeOperation =
+                "destination-out";
+
+
+            ctx.beginPath();
+
+            ctx.arc(
+                x,
+                y,
+                25,
+                0,
+                Math.PI * 2
+            );
+
+            ctx.fill();
+
+
+            napraviZvuk(
+                250,
+                .025
+            );
+
         }
-        
-        // Unapređena Greb-Greb logika (bez bagova na mobilnim uređajima)
-        document.addEventListener('DOMContentLoaded', () => {
-            const canvas = document.getElementById('scratch-canvas');
-            const ctx = canvas.getContext('2d');
-            canvas.width = 320; canvas.height = 160;
-            
-            // Zlatni premaz sa blagim gradijentom za premium izgled
-            const gradient = ctx.createLinearGradient(0, 0, 320, 160);
-            gradient.addColorStop(0, '#e6c255');
-            gradient.addColorStop(0.5, '#d4af37');
-            gradient.addColorStop(1, '#c09c2a');
-            
-            ctx.fillStyle = gradient; 
-            ctx.fillRect(0, 0, 320, 160);
-            
-            // Dodavanje teksta
-            ctx.font = 'bold 24px Montserrat'; 
-            ctx.fillStyle = '#ffffff'; 
-            ctx.textAlign = 'center';
-            ctx.textBaseline = 'middle';
-            ctx.shadowColor = "rgba(0,0,0,0.2)";
-            ctx.shadowBlur = 4;
-            ctx.shadowOffsetX = 1;
-            ctx.shadowOffsetY = 1;
-            ctx.fillText('GREBI OVDE', 160, 80);
-            
-            // Isključivanje senke za brisanje
-            ctx.shadowColor = "transparent";
-            
-            document.getElementById('kod-prikaz').innerText = 'BANE26-' + Math.random().toString(36).substring(2,6).toUpperCase();
-            
-            let isDrawing = false;
-            function scratch(e) {
-                if(!isDrawing) return;
-                e.preventDefault(); // Sprečava skrolovanje ekrana
-                
-                const rect = canvas.getBoundingClientRect();
-                const x = (e.touches ? e.touches[0].clientX : e.clientX) - rect.left;
-                const y = (e.touches ? e.touches[0].clientY : e.clientY) - rect.top;
-                
-                ctx.globalCompositeOperation = 'destination-out';
-                ctx.beginPath(); 
-                ctx.arc(x, y, 28, 0, Math.PI * 2); 
-                ctx.fill();
+
+
+        /* Miš */
+
+        canvas.addEventListener(
+            "mousedown",
+            e => {
+
+                isDrawing = true;
+
+                scratch(e);
+
             }
+        );
 
-            // Osluškivači za miš
-            canvas.addEventListener('mousedown', e => { isDrawing = true; scratch(e); });
-            canvas.addEventListener('mousemove', scratch);
-            canvas.addEventListener('mouseup', () => isDrawing = false);
-            canvas.addEventListener('mouseleave', () => isDrawing = false);
 
-            // Osluškivači za dodir (telefon) - passive: false je ključno za e.preventDefault()
-            canvas.addEventListener('touchstart', e => { isDrawing = true; scratch(e); }, { passive: false });
-            canvas.addEventListener('touchmove', scratch, { passive: false });
-            canvas.addEventListener('touchend', () => isDrawing = false);
-        });
-    </script>
+        canvas.addEventListener(
+            "mousemove",
+            scratch
+        );
+
+
+        canvas.addEventListener(
+            "mouseup",
+            () => {
+
+                isDrawing = false;
+
+            }
+        );
+
+
+        canvas.addEventListener(
+            "mouseleave",
+            () => {
+
+                isDrawing = false;
+
+            }
+        );
+
+
+        /* Telefon */
+
+        canvas.addEventListener(
+            "touchstart",
+            e => {
+
+                isDrawing = true;
+
+                scratch(e);
+
+            },
+            {
+                passive: false
+            }
+        );
+
+
+        canvas.addEventListener(
+            "touchmove",
+            scratch,
+            {
+                passive: false
+            }
+        );
+
+
+        canvas.addEventListener(
+            "touchend",
+            () => {
+
+                isDrawing = false;
+
+            }
+        );
+
+
+    }
+);
+
+</script>
+
 </body>
 </html>
