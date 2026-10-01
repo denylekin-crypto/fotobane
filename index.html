@@ -15,9 +15,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap"
           rel="stylesheet">
 
-    <link rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-
     <style>
 
         /* =====================================================
@@ -240,8 +237,13 @@
             margin-bottom: 22px;
         }
 
-        .eyebrow i {
-            color: var(--gold);
+        .eyebrow span {
+            width: 6px;
+            height: 6px;
+
+            border-radius: 50%;
+
+            background: var(--gold);
         }
 
         h1 {
@@ -449,7 +451,7 @@
 
 
         /* =====================================================
-           USLUGE
+           USLUGE - SLIKE
         ===================================================== */
 
         .services-grid {
@@ -459,50 +461,69 @@
         }
 
         .service-card {
-            padding: 30px 25px;
+            position: relative;
 
-            background: white;
+            height: 390px;
 
-            border: 1px solid var(--border);
-            border-radius: var(--radius);
+            overflow: hidden;
+
+            border-radius: 26px;
+
+            background: #ddd;
+
+            box-shadow:
+                0 10px 35px rgba(23,63,53,0.08);
+
+            cursor: pointer;
+        }
+
+        .service-card img {
+            width: 100%;
+            height: 100%;
+
+            object-fit: cover;
 
             transition:
-                transform 0.25s ease,
-                box-shadow 0.25s ease;
+                transform 0.6s cubic-bezier(.2,.7,.2,1);
         }
 
-        .service-card:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--shadow);
+        .service-card::after {
+            content: "";
+
+            position: absolute;
+
+            inset: 0;
+
+            background:
+                linear-gradient(
+                    to top,
+                    rgba(0,0,0,0.72) 0%,
+                    rgba(0,0,0,0.18) 45%,
+                    rgba(0,0,0,0.02) 75%
+                );
+
+            pointer-events: none;
         }
 
-        .service-icon {
-            width: 50px;
-            height: 50px;
-
-            display: flex;
-            align-items: center;
-            justify-content: center;
-
-            margin-bottom: 22px;
-
-            border-radius: 15px;
-
-            background: rgba(23,63,53,0.08);
-            color: var(--primary-green);
-
-            font-size: 19px;
+        .service-card:hover img {
+            transform: scale(1.07);
         }
 
-        .service-card h3 {
-            font-size: 17px;
-            margin-bottom: 10px;
-        }
+        .service-name {
+            position: absolute;
 
-        .service-card p {
-            color: var(--muted);
-            font-size: 13px;
-            line-height: 1.7;
+            z-index: 2;
+
+            left: 22px;
+            right: 22px;
+            bottom: 20px;
+
+            color: white;
+
+            font-size: 18px;
+            font-weight: 700;
+
+            letter-spacing: -0.3px;
         }
 
 
@@ -520,77 +541,51 @@
             min-height: 280px;
 
             display: flex;
-            align-items: center;
-            justify-content: center;
+            align-items: flex-end;
 
             border-radius: 22px;
 
-            background:
-                linear-gradient(
-                    135deg,
-                    #193d34,
-                    #567c70
-                );
-
-            color: white;
+            background: #ddd;
 
             overflow: hidden;
 
             position: relative;
         }
 
-        .gallery-item:nth-child(2) {
-            background:
-                linear-gradient(
-                    135deg,
-                    #3f4d48,
-                    #b9a174
-                );
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+
+            min-height: 280px;
+
+            object-fit: cover;
+
+            transition: transform 0.5s ease;
         }
 
-        .gallery-item:nth-child(3) {
-            background:
-                linear-gradient(
-                    135deg,
-                    #222a28,
-                    #788e87
-                );
+        .gallery-item:hover img {
+            transform: scale(1.05);
         }
 
-        .gallery-item:nth-child(4) {
+        .gallery-item::after {
+            content: "";
+
+            position: absolute;
+
+            inset: 0;
+
             background:
                 linear-gradient(
-                    135deg,
-                    #9d8561,
-                    #333b37
+                    to top,
+                    rgba(0,0,0,0.5),
+                    transparent 55%
                 );
-        }
-
-        .gallery-item:nth-child(5) {
-            background:
-                linear-gradient(
-                    135deg,
-                    #18352e,
-                    #8e9f98
-                );
-        }
-
-        .gallery-item:nth-child(6) {
-            background:
-                linear-gradient(
-                    135deg,
-                    #4a5752,
-                    #b69b6b
-                );
-        }
-
-        .gallery-item i {
-            font-size: 38px;
-            opacity: 0.8;
         }
 
         .gallery-label {
             position: absolute;
+
+            z-index: 2;
 
             left: 18px;
             bottom: 18px;
@@ -601,6 +596,8 @@
             padding: 7px 11px;
 
             border-radius: 50px;
+
+            color: white;
 
             background: rgba(0,0,0,0.35);
             backdrop-filter: blur(8px);
@@ -803,7 +800,7 @@
 
 
         /* =====================================================
-           MODERNI SWITCH - IOS / APPLE STIL
+           APPLE SWITCH
         ===================================================== */
 
         .switch {
@@ -1148,6 +1145,7 @@
         ===================================================== */
 
         @keyframes fadeUp {
+
             from {
                 opacity: 0;
                 transform: translateY(20px);
@@ -1157,6 +1155,7 @@
                 opacity: 1;
                 transform: translateY(0);
             }
+
         }
 
         .hero-content {
@@ -1229,6 +1228,7 @@
             .contact-grid {
                 grid-template-columns: 1fr;
             }
+
         }
 
 
@@ -1263,11 +1263,27 @@
             }
 
             .hero-camera {
-                transform: translate(-50%, -50%) scale(0.75);
+                transform:
+                    translate(-50%, -50%)
+                    scale(0.75);
             }
 
             .services-grid {
-                grid-template-columns: 1fr;
+                grid-template-columns: 1fr 1fr;
+                gap: 10px;
+            }
+
+            .service-card {
+                height: 260px;
+                border-radius: 19px;
+            }
+
+            .service-name {
+                left: 15px;
+                right: 15px;
+                bottom: 15px;
+
+                font-size: 14px;
             }
 
             .gallery {
@@ -1275,6 +1291,10 @@
             }
 
             .gallery-item {
+                min-height: 200px;
+            }
+
+            .gallery-item img {
                 min-height: 200px;
             }
 
@@ -1315,6 +1335,20 @@
                 flex-direction: column;
                 text-align: center;
             }
+
+        }
+
+
+        @media (max-width: 400px) {
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .service-card {
+                height: 330px;
+            }
+
         }
 
     </style>
@@ -1335,7 +1369,7 @@
             <a href="#pocetna" class="logo">
 
                 <span class="logo-icon">
-                    <i class="fa-solid fa-camera"></i>
+                    📷
                 </span>
 
                 Foto Bane
@@ -1345,16 +1379,28 @@
 
             <div class="nav-links" id="navLinks">
 
-                <a href="#usluge">Usluge</a>
+                <a href="#usluge">
+                    Usluge
+                </a>
 
-                <a href="#galerija">Galerija</a>
+                <a href="#galerija">
+                    Galerija
+                </a>
 
-                <a href="#kalkulator">Kalkulator</a>
+                <a href="#kalkulator">
+                    Kalkulator
+                </a>
 
-                <a href="#kontakt">Kontakt</a>
+                <a href="#kontakt">
+                    Kontakt
+                </a>
 
-                <a href="#kontakt" class="nav-button">
+                <a
+                    href="#kontakt"
+                    class="nav-button">
+
                     Zakažite snimanje
+
                 </a>
 
             </div>
@@ -1365,7 +1411,7 @@
                 id="mobileMenu"
                 aria-label="Otvori meni">
 
-                <i class="fa-solid fa-bars"></i>
+                ☰
 
             </button>
 
@@ -1381,15 +1427,18 @@
 
     <main>
 
-        <section class="hero" id="pocetna">
+        <section
+            class="hero"
+            id="pocetna">
 
             <div class="container hero-grid">
+
 
                 <div class="hero-content">
 
                     <div class="eyebrow">
 
-                        <i class="fa-solid fa-star"></i>
+                        <span></span>
 
                         FOTO BANE DESPOTOVAC
 
@@ -1463,12 +1512,11 @@
                 <div class="section-heading center">
 
                     <h2>
-                        Sve što vam je potrebno
+                        Usluge
                     </h2>
 
                     <p>
-                        Fotografija, video i moderna produkcija
-                        prilagođena vašem događaju.
+                        Izaberite ono što želite da zabeležimo.
                     </p>
 
                 </div>
@@ -1477,79 +1525,72 @@
                 <div class="services-grid">
 
 
+                    <!-- VENČANJA -->
+
                     <div class="service-card">
 
-                        <div class="service-icon">
-                            <i class="fa-solid fa-ring"></i>
-                        </div>
+                        <img
+                            src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=900&q=85"
+                            alt="Fotografisanje venčanja"
+                            loading="lazy">
 
-                        <h3>
+                        <div class="service-name">
                             Venčanja
-                        </h3>
-
-                        <p>
-                            Fotografisanje i video produkcija
-                            najvažnijih trenutaka vašeg dana.
-                        </p>
+                        </div>
 
                     </div>
 
 
 
+                    <!-- ROĐENDANI -->
+
                     <div class="service-card">
 
-                        <div class="service-icon">
-                            <i class="fa-solid fa-cake-candles"></i>
-                        </div>
+                        <img
+                            src="https://images.unsplash.com/photo-1530103862676-de8c9debad1d?auto=format&fit=crop&w=900&q=85"
+                            alt="Fotografisanje rođendana"
+                            loading="lazy">
 
-                        <h3>
+                        <div class="service-name">
                             Rođendani i punoletstva
-                        </h3>
-
-                        <p>
-                            Zabeležite atmosferu, druženje
-                            i najlepše trenutke proslave.
-                        </p>
+                        </div>
 
                     </div>
 
 
 
+                    <!-- KRŠTENJA -->
+
                     <div class="service-card">
 
-                        <div class="service-icon">
-                            <i class="fa-solid fa-champagne-glasses"></i>
-                        </div>
+                        <img
+                            src="https://images.unsplash.com/photo-1507504031003-b417219a0fde?auto=format&fit=crop&w=900&q=85"
+                            alt="Porodično fotografisanje"
+                            loading="lazy">
 
-                        <h3>
+                        <div class="service-name">
                             Krštenja
-                        </h3>
-
-                        <p>
-                            Profesionalne fotografije
-                            i video uspomene za celu porodicu.
-                        </p>
+                        </div>
 
                     </div>
 
 
+
+                    <!-- STUDIO -->
 
                     <div class="service-card">
 
-                        <div class="service-icon">
-                            <i class="fa-solid fa-camera-retro"></i>
+                        <img
+                            src="https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=900&q=85"
+                            alt="Studijsko fotografisanje"
+                            loading="lazy">
+
+                        <div class="service-name">
+                            Studijsko fotografisanje
                         </div>
 
-                        <h3>
-                            Studijsko fotografisanje
-                        </h3>
-
-                        <p>
-                            Portreti, porodične fotografije,
-                            poslovne fotografije i posebne prilike.
-                        </p>
-
                     </div>
+
 
                 </div>
 
@@ -1583,9 +1624,13 @@
 
                 <div class="gallery">
 
+
                     <div class="gallery-item">
 
-                        <i class="fa-solid fa-camera"></i>
+                        <img
+                            src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=900&q=85"
+                            alt="Fotografisanje venčanja"
+                            loading="lazy">
 
                         <span class="gallery-label">
                             Fotografisanje
@@ -1594,9 +1639,13 @@
                     </div>
 
 
+
                     <div class="gallery-item">
 
-                        <i class="fa-solid fa-ring"></i>
+                        <img
+                            src="https://images.unsplash.com/photo-1606800052052-a08af7148866?auto=format&fit=crop&w=900&q=85"
+                            alt="Venčanje"
+                            loading="lazy">
 
                         <span class="gallery-label">
                             Venčanja
@@ -1605,9 +1654,13 @@
                     </div>
 
 
+
                     <div class="gallery-item">
 
-                        <i class="fa-solid fa-video"></i>
+                        <img
+                            src="https://images.unsplash.com/photo-1492619375914-88005aa9e8fb?auto=format&fit=crop&w=900&q=85"
+                            alt="Video produkcija"
+                            loading="lazy">
 
                         <span class="gallery-label">
                             Video
@@ -1616,9 +1669,13 @@
                     </div>
 
 
+
                     <div class="gallery-item">
 
-                        <i class="fa-solid fa-cake-candles"></i>
+                        <img
+                            src="https://images.unsplash.com/photo-1464349153735-7db50ed83c84?auto=format&fit=crop&w=900&q=85"
+                            alt="Proslava rođendana"
+                            loading="lazy">
 
                         <span class="gallery-label">
                             Proslave
@@ -1627,9 +1684,13 @@
                     </div>
 
 
+
                     <div class="gallery-item">
 
-                        <i class="fa-solid fa-users"></i>
+                        <img
+                            src="https://images.unsplash.com/photo-1511895426328-dc8714191300?auto=format&fit=crop&w=900&q=85"
+                            alt="Porodično fotografisanje"
+                            loading="lazy">
 
                         <span class="gallery-label">
                             Porodica
@@ -1638,15 +1699,20 @@
                     </div>
 
 
+
                     <div class="gallery-item">
 
-                        <i class="fa-solid fa-helicopter"></i>
+                        <img
+                            src="https://images.unsplash.com/photo-1473968512647-3e447244af8f?auto=format&fit=crop&w=900&q=85"
+                            alt="Snimanje dronom"
+                            loading="lazy">
 
                         <span class="gallery-label">
                             Dron
                         </span>
 
                     </div>
+
 
                 </div>
 
@@ -1765,8 +1831,6 @@
                     <div class="options">
 
 
-                        <!-- VIDEO -->
-
                         <div class="option">
 
                             <div class="option-text">
@@ -1795,8 +1859,6 @@
                         </div>
 
 
-
-                        <!-- DRON -->
 
                         <div class="option">
 
@@ -1840,18 +1902,25 @@
                             </span>
 
                             <div>
+
                                 <strong id="ukupna-cena">
                                     0 €
                                 </strong>
+
                             </div>
 
                         </div>
 
 
-                        <i
-                            class="fa-solid fa-calculator"
-                            style="font-size:30px;opacity:.7;">
-                        </i>
+                        <span
+                            style="
+                                font-size:30px;
+                                opacity:.7;
+                            ">
+
+                            €
+
+                        </span>
 
                     </div>
 
@@ -1922,6 +1991,7 @@
                         <strong>
                             Kako ostvarujete popust?
                         </strong>
+
                         <br>
 
                         Popust ostvarujete donošenjem
@@ -1978,9 +2048,7 @@
                         <div class="contact-item">
 
                             <div class="contact-icon">
-
-                                <i class="fa-solid fa-location-dot"></i>
-
+                                📍
                             </div>
 
                             <div>
@@ -2002,9 +2070,7 @@
                         <div class="contact-item">
 
                             <div class="contact-icon">
-
-                                <i class="fa-solid fa-phone"></i>
-
+                                ☎
                             </div>
 
                             <div>
@@ -2026,9 +2092,7 @@
                         <div class="contact-item">
 
                             <div class="contact-icon">
-
-                                <i class="fa-brands fa-instagram"></i>
-
+                                ◎
                             </div>
 
                             <div>
@@ -2055,9 +2119,10 @@
                             href="https://maps.app.goo.gl/1JY6z4WowRy2xrtGA"
                             target="_blank"
                             class="btn btn-primary"
-                            style="display:inline-block;margin-top:10px;">
-
-                            <i class="fa-solid fa-map-location-dot"></i>
+                            style="
+                                display:inline-block;
+                                margin-top:10px;
+                            ">
 
                             Otvori lokaciju
 
@@ -2130,42 +2195,30 @@
             document.getElementById("navLinks");
 
 
-        mobileMenu.addEventListener("click", function () {
+        mobileMenu.addEventListener(
+            "click",
+            function() {
 
-            navLinks.classList.toggle("active");
-
-            const icon =
-                mobileMenu.querySelector("i");
-
-            if (navLinks.classList.contains("active")) {
-
-                icon.classList.remove("fa-bars");
-                icon.classList.add("fa-xmark");
-
-            } else {
-
-                icon.classList.remove("fa-xmark");
-                icon.classList.add("fa-bars");
+                navLinks.classList.toggle("active");
 
             }
+        );
 
-        });
 
-
-        document.querySelectorAll(".nav-links a")
+        document
+            .querySelectorAll(".nav-links a")
             .forEach(function(link) {
 
-                link.addEventListener("click", function() {
+                link.addEventListener(
+                    "click",
+                    function() {
 
-                    navLinks.classList.remove("active");
+                        navLinks.classList.remove(
+                            "active"
+                        );
 
-                    const icon =
-                        mobileMenu.querySelector("i");
-
-                    icon.classList.remove("fa-xmark");
-                    icon.classList.add("fa-bars");
-
-                });
+                    }
+                );
 
             });
 
@@ -2177,9 +2230,7 @@
 
         function vibriraj() {
 
-            if (
-                "vibrate" in navigator
-            ) {
+            if ("vibrate" in navigator) {
 
                 navigator.vibrate(8);
 
@@ -2190,7 +2241,7 @@
 
 
         /* =====================================================
-           SUPTILAN APPLE-LIKE ZVUK
+           SUPTILAN ZVUK
         ===================================================== */
 
         let audioContext = null;
@@ -2215,7 +2266,8 @@
 
 
                 if (
-                    audioContext.state === "suspended"
+                    audioContext.state ===
+                    "suspended"
                 ) {
 
                     audioContext.resume();
@@ -2241,10 +2293,12 @@
                     audioContext.currentTime
                 );
 
+
                 gain.gain.linearRampToValueAtTime(
                     jacina,
                     audioContext.currentTime + 0.01
                 );
+
 
                 gain.gain.exponentialRampToValueAtTime(
                     0.001,
@@ -2261,13 +2315,12 @@
 
                 oscillator.start();
 
+
                 oscillator.stop(
                     audioContext.currentTime + 0.1
                 );
 
             } catch (error) {
-
-                /* Zvuk nije obavezan */
 
             }
 
@@ -2310,22 +2363,39 @@
 
 
         const paketSlider =
-            document.getElementById("paket-slider");
+            document.getElementById(
+                "paket-slider"
+            );
+
 
         const paketNaziv =
-            document.getElementById("paket-naziv");
+            document.getElementById(
+                "paket-naziv"
+            );
+
 
         const paketCena =
-            document.getElementById("paket-cena");
+            document.getElementById(
+                "paket-cena"
+            );
+
 
         const ukupnaCena =
-            document.getElementById("ukupna-cena");
+            document.getElementById(
+                "ukupna-cena"
+            );
+
 
         const videoOpcija =
-            document.getElementById("video-opcija");
+            document.getElementById(
+                "video-opcija"
+            );
+
 
         const dronOpcija =
-            document.getElementById("dron-opcija");
+            document.getElementById(
+                "dron-opcija"
+            );
 
 
 
@@ -2334,7 +2404,10 @@
         ) {
 
             const indeks =
-                Number(paketSlider.value);
+                Number(
+                    paketSlider.value
+                );
+
 
             const paket =
                 paketi[indeks];
@@ -2379,6 +2452,7 @@
 
             }
 
+
             vibriraj();
 
         }
@@ -2393,7 +2467,9 @@
             "input",
             function() {
 
-                azurirajKalkulator(true);
+                azurirajKalkulator(
+                    true
+                );
 
             }
         );
@@ -2424,9 +2500,13 @@
 
                 }
 
+
                 vibriraj();
 
-                azurirajKalkulator(false);
+
+                azurirajKalkulator(
+                    false
+                );
 
             }
         );
@@ -2457,9 +2537,13 @@
 
                 }
 
+
                 vibriraj();
 
-                azurirajKalkulator(false);
+
+                azurirajKalkulator(
+                    false
+                );
 
             }
         );
@@ -2470,7 +2554,9 @@
            PRVI OBRAČUN
         ===================================================== */
 
-        azurirajKalkulator(false);
+        azurirajKalkulator(
+            false
+        );
 
 
 
@@ -2483,6 +2569,7 @@
                 "scratchCanvas"
             );
 
+
         const ctx =
             canvas.getContext("2d");
 
@@ -2492,8 +2579,6 @@
                 "discount-code"
             );
 
-
-        /* Generisanje promotivnog koda */
 
         const randomNumber =
             Math.floor(
@@ -2509,7 +2594,7 @@
 
 
         /* =====================================================
-           PODESAVANJE CANVAS-A
+           CANVAS
         ===================================================== */
 
         function resizeCanvas() {
@@ -2519,11 +2604,13 @@
 
 
             const ratio =
-                window.devicePixelRatio || 1;
+                window.devicePixelRatio ||
+                1;
 
 
             canvas.width =
                 rect.width * ratio;
+
 
             canvas.height =
                 rect.height * ratio;
@@ -2550,11 +2637,10 @@
             const width =
                 canvas.clientWidth;
 
+
             const height =
                 canvas.clientHeight;
 
-
-            /* Osnovna boja */
 
             ctx.globalCompositeOperation =
                 "source-over";
@@ -2574,10 +2660,12 @@
                 "#b9b9b9"
             );
 
+
             gradient.addColorStop(
                 0.5,
                 "#dddddd"
             );
+
 
             gradient.addColorStop(
                 1,
@@ -2597,16 +2685,17 @@
             );
 
 
-            /* Tekst preko scratch površine */
-
             ctx.fillStyle =
                 "#666666";
+
 
             ctx.font =
                 "700 14px Montserrat";
 
+
             ctx.textAlign =
                 "center";
+
 
             ctx.textBaseline =
                 "middle";
@@ -2637,7 +2726,7 @@
 
 
         /* =====================================================
-           BRISANJE SCRATCH POVRŠINE
+           SCRATCH INTERAKCIJA
         ===================================================== */
 
         let scratching = false;
@@ -2650,6 +2739,7 @@
 
             ctx.beginPath();
 
+
             ctx.arc(
                 x,
                 y,
@@ -2658,13 +2748,14 @@
                 Math.PI * 2
             );
 
+
             ctx.fill();
 
         }
 
 
 
-        function pozicijaDogađaja(
+        function pozicijaDogadjaja(
             event
         ) {
 
@@ -2672,40 +2763,14 @@
                 canvas.getBoundingClientRect();
 
 
-            let clientX;
-            let clientY;
-
-
-            if (
-                event.touches &&
-                event.touches.length
-            ) {
-
-                clientX =
-                    event.touches[0].clientX;
-
-                clientY =
-                    event.touches[0].clientY;
-
-            } else {
-
-                clientX =
-                    event.clientX;
-
-                clientY =
-                    event.clientY;
-
-            }
-
-
             return {
 
                 x:
-                    clientX -
+                    event.clientX -
                     rect.left,
 
                 y:
-                    clientY -
+                    event.clientY -
                     rect.top
 
             };
@@ -2720,14 +2785,23 @@
 
                 scratching = true;
 
-                const pozicija =
-                    pozicijaDogađaja(event);
+
+                canvas.setPointerCapture(
+                    event.pointerId
+                );
+
+
+                const position =
+                    pozicijaDogadjaja(
+                        event
+                    );
 
 
                 ogrebi(
-                    pozicija.x,
-                    pozicija.y
+                    position.x,
+                    position.y
                 );
+
 
                 vibriraj();
 
@@ -2745,13 +2819,15 @@
                 }
 
 
-                const pozicija =
-                    pozicijaDogađaja(event);
+                const position =
+                    pozicijaDogadjaja(
+                        event
+                    );
 
 
                 ogrebi(
-                    pozicija.x,
-                    pozicija.y
+                    position.x,
+                    position.y
                 );
 
             }
@@ -2771,16 +2847,6 @@
 
         canvas.addEventListener(
             "pointercancel",
-            function() {
-
-                scratching = false;
-
-            }
-        );
-
-
-        canvas.addEventListener(
-            "pointerleave",
             function() {
 
                 scratching = false;
