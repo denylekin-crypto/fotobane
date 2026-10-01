@@ -6,38 +6,28 @@
 
     <title>Foto Bane Despotovac | Fotografisanje i video</title>
 
-    <meta name="description"
-          content="Foto Bane Despotovac – profesionalno fotografisanje, video produkcija, dron i studijsko fotografisanje.">
+    <meta name="description" content="Foto Bane Despotovac – profesionalno fotografisanje i video produkcija za venčanja, rođendane, krštenja, punoletstva i studijsko fotografisanje.">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap"
-          rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
     <style>
 
-        /* =====================================================
-           OSNOVNO
-        ===================================================== */
-
         :root {
             --primary-green: #173f35;
-            --green-light: #2f6b5c;
-            --gold: #c7a76b;
-
-            --background: #f7f8f6;
+            --secondary-green: #245c4d;
+            --gold: #c8a96b;
+            --light: #f6f7f5;
             --white: #ffffff;
-
-            --text: #17201d;
-            --muted: #6f7774;
-
+            --dark: #17201d;
+            --gray: #68716d;
             --border: #e3e7e4;
-
-            --shadow:
-                0 20px 60px rgba(23, 63, 53, 0.10);
-
-            --radius: 24px;
         }
 
         * {
@@ -51,37 +41,31 @@
         }
 
         body {
-            font-family: "Montserrat", sans-serif;
-            background: var(--background);
-            color: var(--text);
+            font-family: 'Montserrat', sans-serif;
+            color: var(--dark);
+            background: var(--light);
             line-height: 1.6;
-            overflow-x: hidden;
-        }
-
-        img {
-            max-width: 100%;
-            display: block;
         }
 
         a {
-            color: inherit;
             text-decoration: none;
+            color: inherit;
         }
 
-        button,
-        input {
-            font-family: inherit;
+        img {
+            display: block;
+            max-width: 100%;
         }
 
         .container {
-            width: min(1120px, calc(100% - 40px));
-            margin: auto;
+            width: min(1180px, calc(100% - 40px));
+            margin: 0 auto;
         }
 
 
-        /* =====================================================
+        /* ==========================================
            NAVIGACIJA
-        ===================================================== */
+        ========================================== */
 
         nav {
             position: fixed;
@@ -90,59 +74,45 @@
             width: 100%;
             z-index: 1000;
 
-            background: rgba(255,255,255,0.88);
-            backdrop-filter: blur(18px);
-            -webkit-backdrop-filter: blur(18px);
+            background: rgba(255,255,255,0.95);
+            backdrop-filter: blur(16px);
 
-            border-bottom: 1px solid rgba(0,0,0,0.05);
+            border-bottom: 1px solid rgba(0,0,0,0.06);
         }
 
         .nav-inner {
-            height: 74px;
+            min-height: 78px;
 
             display: flex;
             align-items: center;
             justify-content: space-between;
+
+            gap: 25px;
         }
 
         .logo {
             display: flex;
             align-items: center;
-            gap: 10px;
-
-            font-size: 20px;
-            font-weight: 800;
-            letter-spacing: -0.5px;
-
-            color: var(--primary-green);
         }
 
-        .logo-icon {
-            width: 38px;
-            height: 38px;
-
-            display: flex;
-            align-items: center;
-            justify-content: center;
-
-            border-radius: 12px;
-
-            background: var(--primary-green);
-            color: white;
-
-            font-size: 16px;
+        .logo img {
+            height: 55px;
+            width: auto;
+            display: block;
+            object-fit: contain;
         }
 
         .nav-links {
             display: flex;
             align-items: center;
-            gap: 30px;
-
-            font-size: 14px;
-            font-weight: 600;
+            gap: 28px;
         }
 
         .nav-links a {
+            font-size: 13px;
+            font-weight: 600;
+            color: #39433f;
+
             transition: 0.2s ease;
         }
 
@@ -150,145 +120,127 @@
             color: var(--gold);
         }
 
-        .nav-button {
-            padding: 11px 18px;
-
+        .nav-contact {
             background: var(--primary-green);
-            color: white;
+            color: white !important;
 
-            border-radius: 50px;
+            padding: 11px 17px;
 
-            transition: 0.2s ease;
+            border-radius: 30px;
         }
 
-        .nav-button:hover {
-            transform: translateY(-1px);
-            background: var(--green-light);
-        }
-
-        .mobile-menu {
+        .menu-btn {
             display: none;
 
-            width: 42px;
-            height: 42px;
-
-            border: 0;
+            border: none;
             background: transparent;
 
-            font-size: 22px;
-            color: var(--primary-green);
+            font-size: 24px;
 
             cursor: pointer;
+
+            color: var(--primary-green);
         }
 
 
-        /* =====================================================
+        /* ==========================================
            HERO
-        ===================================================== */
+        ========================================== */
 
         .hero {
-            min-height: 92vh;
+            min-height: 720px;
+
+            padding-top: 78px;
 
             display: flex;
             align-items: center;
 
-            padding-top: 100px;
-
             background:
-                radial-gradient(
-                    circle at 85% 20%,
-                    rgba(199,167,107,0.13),
-                    transparent 28%
+                linear-gradient(
+                    rgba(23,63,53,0.72),
+                    rgba(23,63,53,0.78)
                 ),
-                radial-gradient(
-                    circle at 10% 80%,
-                    rgba(47,107,92,0.10),
-                    transparent 30%
-                );
-        }
-
-        .hero-grid {
-            display: grid;
-            grid-template-columns: 1.05fr 0.95fr;
-            gap: 70px;
-            align-items: center;
+                url("https://images.unsplash.com/photo-1516035069371-29a1b244cc32?auto=format&fit=crop&w=1800&q=90")
+                center/cover no-repeat;
         }
 
         .hero-content {
-            max-width: 650px;
+            max-width: 760px;
+
+            color: white;
         }
 
-        .eyebrow {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
+        .hero-label {
+            display: inline-block;
 
-            padding: 8px 13px;
+            margin-bottom: 18px;
 
-            border-radius: 50px;
+            padding: 8px 14px;
 
-            background: rgba(23,63,53,0.08);
-            color: var(--primary-green);
+            border: 1px solid rgba(255,255,255,0.35);
+
+            border-radius: 30px;
 
             font-size: 12px;
-            font-weight: 700;
+            font-weight: 600;
+
             letter-spacing: 0.5px;
-
-            margin-bottom: 22px;
         }
 
-        .eyebrow span {
-            width: 6px;
-            height: 6px;
+        .hero h1 {
+            font-size: clamp(42px, 7vw, 76px);
 
-            border-radius: 50%;
+            line-height: 0.98;
 
-            background: var(--gold);
-        }
-
-        h1 {
-            font-size: clamp(42px, 6vw, 76px);
-            line-height: 1.02;
             letter-spacing: -3px;
 
-            color: var(--primary-green);
-
             margin-bottom: 25px;
+
+            font-weight: 800;
         }
 
-        .hero-text {
-            max-width: 560px;
+        .hero h1 span {
+            color: #dfc48d;
+        }
 
-            color: var(--muted);
+        .hero p {
+            max-width: 650px;
 
             font-size: 17px;
+
             line-height: 1.8;
 
-            margin-bottom: 30px;
+            color: rgba(255,255,255,0.88);
+
+            margin-bottom: 34px;
         }
 
         .hero-buttons {
             display: flex;
-            gap: 12px;
+
             flex-wrap: wrap;
+
+            gap: 12px;
         }
 
         .btn {
-            border: 0;
+            display: inline-flex;
 
-            padding: 15px 23px;
+            align-items: center;
+            justify-content: center;
+
+            gap: 9px;
+
+            padding: 14px 22px;
 
             border-radius: 50px;
 
-            font-size: 14px;
+            font-size: 13px;
             font-weight: 700;
 
-            cursor: pointer;
-
             transition:
-                transform 0.2s ease,
-                box-shadow 0.2s ease,
-                background 0.2s ease;
+                transform .2s ease,
+                box-shadow .2s ease;
         }
 
         .btn:hover {
@@ -296,167 +248,75 @@
         }
 
         .btn-primary {
-            background: var(--primary-green);
-            color: white;
-
-            box-shadow:
-                0 12px 30px rgba(23,63,53,0.18);
-        }
-
-        .btn-primary:hover {
-            background: var(--green-light);
-        }
-
-        .btn-secondary {
             background: white;
+
             color: var(--primary-green);
-
-            border: 1px solid var(--border);
         }
 
-        .hero-card {
-            position: relative;
+        .btn-outline {
+            border: 1px solid rgba(255,255,255,0.5);
 
-            min-height: 500px;
-
-            border-radius: 35px;
-
-            background:
-                linear-gradient(
-                    145deg,
-                    var(--primary-green),
-                    #102d26
-                );
-
-            overflow: hidden;
-
-            box-shadow: var(--shadow);
-        }
-
-        .hero-camera {
-            position: absolute;
-
-            width: 280px;
-            height: 190px;
-
-            left: 50%;
-            top: 50%;
-
-            transform: translate(-50%, -50%);
-
-            border-radius: 35px;
-
-            background: #101513;
-
-            box-shadow:
-                0 35px 70px rgba(0,0,0,0.35);
-        }
-
-        .hero-camera::before {
-            content: "";
-
-            position: absolute;
-
-            width: 100px;
-            height: 28px;
-
-            top: -18px;
-            left: 55px;
-
-            border-radius: 10px 10px 0 0;
-
-            background: #101513;
-        }
-
-        .hero-camera::after {
-            content: "";
-
-            position: absolute;
-
-            width: 105px;
-            height: 105px;
-
-            top: 43px;
-            left: 88px;
-
-            border-radius: 50%;
-
-            background:
-                radial-gradient(
-                    circle at 35% 30%,
-                    #7b9c93,
-                    #263c36 35%,
-                    #111817 65%
-                );
-
-            border: 10px solid #242c29;
-        }
-
-        .hero-decoration {
-            position: absolute;
-
-            width: 250px;
-            height: 250px;
-
-            border-radius: 50%;
-
-            border: 1px solid rgba(255,255,255,0.1);
-
-            right: -80px;
-            top: -70px;
-        }
-
-        .hero-decoration.two {
-            width: 400px;
-            height: 400px;
-
-            left: -250px;
-            bottom: -200px;
+            color: white;
         }
 
 
-        /* =====================================================
+        /* ==========================================
            SEKCIJE
-        ===================================================== */
+        ========================================== */
 
         section {
-            padding: 100px 0;
+            padding: 95px 0;
         }
 
-        .section-heading {
-            max-width: 650px;
+        .section-head {
             margin-bottom: 45px;
         }
 
-        .section-heading.center {
-            margin-left: auto;
-            margin-right: auto;
-            text-align: center;
+        .section-label {
+            color: var(--gold);
+
+            font-size: 12px;
+
+            font-weight: 800;
+
+            text-transform: uppercase;
+
+            letter-spacing: 1.8px;
+
+            margin-bottom: 10px;
         }
 
-        .section-heading h2 {
-            font-size: clamp(32px, 4vw, 50px);
-            line-height: 1.1;
+        .section-title {
+            font-size: clamp(30px, 5vw, 46px);
+
+            line-height: 1.05;
+
             letter-spacing: -1.8px;
 
             color: var(--primary-green);
-
-            margin-bottom: 15px;
         }
 
-        .section-heading p {
-            color: var(--muted);
+        .section-description {
+            max-width: 650px;
+
+            margin-top: 14px;
+
+            color: var(--gray);
+
             font-size: 15px;
         }
 
 
-        /* =====================================================
-           USLUGE - SLIKE
-        ===================================================== */
+        /* ==========================================
+           USLUGE
+        ========================================== */
 
         .services-grid {
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
+
+            grid-template-columns:
+                repeat(4, 1fr);
+
             gap: 18px;
         }
 
@@ -472,7 +332,8 @@
             background: #ddd;
 
             box-shadow:
-                0 10px 35px rgba(23,63,53,0.08);
+                0 10px 35px
+                rgba(23,63,53,0.08);
 
             cursor: pointer;
         }
@@ -484,7 +345,8 @@
             object-fit: cover;
 
             transition:
-                transform 0.6s cubic-bezier(.2,.7,.2,1);
+                transform 0.6s
+                cubic-bezier(.2,.7,.2,1);
         }
 
         .service-card::after {
@@ -516,209 +378,148 @@
 
             left: 22px;
             right: 22px;
+
             bottom: 20px;
 
             color: white;
 
             font-size: 18px;
+
             font-weight: 700;
 
             letter-spacing: -0.3px;
         }
 
 
-        /* =====================================================
+        /* ==========================================
            GALERIJA
-        ===================================================== */
+        ========================================== */
 
         .gallery {
+            background: white;
+        }
+
+        .gallery-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
             gap: 15px;
         }
 
         .gallery-item {
-            min-height: 280px;
-
-            display: flex;
-            align-items: flex-end;
-
-            border-radius: 22px;
-
-            background: #ddd;
+            height: 300px;
 
             overflow: hidden;
 
-            position: relative;
+            border-radius: 20px;
+
+            background: #ddd;
         }
 
         .gallery-item img {
             width: 100%;
             height: 100%;
 
-            min-height: 280px;
-
             object-fit: cover;
 
-            transition: transform 0.5s ease;
+            transition:
+                transform .5s ease;
         }
 
         .gallery-item:hover img {
             transform: scale(1.05);
         }
 
-        .gallery-item::after {
-            content: "";
 
-            position: absolute;
-
-            inset: 0;
-
-            background:
-                linear-gradient(
-                    to top,
-                    rgba(0,0,0,0.5),
-                    transparent 55%
-                );
-        }
-
-        .gallery-label {
-            position: absolute;
-
-            z-index: 2;
-
-            left: 18px;
-            bottom: 18px;
-
-            font-size: 12px;
-            font-weight: 700;
-
-            padding: 7px 11px;
-
-            border-radius: 50px;
-
-            color: white;
-
-            background: rgba(0,0,0,0.35);
-            backdrop-filter: blur(8px);
-        }
-
-
-        /* =====================================================
+        /* ==========================================
            KALKULATOR
-        ===================================================== */
+        ========================================== */
 
         .calculator-section {
-            background: #eef2ef;
+            background: #edf1ee;
         }
 
         .calculator {
-            max-width: 760px;
-            margin: auto;
+            max-width: 780px;
+
+            margin: 0 auto;
 
             background: white;
 
-            border: 1px solid var(--border);
-
-            border-radius: 32px;
+            border-radius: 30px;
 
             padding: 35px;
 
-            box-shadow: var(--shadow);
+            box-shadow:
+                0 20px 60px
+                rgba(23,63,53,0.09);
         }
 
-        .calculator-title {
+        .calculator h3 {
+            color: var(--primary-green);
+
+            font-size: 25px;
+
+            margin-bottom: 8px;
+        }
+
+        .calculator-intro {
+            color: var(--gray);
+
+            font-size: 14px;
+
             margin-bottom: 30px;
         }
 
-        .calculator-title h3 {
-            font-size: 24px;
-            color: var(--primary-green);
-
-            margin-bottom: 5px;
+        .package-area {
+            margin-bottom: 28px;
         }
 
-        .calculator-title p {
-            color: var(--muted);
-            font-size: 13px;
-        }
-
-
-        /* =====================================================
-           PAKET SLIDER
-        ===================================================== */
-
-        .package-box {
-            padding: 25px;
-
-            border-radius: 22px;
-
-            background: #f7f9f7;
-
-            margin-bottom: 20px;
-        }
-
-        .package-top {
+        .package-label {
             display: flex;
+
             justify-content: space-between;
+
             align-items: center;
 
-            margin-bottom: 20px;
+            margin-bottom: 12px;
         }
 
-        .package-name {
-            font-size: 16px;
+        .package-label strong {
+            font-size: 14px;
+
+            color: var(--primary-green);
+        }
+
+        #paket-naziv {
+            color: var(--gold);
+
             font-weight: 700;
 
-            color: var(--primary-green);
+            font-size: 14px;
         }
 
-        .package-price {
-            font-size: 21px;
-            font-weight: 800;
-
-            color: var(--primary-green);
-        }
-
-        #paket-slider {
+        .range {
             width: 100%;
 
             appearance: none;
-            -webkit-appearance: none;
 
-            height: 5px;
+            height: 7px;
 
             border-radius: 10px;
 
-            background: #dce3df;
+            background: #dce2de;
 
             outline: none;
-
-            cursor: pointer;
         }
 
-        #paket-slider::-webkit-slider-thumb {
+        .range::-webkit-slider-thumb {
             appearance: none;
-            -webkit-appearance: none;
 
-            width: 27px;
-            height: 27px;
-
-            border-radius: 50%;
-
-            background: var(--primary-green);
-
-            border: 4px solid white;
-
-            box-shadow:
-                0 3px 10px rgba(0,0,0,0.2);
-
-            cursor: pointer;
-        }
-
-        #paket-slider::-moz-range-thumb {
-            width: 27px;
-            height: 27px;
+            width: 25px;
+            height: 25px;
 
             border-radius: 50%;
 
@@ -727,81 +528,83 @@
             border: 4px solid white;
 
             box-shadow:
-                0 3px 10px rgba(0,0,0,0.2);
+                0 2px 8px
+                rgba(0,0,0,.2);
 
             cursor: pointer;
         }
 
-        .slider-labels {
-            display: flex;
-            justify-content: space-between;
+        .range::-moz-range-thumb {
+            width: 25px;
+            height: 25px;
 
-            margin-top: 10px;
+            border-radius: 50%;
 
-            color: #89918e;
-            font-size: 10px;
+            background: var(--primary-green);
+
+            border: 4px solid white;
+
+            box-shadow:
+                0 2px 8px
+                rgba(0,0,0,.2);
+
+            cursor: pointer;
         }
-
-
-        /* =====================================================
-           OPCIJE
-        ===================================================== */
 
         .options {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
+            display: grid;
 
-            margin-top: 20px;
+            gap: 12px;
+
+            margin-bottom: 30px;
         }
 
         .option {
-            min-height: 76px;
-
             display: flex;
+
             align-items: center;
+
             justify-content: space-between;
 
             gap: 20px;
 
-            padding: 17px 20px;
+            padding: 17px 18px;
 
             border: 1px solid var(--border);
 
             border-radius: 18px;
 
-            background: white;
-
-            transition:
-                border-color 0.2s ease,
-                background 0.2s ease;
+            transition: .2s ease;
         }
 
         .option:hover {
-            border-color: #ccd7d2;
-        }
+            border-color: #cbd5d0;
 
-        .option-text {
-            display: flex;
-            flex-direction: column;
-
-            gap: 4px;
+            background: #fbfcfb;
         }
 
         .option-text strong {
+            display: block;
+
+            color: var(--primary-green);
+
             font-size: 14px;
-            color: var(--text);
         }
 
         .option-text span {
-            font-size: 11px;
-            color: var(--muted);
+            display: block;
+
+            color: var(--gray);
+
+            font-size: 12px;
+
+            margin-top: 2px;
         }
 
 
-        /* =====================================================
-           APPLE SWITCH
-        ===================================================== */
+        /* ==========================================
+           SWITCH
+        ========================================== */
 
         .switch {
             position: relative;
@@ -835,10 +638,11 @@
             cursor: pointer;
 
             transition:
-                background-color 0.25s ease;
+                background-color .25s ease;
 
             box-shadow:
-                inset 0 1px 2px rgba(0,0,0,0.08);
+                inset 0 1px 2px
+                rgba(0,0,0,0.08);
         }
 
         .switch-track::before {
@@ -857,11 +661,13 @@
             border-radius: 50%;
 
             box-shadow:
-                0 2px 6px rgba(0,0,0,0.20);
+                0 2px 6px
+                rgba(0,0,0,0.20);
 
             transition:
-                transform 0.25s cubic-bezier(.4,0,.2,1),
-                width 0.15s ease;
+                transform .25s
+                cubic-bezier(.4,0,.2,1),
+                width .15s ease;
         }
 
         .switch input:checked + .switch-track {
@@ -876,324 +682,469 @@
             width: 29px;
         }
 
-        .switch input:checked + .switch-track:active::before {
+        .switch input:checked +
+        .switch-track:active::before {
             transform: translateX(19px);
         }
 
 
-        /* =====================================================
+        /* ==========================================
            UKUPNA CENA
-        ===================================================== */
+        ========================================== */
 
         .total-box {
-            margin-top: 25px;
-
             padding: 25px;
 
             border-radius: 22px;
 
-            background:
-                linear-gradient(
-                    135deg,
-                    var(--primary-green),
-                    #255749
-                );
+            background: var(--primary-green);
 
             color: white;
 
             display: flex;
+
             align-items: center;
+
             justify-content: space-between;
 
             gap: 20px;
         }
 
-        .total-box span {
-            font-size: 13px;
-            opacity: 0.8;
+        .total-box small {
+            display: block;
+
+            color: rgba(255,255,255,.7);
+
+            font-size: 11px;
+
+            margin-bottom: 3px;
         }
 
         .total-box strong {
-            font-size: 32px;
-            letter-spacing: -1px;
+            font-size: 30px;
         }
 
 
-        /* =====================================================
-           SCRATCH CARD
-        ===================================================== */
+        /* ==========================================
+           GREBALICA
+        ========================================== */
 
-        .discount-section {
+        .scratch-section {
             text-align: center;
-        }
 
-        .scratch-wrapper {
-            max-width: 420px;
-            margin: 35px auto 0;
+            background: white;
         }
 
         .scratch-card {
-            position: relative;
+            max-width: 420px;
 
-            width: 100%;
-            height: 210px;
+            margin: 35px auto 15px;
 
-            overflow: hidden;
+            padding: 35px 25px;
 
-            border-radius: 28px;
+            border-radius: 25px;
 
             background:
                 linear-gradient(
                     135deg,
-                    var(--primary-green),
-                    #284f45
+                    #d8c08c,
+                    #f0dfb5
                 );
 
-            box-shadow: var(--shadow);
+            box-shadow:
+                0 15px 40px
+                rgba(23,63,53,.12);
+
+            cursor: pointer;
+
+            user-select: none;
+
+            position: relative;
+
+            overflow: hidden;
         }
 
-        .scratch-content {
-            position: absolute;
+        .scratch-card::before {
+            content: "PREĐITE PRSTOM";
 
-            inset: 0;
+            display: block;
 
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
+            color: rgba(23,63,53,.65);
 
-            color: white;
-
-            padding: 20px;
-        }
-
-        .scratch-content small {
             font-size: 11px;
-            opacity: 0.7;
 
-            margin-bottom: 7px;
+            font-weight: 800;
+
+            letter-spacing: 1px;
+
+            margin-bottom: 12px;
         }
 
-        .scratch-content strong {
-            font-size: 38px;
-            color: #e0c88f;
+        .scratch-card h3 {
+            color: var(--primary-green);
 
-            letter-spacing: -1px;
+            font-size: 22px;
+
+            margin-bottom: 8px;
         }
 
-        .scratch-content span {
-            font-size: 12px;
-            margin-top: 7px;
-            opacity: 0.8;
-        }
-
-        #scratchCanvas {
-            position: absolute;
-
-            inset: 0;
-
-            width: 100%;
-            height: 100%;
-
-            cursor: crosshair;
-
-            touch-action: none;
-        }
-
-        .scratch-info {
-            margin-top: 20px;
-
-            color: var(--muted);
+        .scratch-card p {
+            color: rgba(23,63,53,.72);
 
             font-size: 12px;
-            line-height: 1.7;
         }
 
-        .scratch-info strong {
+        .scratch-result {
+            display: none;
+
+            margin-top: 15px;
+
+            font-weight: 800;
+
             color: var(--primary-green);
         }
 
+        .scratch-note {
+            max-width: 600px;
 
-        /* =====================================================
+            margin: 0 auto;
+
+            font-size: 12px;
+
+            color: var(--gray);
+        }
+
+
+        /* ==========================================
            KONTAKT
-        ===================================================== */
+        ========================================== */
 
         .contact-section {
-            background: #eef2ef;
+            background: var(--primary-green);
+
+            color: white;
+        }
+
+        .contact-section .section-title {
+            color: white;
+        }
+
+        .contact-section .section-description {
+            color: rgba(255,255,255,.7);
         }
 
         .contact-grid {
             display: grid;
-            grid-template-columns: 0.8fr 1.2fr;
+
+            grid-template-columns:
+                1fr 1.2fr;
+
             gap: 30px;
+
             align-items: stretch;
         }
 
         .contact-card {
             background: white;
 
-            border: 1px solid var(--border);
+            color: var(--dark);
 
             border-radius: 28px;
 
             padding: 35px;
+
+            box-shadow:
+                0 20px 60px
+                rgba(0,0,0,.15);
         }
 
         .contact-card h3 {
-            font-size: 26px;
-
             color: var(--primary-green);
+
+            font-size: 25px;
+
+            margin-bottom: 8px;
+        }
+
+        .contact-card > p {
+            color: var(--gray);
+
+            font-size: 13px;
 
             margin-bottom: 25px;
         }
 
-        .contact-item {
-            display: flex;
-            gap: 15px;
+
+        /* ==========================================
+           BROJ TELEFONA
+        ========================================== */
+
+        .phone-number {
+            display: inline-flex;
+
+            align-items: center;
+
+            gap: 10px;
+
+            color: var(--primary-green);
+
+            font-size: 23px;
+
+            font-weight: 800;
+
+            margin-bottom: 22px;
+        }
+
+        .phone-number i {
+            color: var(--gold);
+        }
+
+
+        /* ==========================================
+           KONTAKT DUGMAD
+        ========================================== */
+
+        .contact-actions {
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 10px;
 
             margin-bottom: 20px;
         }
 
-        .contact-icon {
-            width: 42px;
-            height: 42px;
-
-            flex-shrink: 0;
-
+        .contact-action {
             display: flex;
+
             align-items: center;
+
             justify-content: center;
 
-            border-radius: 13px;
+            gap: 8px;
 
-            background: rgba(23,63,53,0.08);
+            min-height: 52px;
 
-            color: var(--primary-green);
-        }
+            padding: 12px 10px;
 
-        .contact-item strong {
-            display: block;
+            border-radius: 15px;
+
+            color: white;
 
             font-size: 12px;
 
-            margin-bottom: 2px;
+            font-weight: 700;
+
+            transition:
+                transform .2s ease,
+                box-shadow .2s ease;
         }
 
-        .contact-item span,
-        .contact-item a {
+        .contact-action:hover {
+            transform: translateY(-2px);
+
+            box-shadow:
+                0 8px 20px
+                rgba(0,0,0,.12);
+        }
+
+        .contact-action i {
+            font-size: 18px;
+        }
+
+        .contact-action.phone {
+            background: var(--primary-green);
+        }
+
+        .contact-action.viber {
+            background: #7360f2;
+        }
+
+        .contact-action.whatsapp {
+            background: #25d366;
+        }
+
+
+        /* ==========================================
+           KONTAKT INFORMACIJE
+        ========================================== */
+
+        .contact-info {
+            border-top: 1px solid var(--border);
+
+            padding-top: 20px;
+
+            display: grid;
+
+            gap: 10px;
+        }
+
+        .contact-info div {
+            display: flex;
+
+            align-items: center;
+
+            gap: 11px;
+
             font-size: 13px;
-            color: var(--muted);
+
+            color: var(--gray);
         }
 
-        .contact-item a:hover {
-            color: var(--primary-green);
+        .contact-info i {
+            width: 20px;
+
+            color: var(--gold);
+
+            text-align: center;
         }
 
-        .map {
-            min-height: 430px;
+
+        /* ==========================================
+           GOOGLE MAPS
+        ========================================== */
+
+        .map-wrapper {
+            min-height: 500px;
 
             overflow: hidden;
 
             border-radius: 28px;
 
-            box-shadow: var(--shadow);
+            background: #ddd;
         }
 
-        .map iframe {
+        .map-wrapper iframe {
             width: 100%;
+
             height: 100%;
 
-            min-height: 430px;
+            min-height: 500px;
 
             border: 0;
         }
 
+        .map-button {
+            display: inline-flex;
 
-        /* =====================================================
+            margin-top: 14px;
+
+            padding: 12px 18px;
+
+            border-radius: 30px;
+
+            background: white;
+
+            color: var(--primary-green);
+
+            font-size: 12px;
+
+            font-weight: 700;
+
+            transition: .2s ease;
+        }
+
+        .map-button:hover {
+            transform: translateY(-2px);
+        }
+
+
+        /* ==========================================
            FOOTER
-        ===================================================== */
+        ========================================== */
 
         footer {
-            padding: 30px 0;
-
             background: #102d26;
 
-            color: white;
+            color: rgba(255,255,255,.65);
+
+            padding: 28px 0;
         }
 
         .footer-inner {
             display: flex;
+
             align-items: center;
+
             justify-content: space-between;
 
             gap: 20px;
         }
 
-        footer p {
-            font-size: 11px;
-            opacity: 0.6;
-        }
-
         .footer-logo {
-            font-weight: 800;
-            font-size: 15px;
+            display: flex;
+
+            align-items: center;
+        }
+
+        .footer-logo img {
+            height: 42px;
+
+            width: auto;
+
+            filter: brightness(0) invert(1);
+
+            opacity: .9;
+        }
+
+        .footer-copy {
+            font-size: 11px;
         }
 
 
-        /* =====================================================
-           ANIMACIJE
-        ===================================================== */
-
-        @keyframes fadeUp {
-
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-
-        }
-
-        .hero-content {
-            animation: fadeUp 0.7s ease both;
-        }
-
-        .hero-card {
-            animation: fadeUp 0.7s 0.12s ease both;
-        }
-
-
-        /* =====================================================
-           MOBILNI
-        ===================================================== */
+        /* ==========================================
+           RESPONSIVE
+        ========================================== */
 
         @media (max-width: 900px) {
+
+            .services-grid {
+                grid-template-columns:
+                    repeat(2, 1fr);
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .gallery-grid {
+                grid-template-columns:
+                    repeat(2, 1fr);
+            }
+
+        }
+
+
+        @media (max-width: 700px) {
+
+            .container {
+                width:
+                    min(100% - 28px, 1180px);
+            }
 
             .nav-links {
                 display: none;
 
                 position: absolute;
 
-                top: 74px;
-                left: 20px;
-                right: 20px;
+                top: 78px;
+
+                left: 0;
+
+                width: 100%;
 
                 padding: 20px;
 
                 background: white;
 
-                border-radius: 20px;
-
-                box-shadow: var(--shadow);
-
                 flex-direction: column;
+
                 align-items: stretch;
 
-                gap: 5px;
+                box-shadow:
+                    0 15px 30px
+                    rgba(0,0,0,.08);
             }
 
             .nav-links.active {
@@ -1201,139 +1152,56 @@
             }
 
             .nav-links a {
-                padding: 13px;
+                padding: 10px;
             }
 
-            .nav-button {
+            .nav-contact {
                 text-align: center;
             }
 
-            .mobile-menu {
+            .menu-btn {
                 display: block;
             }
 
-            .hero-grid {
-                grid-template-columns: 1fr;
-                gap: 40px;
-            }
-
-            .hero-card {
-                min-height: 390px;
-            }
-
-            .services-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .contact-grid {
-                grid-template-columns: 1fr;
-            }
-
-        }
-
-
-        @media (max-width: 650px) {
-
-            .container {
-                width: min(100% - 28px, 1120px);
-            }
-
-            section {
-                padding: 75px 0;
-            }
-
             .hero {
-                min-height: auto;
-
-                padding-top: 125px;
-                padding-bottom: 70px;
+                min-height: 650px;
             }
 
-            h1 {
-                font-size: 45px;
+            .hero h1 {
                 letter-spacing: -2px;
             }
 
-            .hero-text {
-                font-size: 15px;
-            }
-
-            .hero-card {
-                min-height: 330px;
-            }
-
-            .hero-camera {
-                transform:
-                    translate(-50%, -50%)
-                    scale(0.75);
-            }
-
-            .services-grid {
-                grid-template-columns: 1fr 1fr;
-                gap: 10px;
-            }
-
-            .service-card {
-                height: 260px;
-                border-radius: 19px;
-            }
-
-            .service-name {
-                left: 15px;
-                right: 15px;
-                bottom: 15px;
-
-                font-size: 14px;
-            }
-
-            .gallery {
-                grid-template-columns: 1fr 1fr;
-            }
-
-            .gallery-item {
-                min-height: 200px;
-            }
-
-            .gallery-item img {
-                min-height: 200px;
+            section {
+                padding: 70px 0;
             }
 
             .calculator {
-                padding: 20px;
-                border-radius: 25px;
-            }
-
-            .package-box {
-                padding: 20px;
-            }
-
-            .option {
-                padding: 15px;
-            }
-
-            .option-text {
-                max-width: calc(100% - 70px);
-            }
-
-            .option-text strong {
-                font-size: 13px;
+                padding: 24px;
             }
 
             .total-box {
-                padding: 20px;
+                align-items: flex-start;
+
+                flex-direction: column;
             }
 
-            .total-box strong {
-                font-size: 26px;
+            .contact-actions {
+                grid-template-columns: 1fr;
             }
 
-            .contact-card {
-                padding: 25px;
+            .map-wrapper,
+            .map-wrapper iframe {
+                min-height: 380px;
             }
 
             .footer-inner {
                 flex-direction: column;
+
                 text-align: center;
+            }
+
+            .logo img {
+                height: 48px;
             }
 
         }
@@ -1345,8 +1213,22 @@
                 grid-template-columns: 1fr;
             }
 
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+
             .service-card {
-                height: 330px;
+                height: 360px;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+
+                align-items: stretch;
+            }
+
+            .btn {
+                width: 100%;
             }
 
         }
@@ -1358,21 +1240,22 @@
 <body>
 
 
-    <!-- =====================================================
+    <!-- ==========================================
          NAVIGACIJA
-    ===================================================== -->
+    ========================================== -->
 
     <nav>
 
         <div class="container nav-inner">
 
+
+            <!-- PRAVI LOGO IZ GITHUB REPOZITORIJUMA -->
+
             <a href="#pocetna" class="logo">
 
-                <span class="logo-icon">
-                    📷
-                </span>
-
-                Foto Bane
+                <img
+                    src="image_95375e.png"
+                    alt="Foto Bane">
 
             </a>
 
@@ -1391,27 +1274,19 @@
                     Kalkulator
                 </a>
 
-                <a href="#kontakt">
+                <a href="#kontakt" class="nav-contact">
                     Kontakt
-                </a>
-
-                <a
-                    href="#kontakt"
-                    class="nav-button">
-
-                    Zakažite snimanje
-
                 </a>
 
             </div>
 
 
             <button
-                class="mobile-menu"
-                id="mobileMenu"
+                class="menu-btn"
+                id="menuBtn"
                 aria-label="Otvori meni">
 
-                ☰
+                <i class="fa-solid fa-bars"></i>
 
             </button>
 
@@ -1420,721 +1295,689 @@
     </nav>
 
 
-
-    <!-- =====================================================
+    <!-- ==========================================
          HERO
-    ===================================================== -->
+    ========================================== -->
 
-    <main>
+    <header class="hero" id="pocetna">
 
-        <section
-            class="hero"
-            id="pocetna">
+        <div class="container">
 
-            <div class="container hero-grid">
+            <div class="hero-content">
 
 
-                <div class="hero-content">
+                <span class="hero-label">
+                    FOTOGRAFIJA · VIDEO · USPOMENE
+                </span>
 
-                    <div class="eyebrow">
 
-                        <span></span>
+                <h1>
 
-                        FOTO BANE DESPOTOVAC
+                    Trenutak traje.<br>
 
-                    </div>
+                    <span>
+                        Uspomena ostaje.
+                    </span>
 
+                </h1>
 
-                    <h1>
-                        Trenutak koji
-                        vredi zauvek.
-                    </h1>
 
+                <p>
 
-                    <p class="hero-text">
+                    Profesionalno fotografisanje i video produkcija
+                    za najvažnije trenutke vašeg života.
+                    Venčanja, rođendani, krštenja, punoletstva
+                    i studijsko fotografisanje.
 
-                        Profesionalno fotografisanje i video produkcija
-                        za venčanja, proslave, krštenja, rođendane,
-                        događaje i posebne trenutke.
+                </p>
 
-                    </p>
 
+                <div class="hero-buttons">
 
-                    <div class="hero-buttons">
 
-                        <a
-                            href="#kalkulator"
-                            class="btn btn-primary">
+                    <a
+                        href="#kalkulator"
+                        class="btn btn-primary">
 
-                            Izračunaj cenu
+                        <i class="fa-solid fa-calculator"></i>
 
-                        </a>
-
-
-                        <a
-                            href="#kontakt"
-                            class="btn btn-secondary">
-
-                            Kontakt
-
-                        </a>
-
-                    </div>
-
-                </div>
-
-
-
-                <div class="hero-card">
-
-                    <div class="hero-decoration"></div>
-
-                    <div class="hero-decoration two"></div>
-
-                    <div class="hero-camera"></div>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-
-        <!-- =====================================================
-             USLUGE
-        ===================================================== -->
-
-        <section id="usluge">
-
-            <div class="container">
-
-                <div class="section-heading center">
-
-                    <h2>
-                        Usluge
-                    </h2>
-
-                    <p>
-                        Izaberite ono što želite da zabeležimo.
-                    </p>
-
-                </div>
-
-
-                <div class="services-grid">
-
-
-                    <!-- VENČANJA -->
-
-                    <div class="service-card">
-
-                        <img
-                            src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=900&q=85"
-                            alt="Fotografisanje venčanja"
-                            loading="lazy">
-
-                        <div class="service-name">
-                            Venčanja
-                        </div>
-
-                    </div>
-
-
-
-                    <!-- ROĐENDANI -->
-
-                    <div class="service-card">
-
-                        <img
-                            src="https://images.unsplash.com/photo-1530103862676-de8c9debad1d?auto=format&fit=crop&w=900&q=85"
-                            alt="Fotografisanje rođendana"
-                            loading="lazy">
-
-                        <div class="service-name">
-                            Rođendani i punoletstva
-                        </div>
-
-                    </div>
-
-
-
-                    <!-- KRŠTENJA -->
-
-                    <div class="service-card">
-
-                        <img
-                            src="https://images.unsplash.com/photo-1507504031003-b417219a0fde?auto=format&fit=crop&w=900&q=85"
-                            alt="Porodično fotografisanje"
-                            loading="lazy">
-
-                        <div class="service-name">
-                            Krštenja
-                        </div>
-
-                    </div>
-
-
-
-                    <!-- STUDIO -->
-
-                    <div class="service-card">
-
-                        <img
-                            src="https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=900&q=85"
-                            alt="Studijsko fotografisanje"
-                            loading="lazy">
-
-                        <div class="service-name">
-                            Studijsko fotografisanje
-                        </div>
-
-                    </div>
-
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-
-        <!-- =====================================================
-             GALERIJA
-        ===================================================== -->
-
-        <section id="galerija">
-
-            <div class="container">
-
-                <div class="section-heading">
-
-                    <h2>
-                        Trenuci koji ostaju.
-                    </h2>
-
-                    <p>
-                        Svaka fotografija treba da vrati osećaj
-                        trenutka u kome je nastala.
-                    </p>
-
-                </div>
-
-
-                <div class="gallery">
-
-
-                    <div class="gallery-item">
-
-                        <img
-                            src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=900&q=85"
-                            alt="Fotografisanje venčanja"
-                            loading="lazy">
-
-                        <span class="gallery-label">
-                            Fotografisanje
-                        </span>
-
-                    </div>
-
-
-
-                    <div class="gallery-item">
-
-                        <img
-                            src="https://images.unsplash.com/photo-1606800052052-a08af7148866?auto=format&fit=crop&w=900&q=85"
-                            alt="Venčanje"
-                            loading="lazy">
-
-                        <span class="gallery-label">
-                            Venčanja
-                        </span>
-
-                    </div>
-
-
-
-                    <div class="gallery-item">
-
-                        <img
-                            src="https://images.unsplash.com/photo-1492619375914-88005aa9e8fb?auto=format&fit=crop&w=900&q=85"
-                            alt="Video produkcija"
-                            loading="lazy">
-
-                        <span class="gallery-label">
-                            Video
-                        </span>
-
-                    </div>
-
-
-
-                    <div class="gallery-item">
-
-                        <img
-                            src="https://images.unsplash.com/photo-1464349153735-7db50ed83c84?auto=format&fit=crop&w=900&q=85"
-                            alt="Proslava rođendana"
-                            loading="lazy">
-
-                        <span class="gallery-label">
-                            Proslave
-                        </span>
-
-                    </div>
-
-
-
-                    <div class="gallery-item">
-
-                        <img
-                            src="https://images.unsplash.com/photo-1511895426328-dc8714191300?auto=format&fit=crop&w=900&q=85"
-                            alt="Porodično fotografisanje"
-                            loading="lazy">
-
-                        <span class="gallery-label">
-                            Porodica
-                        </span>
-
-                    </div>
-
-
-
-                    <div class="gallery-item">
-
-                        <img
-                            src="https://images.unsplash.com/photo-1473968512647-3e447244af8f?auto=format&fit=crop&w=900&q=85"
-                            alt="Snimanje dronom"
-                            loading="lazy">
-
-                        <span class="gallery-label">
-                            Dron
-                        </span>
-
-                    </div>
-
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-
-        <!-- =====================================================
-             KALKULATOR
-        ===================================================== -->
-
-        <section
-            class="calculator-section"
-            id="kalkulator">
-
-            <div class="container">
-
-                <div class="section-heading center">
-
-                    <h2>
                         Izračunajte cenu
-                    </h2>
 
-                    <p>
-                        Izaberite paket i dodatne usluge.
-                        Cena se automatski obračunava.
-                    </p>
+                    </a>
 
-                </div>
 
+                    <a
+                        href="tel:+381631408171"
+                        class="btn btn-outline">
 
-                <div class="calculator">
+                        <i class="fa-solid fa-phone"></i>
 
+                        Pozovite nas
 
-                    <div class="calculator-title">
-
-                        <h3>
-                            Vaš paket
-                        </h3>
-
-                        <p>
-                            Pomerite klizač i izaberite uslugu.
-                        </p>
-
-                    </div>
-
-
-
-                    <!-- PAKET -->
-
-                    <div class="package-box">
-
-                        <div class="package-top">
-
-                            <span
-                                class="package-name"
-                                id="paket-naziv">
-
-                                Izaberite paket
-
-                            </span>
-
-
-                            <span
-                                class="package-price"
-                                id="paket-cena">
-
-                                0 €
-
-                            </span>
-
-                        </div>
-
-
-                        <input
-                            type="range"
-                            id="paket-slider"
-                            min="0"
-                            max="4"
-                            step="1"
-                            value="0">
-
-
-                        <div class="slider-labels">
-
-                            <span>
-                                Izbor
-                            </span>
-
-                            <span>
-                                Studijski
-                            </span>
-
-                            <span>
-                                Rođendan
-                            </span>
-
-                            <span>
-                                Krštenje
-                            </span>
-
-                            <span>
-                                Venčanje
-                            </span>
-
-                        </div>
-
-                    </div>
-
-
-
-                    <!-- DODATNE OPCIJE -->
-
-                    <div class="options">
-
-
-                        <div class="option">
-
-                            <div class="option-text">
-
-                                <strong>
-                                    Profesionalni video
-                                </strong>
-
-                                <span>
-                                    Dodatna video produkcija · +150 €
-                                </span>
-
-                            </div>
-
-
-                            <label class="switch">
-
-                                <input
-                                    type="checkbox"
-                                    id="video-opcija">
-
-                                <span class="switch-track"></span>
-
-                            </label>
-
-                        </div>
-
-
-
-                        <div class="option">
-
-                            <div class="option-text">
-
-                                <strong>
-                                    Snimanje dronom
-                                </strong>
-
-                                <span>
-                                    Atraktivni snimci iz vazduha · +80 €
-                                </span>
-
-                            </div>
-
-
-                            <label class="switch">
-
-                                <input
-                                    type="checkbox"
-                                    id="dron-opcija">
-
-                                <span class="switch-track"></span>
-
-                            </label>
-
-                        </div>
-
-                    </div>
-
-
-
-                    <!-- UKUPNO -->
-
-                    <div class="total-box">
-
-                        <div>
-
-                            <span>
-                                Procena ukupne cene
-                            </span>
-
-                            <div>
-
-                                <strong id="ukupna-cena">
-                                    0 €
-                                </strong>
-
-                            </div>
-
-                        </div>
-
-
-                        <span
-                            style="
-                                font-size:30px;
-                                opacity:.7;
-                            ">
-
-                            €
-
-                        </span>
-
-                    </div>
+                    </a>
 
 
                 </div>
 
             </div>
 
-        </section>
+        </div>
+
+    </header>
 
 
+    <!-- ==========================================
+         USLUGE
+    ========================================== -->
 
-        <!-- =====================================================
-             SCRATCH KARTICA
-        ===================================================== -->
+    <section id="usluge">
 
-        <section
-            class="discount-section"
-            id="popust">
+        <div class="container">
 
-            <div class="container">
 
-                <div class="section-heading center">
+            <div class="section-head">
 
-                    <h2>
-                        Imate li sreće?
-                    </h2>
+                <div class="section-label">
+                    Naše usluge
+                </div>
 
-                    <p>
-                        Pređite prstom preko kartice i otkrijte
-                        svoj promotivni kod.
-                    </p>
+
+                <h2 class="section-title">
+
+                    Fotografija za<br>
+                    svaki važan trenutak.
+
+                </h2>
+
+
+                <p class="section-description">
+
+                    Birajte uslugu koja vam je potrebna i
+                    napravite uspomene koje ćete čuvati godinama.
+
+                </p>
+
+            </div>
+
+
+            <div class="services-grid">
+
+
+                <div class="service-card">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=900&q=85"
+                        alt="Fotografisanje venčanja">
+
+                    <div class="service-name">
+                        Venčanja
+                    </div>
 
                 </div>
 
 
-                <div class="scratch-wrapper">
+                <div class="service-card">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1530103862676-de8c9debad1d?auto=format&fit=crop&w=900&q=85"
+                        alt="Fotografisanje rođendana i punoletstva">
+
+                    <div class="service-name">
+                        Rođendani i punoletstva
+                    </div>
+
+                </div>
 
 
-                    <div class="scratch-card">
+                <div class="service-card">
 
-                        <div class="scratch-content">
+                    <img
+                        src="https://images.unsplash.com/photo-1507504031003-b417219a0fde?auto=format&fit=crop&w=900&q=85"
+                        alt="Fotografisanje krštenja">
 
-                            <small>
-                                VAŠ PROMOTIVNI KOD
-                            </small>
+                    <div class="service-name">
+                        Krštenja
+                    </div>
 
-                            <strong id="discount-code">
-                                BANE26-0000
+                </div>
+
+
+                <div class="service-card">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=900&q=85"
+                        alt="Studijsko fotografisanje">
+
+                    <div class="service-name">
+                        Studijsko fotografisanje
+                    </div>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ==========================================
+         GALERIJA
+    ========================================== -->
+
+    <section
+        class="gallery"
+        id="galerija">
+
+        <div class="container">
+
+
+            <div class="section-head">
+
+                <div class="section-label">
+                    Galerija
+                </div>
+
+
+                <h2 class="section-title">
+
+                    Trenuci koje<br>
+                    vredi sačuvati.
+
+                </h2>
+
+            </div>
+
+
+            <div class="gallery-grid">
+
+
+                <div class="gallery-item">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1000&q=85"
+                        alt="Venčanje">
+
+                </div>
+
+
+                <div class="gallery-item">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=1000&q=85"
+                        alt="Mladenci">
+
+                </div>
+
+
+                <div class="gallery-item">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=1000&q=85"
+                        alt="Fotografisanje venčanja">
+
+                </div>
+
+
+                <div class="gallery-item">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1527529482837-4698179dc6ce?auto=format&fit=crop&w=1000&q=85"
+                        alt="Proslava">
+
+                </div>
+
+
+                <div class="gallery-item">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1530103862676-de8c9debad1d?auto=format&fit=crop&w=1000&q=85"
+                        alt="Rođendan">
+
+                </div>
+
+
+                <div class="gallery-item">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1516035069371-29a1b244cc32?auto=format&fit=crop&w=1000&q=85"
+                        alt="Fotograf">
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ==========================================
+         KALKULATOR
+    ========================================== -->
+
+    <section
+        class="calculator-section"
+        id="kalkulator">
+
+        <div class="container">
+
+
+            <div class="section-head">
+
+                <div class="section-label">
+                    Brza procena
+                </div>
+
+
+                <h2 class="section-title">
+                    Izračunajte cenu.
+                </h2>
+
+
+                <p class="section-description">
+
+                    Izaberite paket i dodatne usluge.
+                    Cena se automatski izračunava.
+
+                </p>
+
+            </div>
+
+
+            <div class="calculator">
+
+
+                <h3>
+                    Vaš paket
+                </h3>
+
+
+                <p class="calculator-intro">
+
+                    Pomerite klizač i izaberite uslugu.
+
+                </p>
+
+
+                <div class="package-area">
+
+
+                    <div class="package-label">
+
+                        <strong>
+                            Paket
+                        </strong>
+
+
+                        <span id="paket-naziv">
+                            Izaberite paket
+                        </span>
+
+                    </div>
+
+
+                    <input
+                        type="range"
+                        id="paket"
+                        class="range"
+                        min="0"
+                        max="4"
+                        step="1"
+                        value="0">
+
+                </div>
+
+
+                <div class="options">
+
+
+                    <div class="option">
+
+
+                        <div class="option-text">
+
+                            <strong>
+                                Profesionalni video
                             </strong>
 
                             <span>
-                                Sačuvajte screenshot koda
+                                Dodatna video produkcija · +150 €
                             </span>
 
                         </div>
 
 
-                        <canvas
-                            id="scratchCanvas">
-                        </canvas>
+                        <label class="switch">
+
+                            <input
+                                type="checkbox"
+                                id="video-opcija">
+
+                            <span class="switch-track"></span>
+
+                        </label>
 
                     </div>
 
 
-                    <p class="scratch-info">
+                    <div class="option">
 
-                        <strong>
-                            Kako ostvarujete popust?
-                        </strong>
 
-                        <br>
+                        <div class="option-text">
 
-                        Popust ostvarujete donošenjem
-                        screenshota ovog promotivnog koda.
-                        Popust važi za usluge čija je ukupna
-                        cena veća od <strong>150 €</strong>.
+                            <strong>
+                                Snimanje dronom
+                            </strong>
 
-                    </p>
+                            <span>
+                                Atraktivni snimci iz vazduha · +80 €
+                            </span>
+
+                        </div>
+
+
+                        <label class="switch">
+
+                            <input
+                                type="checkbox"
+                                id="dron-opcija">
+
+                            <span class="switch-track"></span>
+
+                        </label>
+
+                    </div>
+
 
                 </div>
+
+
+                <div class="total-box">
+
+
+                    <div>
+
+                        <small>
+                            UKUPNA CENA
+                        </small>
+
+
+                        <strong id="ukupna-cena">
+                            0 €
+                        </strong>
+
+                    </div>
+
+
+                    <div>
+
+                        <i class="fa-solid fa-camera fa-2x"></i>
+
+                    </div>
+
+
+                </div>
+
 
             </div>
 
-        </section>
+        </div>
+
+    </section>
 
 
+    <!-- ==========================================
+         GREBALICA
+    ========================================== -->
 
-        <!-- =====================================================
-             KONTAKT
-        ===================================================== -->
+    <section class="scratch-section">
 
-        <section
-            class="contact-section"
-            id="kontakt">
-
-            <div class="container">
+        <div class="container">
 
 
-                <div class="section-heading">
+            <div class="section-head">
 
-                    <h2>
-                        Hajde da zabeležimo vaš trenutak.
-                    </h2>
 
-                    <p>
-                        Pozovite nas, pošaljite poruku ili nas
-                        pronađite u Despotovcu.
-                    </p>
-
+                <div class="section-label">
+                    Malo iznenađenje
                 </div>
 
 
-
-                <div class="contact-grid">
-
-
-                    <div class="contact-card">
-
-                        <h3>
-                            Kontakt
-                        </h3>
+                <h2 class="section-title">
+                    Probajte sreću.
+                </h2>
 
 
-                        <div class="contact-item">
+                <p
+                    class="section-description"
+                    style="margin-left:auto;margin-right:auto;">
 
-                            <div class="contact-icon">
-                                📍
-                            </div>
+                    Kliknite na karticu i otkrijte
+                    svoj kod za popust.
 
-                            <div>
-
-                                <strong>
-                                    Adresa
-                                </strong>
-
-                                <span>
-                                    Foto Bane, Despotovac
-                                </span>
-
-                            </div>
-
-                        </div>
+                </p>
 
 
-
-                        <div class="contact-item">
-
-                            <div class="contact-icon">
-                                ☎
-                            </div>
-
-                            <div>
-
-                                <strong>
-                                    Telefon
-                                </strong>
-
-                                <a href="tel:+381000000000">
-                                    Pozovite nas
-                                </a>
-
-                            </div>
-
-                        </div>
+            </div>
 
 
-
-                        <div class="contact-item">
-
-                            <div class="contact-icon">
-                                ◎
-                            </div>
-
-                            <div>
-
-                                <strong>
-                                    Instagram
-                                </strong>
-
-                                <a
-                                    href="#"
-                                    target="_blank">
-
-                                    @fotobane
-
-                                </a>
-
-                            </div>
-
-                        </div>
+            <div
+                class="scratch-card"
+                id="scratchCard">
 
 
+                <h3>
+                    Otkrijte popust
+                </h3>
+
+
+                <p>
+                    Kliknite ovde da otkrijete svoj kod.
+                </p>
+
+
+                <div
+                    class="scratch-result"
+                    id="scratchResult">
+                </div>
+
+
+            </div>
+
+
+            <p class="scratch-note">
+
+                Sačuvajte screenshot koda i pokažite ga
+                prilikom dogovora.
+                Popust važi za ukupnu cenu veću od 150 €.
+
+            </p>
+
+
+        </div>
+
+    </section>
+
+
+    <!-- ==========================================
+         KONTAKT
+    ========================================== -->
+
+    <section
+        class="contact-section"
+        id="kontakt">
+
+        <div class="container">
+
+
+            <div class="section-head">
+
+
+                <div class="section-label">
+                    Kontakt
+                </div>
+
+
+                <h2 class="section-title">
+
+                    Hajde da sačuvamo<br>
+                    vaš trenutak.
+
+                </h2>
+
+
+                <p class="section-description">
+
+                    Pozovite nas ili nam se javite
+                    putem Vibera ili WhatsAppa.
+
+                </p>
+
+
+            </div>
+
+
+            <div class="contact-grid">
+
+
+                <!-- KONTAKT KARTICA -->
+
+                <div class="contact-card">
+
+
+                    <h3>
+                        Foto Bane
+                    </h3>
+
+
+                    <p>
+
+                        Fotografisanje i video produkcija
+                        u Despotovcu i okolini.
+
+                    </p>
+
+
+                    <!-- BROJ -->
+
+                    <a
+                        href="tel:+381631408171"
+                        class="phone-number">
+
+                        <i class="fa-solid fa-phone"></i>
+
+                        +381631408171
+
+                    </a>
+
+
+                    <!-- DUGMAD -->
+
+                    <div class="contact-actions">
+
+
+                        <!-- TELEFON -->
 
                         <a
-                            href="https://maps.app.goo.gl/1JY6z4WowRy2xrtGA"
-                            target="_blank"
-                            class="btn btn-primary"
-                            style="
-                                display:inline-block;
-                                margin-top:10px;
-                            ">
+                            href="tel:+381631408171"
+                            class="contact-action phone">
 
-                            Otvori lokaciju
+                            <i class="fa-solid fa-phone"></i>
+
+                            <span>
+                                Pozovi
+                            </span>
 
                         </a>
+
+
+                        <!-- VIBER -->
+
+                        <a
+                            href="viber://chat?number=%2B381631408171"
+                            class="contact-action viber">
+
+                            <i class="fa-brands fa-viber"></i>
+
+                            <span>
+                                Viber
+                            </span>
+
+                        </a>
+
+
+                        <!-- WHATSAPP -->
+
+                        <a
+                            href="https://wa.me/381631408171"
+                            target="_blank"
+                            rel="noopener"
+                            class="contact-action whatsapp">
+
+                            <i class="fa-brands fa-whatsapp"></i>
+
+                            <span>
+                                WhatsApp
+                            </span>
+
+                        </a>
+
 
                     </div>
 
 
+                    <div class="contact-info">
 
-                    <!-- GOOGLE MAPS -->
 
-                    <div class="map">
+                        <div>
+
+                            <i class="fa-solid fa-location-dot"></i>
+
+                            <span>
+                                Despotovac, Srbija
+                            </span>
+
+                        </div>
+
+
+                        <div>
+
+                            <i class="fa-solid fa-camera"></i>
+
+                            <span>
+                                Fotografisanje i video produkcija
+                            </span>
+
+                        </div>
+
+
+                        <div>
+
+                            <i class="fa-solid fa-clock"></i>
+
+                            <span>
+                                Po dogovoru
+                            </span>
+
+                        </div>
+
+
+                    </div>
+
+
+                </div>
+
+
+                <!-- GOOGLE MAPS -->
+
+                <div>
+
+
+                    <div class="map-wrapper">
+
 
                         <iframe
                             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2865.495740647732!2d21.440419975681756!3d44.093761923826165!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4756ca3773afc17f%3A0xc4913d4b85feabf5!2sFoto%20Bane%20Despotovac!5e0!3m2!1ssr!2srs!4v1790847129925!5m2!1ssr!2srs"
@@ -2143,67 +1986,123 @@
                             referrerpolicy="no-referrer-when-downgrade">
                         </iframe>
 
+
                     </div>
+
+
+                    <a
+                        href="https://maps.app.goo.gl/1JY6z4WowRy2xrtGA"
+                        target="_blank"
+                        rel="noopener"
+                        class="map-button">
+
+                        <i class="fa-solid fa-location-arrow"></i>
+
+                        Otvori lokaciju u Google mapama
+
+                    </a>
+
 
                 </div>
 
+
             </div>
 
-        </section>
+        </div>
 
-    </main>
+    </section>
 
 
-
-    <!-- =====================================================
+    <!-- ==========================================
          FOOTER
-    ===================================================== -->
+    ========================================== -->
 
     <footer>
 
+
         <div class="container footer-inner">
 
+
             <div class="footer-logo">
-                Foto Bane Despotovac
+
+                <img
+                    src="image_95375e.png"
+                    alt="Foto Bane">
+
             </div>
 
-            <p>
-                © 2026 Foto Bane. Sva prava zadržana.
-            </p>
+
+            <div class="footer-copy">
+
+                © 2026 Foto Bane Despotovac.
+                Sva prava zadržana.
+
+            </div>
+
 
         </div>
+
 
     </footer>
 
 
-
-    <!-- =====================================================
+    <!-- ==========================================
          JAVASCRIPT
-    ===================================================== -->
+    ========================================== -->
 
     <script>
 
 
-        /* =====================================================
+        /* ==========================================
            MOBILNI MENI
-        ===================================================== */
+        ========================================== */
 
-        const mobileMenu =
-            document.getElementById("mobileMenu");
+        const menuBtn =
+            document.getElementById("menuBtn");
 
         const navLinks =
             document.getElementById("navLinks");
 
 
-        mobileMenu.addEventListener(
+        menuBtn.addEventListener(
             "click",
-            function() {
+            function () {
 
                 navLinks.classList.toggle("active");
+
+                const icon =
+                    menuBtn.querySelector("i");
+
+
+                if (
+                    navLinks.classList.contains("active")
+                ) {
+
+                    icon.classList.remove(
+                        "fa-bars"
+                    );
+
+                    icon.classList.add(
+                        "fa-xmark"
+                    );
+
+                } else {
+
+                    icon.classList.remove(
+                        "fa-xmark"
+                    );
+
+                    icon.classList.add(
+                        "fa-bars"
+                    );
+
+                }
 
             }
         );
 
+
+        /* Zatvaranje mobilnog menija */
 
         document
             .querySelectorAll(".nav-links a")
@@ -2217,39 +2116,34 @@
                             "active"
                         );
 
+                        const icon =
+                            menuBtn.querySelector("i");
+
+
+                        icon.classList.remove(
+                            "fa-xmark"
+                        );
+
+                        icon.classList.add(
+                            "fa-bars"
+                        );
+
                     }
                 );
 
             });
 
 
+        /* ==========================================
+           ZVUK
+        ========================================== */
 
-        /* =====================================================
-           VIBRACIJA
-        ===================================================== */
-
-        function vibriraj() {
-
-            if ("vibrate" in navigator) {
-
-                navigator.vibrate(8);
-
-            }
-
-        }
-
-
-
-        /* =====================================================
-           SUPTILAN ZVUK
-        ===================================================== */
-
-        let audioContext = null;
+        let audioContext;
 
 
         function napraviZvuk(
-            frekvencija = 600,
-            jacina = 0.06
+            frekvencija,
+            trajanje
         ) {
 
             try {
@@ -2265,16 +2159,6 @@
                 }
 
 
-                if (
-                    audioContext.state ===
-                    "suspended"
-                ) {
-
-                    audioContext.resume();
-
-                }
-
-
                 const oscillator =
                     audioContext.createOscillator();
 
@@ -2282,27 +2166,28 @@
                     audioContext.createGain();
 
 
-                oscillator.type = "sine";
+                oscillator.type =
+                    "sine";
 
                 oscillator.frequency.value =
                     frekvencija;
 
 
                 gain.gain.setValueAtTime(
-                    0,
+                    0.0001,
                     audioContext.currentTime
                 );
 
 
-                gain.gain.linearRampToValueAtTime(
-                    jacina,
+                gain.gain.exponentialRampToValueAtTime(
+                    0.06,
                     audioContext.currentTime + 0.01
                 );
 
 
                 gain.gain.exponentialRampToValueAtTime(
-                    0.001,
-                    audioContext.currentTime + 0.09
+                    0.0001,
+                    audioContext.currentTime + trajanje
                 );
 
 
@@ -2317,20 +2202,50 @@
 
 
                 oscillator.stop(
-                    audioContext.currentTime + 0.1
+                    audioContext.currentTime +
+                    trajanje
                 );
 
-            } catch (error) {
+
+            } catch (e) {}
+
+        }
+
+
+        /* ==========================================
+           VIBRACIJA
+        ========================================== */
+
+        function vibriraj() {
+
+            if ("vibrate" in navigator) {
+
+                navigator.vibrate(8);
 
             }
 
         }
 
 
-
-        /* =====================================================
+        /* ==========================================
            KALKULATOR
-        ===================================================== */
+        ========================================== */
+
+        const paket =
+            document.getElementById("paket");
+
+        const paketNaziv =
+            document.getElementById("paket-naziv");
+
+        const ukupnaCena =
+            document.getElementById("ukupna-cena");
+
+        const videoOpcija =
+            document.getElementById("video-opcija");
+
+        const dronOpcija =
+            document.getElementById("dron-opcija");
+
 
         const paketi = [
 
@@ -2362,108 +2277,61 @@
         ];
 
 
-        const paketSlider =
-            document.getElementById(
-                "paket-slider"
-            );
-
-
-        const paketNaziv =
-            document.getElementById(
-                "paket-naziv"
-            );
-
-
-        const paketCena =
-            document.getElementById(
-                "paket-cena"
-            );
-
-
-        const ukupnaCena =
-            document.getElementById(
-                "ukupna-cena"
-            );
-
-
-        const videoOpcija =
-            document.getElementById(
-                "video-opcija"
-            );
-
-
-        const dronOpcija =
-            document.getElementById(
-                "dron-opcija"
-            );
-
-
-
         function azurirajKalkulator(
             zvuk = true
         ) {
 
-            const indeks =
-                Number(
-                    paketSlider.value
-                );
+            const izabrani =
+                paketi[
+                    Number(paket.value)
+                ];
 
 
-            const paket =
-                paketi[indeks];
+            let cena =
+                izabrani.cena;
 
 
-            let ukupno =
-                paket.cena;
+            if (
+                videoOpcija.checked
+            ) {
 
-
-            if (videoOpcija.checked) {
-
-                ukupno += 150;
+                cena += 150;
 
             }
 
 
-            if (dronOpcija.checked) {
+            if (
+                dronOpcija.checked
+            ) {
 
-                ukupno += 80;
+                cena += 80;
 
             }
 
 
             paketNaziv.textContent =
-                paket.naziv;
-
-
-            paketCena.textContent =
-                paket.cena + " €";
+                izabrani.naziv;
 
 
             ukupnaCena.textContent =
-                ukupno + " €";
+                cena + " €";
 
 
             if (zvuk) {
 
                 napraviZvuk(
-                    520,
-                    0.045
+                    550,
+                    0.06
                 );
 
+                vibriraj();
+
             }
-
-
-            vibriraj();
 
         }
 
 
-
-        /* =====================================================
-           SLIDER
-        ===================================================== */
-
-        paketSlider.addEventListener(
+        paket.addEventListener(
             "input",
             function() {
 
@@ -2475,14 +2343,10 @@
         );
 
 
-
-        /* =====================================================
-           VIDEO SWITCH
-        ===================================================== */
-
         videoOpcija.addEventListener(
             "change",
-            function() {
+            function () {
+
 
                 if (this.checked) {
 
@@ -2512,14 +2376,10 @@
         );
 
 
-
-        /* =====================================================
-           DRON SWITCH
-        ===================================================== */
-
         dronOpcija.addEventListener(
             "change",
-            function() {
+            function () {
+
 
                 if (this.checked) {
 
@@ -2549,257 +2409,67 @@
         );
 
 
-
-        /* =====================================================
-           PRVI OBRAČUN
-        ===================================================== */
-
         azurirajKalkulator(
             false
         );
 
 
+        /* ==========================================
+           GREBALICA
+        ========================================== */
 
-        /* =====================================================
-           SCRATCH KARTICA
-        ===================================================== */
-
-        const canvas =
+        const scratchCard =
             document.getElementById(
-                "scratchCanvas"
+                "scratchCard"
             );
 
-
-        const ctx =
-            canvas.getContext("2d");
-
-
-        const discountCode =
+        const scratchResult =
             document.getElementById(
-                "discount-code"
+                "scratchResult"
             );
 
 
-        const randomNumber =
-            Math.floor(
-                1000 +
-                Math.random() * 9000
-            );
+        let otkriveno = false;
 
 
-        discountCode.textContent =
-            "BANE26-" +
-            randomNumber;
+        scratchCard.addEventListener(
+            "click",
+            function () {
 
 
+                if (otkriveno) {
 
-        /* =====================================================
-           CANVAS
-        ===================================================== */
+                    return;
 
-        function resizeCanvas() {
+                }
 
-            const rect =
-                canvas.getBoundingClientRect();
 
+                otkriveno = true;
 
-            const ratio =
-                window.devicePixelRatio ||
-                1;
 
-
-            canvas.width =
-                rect.width * ratio;
-
-
-            canvas.height =
-                rect.height * ratio;
-
-
-            ctx.setTransform(
-                ratio,
-                0,
-                0,
-                ratio,
-                0,
-                0
-            );
-
-
-            nacrtajScratch();
-
-        }
-
-
-
-        function nacrtajScratch() {
-
-            const width =
-                canvas.clientWidth;
-
-
-            const height =
-                canvas.clientHeight;
-
-
-            ctx.globalCompositeOperation =
-                "source-over";
-
-
-            const gradient =
-                ctx.createLinearGradient(
-                    0,
-                    0,
-                    width,
-                    height
-                );
-
-
-            gradient.addColorStop(
-                0,
-                "#b9b9b9"
-            );
-
-
-            gradient.addColorStop(
-                0.5,
-                "#dddddd"
-            );
-
-
-            gradient.addColorStop(
-                1,
-                "#a9a9a9"
-            );
-
-
-            ctx.fillStyle =
-                gradient;
-
-
-            ctx.fillRect(
-                0,
-                0,
-                width,
-                height
-            );
-
-
-            ctx.fillStyle =
-                "#666666";
-
-
-            ctx.font =
-                "700 14px Montserrat";
-
-
-            ctx.textAlign =
-                "center";
-
-
-            ctx.textBaseline =
-                "middle";
-
-
-            ctx.fillText(
-                "PREĐITE PRSTOM OVDE",
-                width / 2,
-                height / 2
-            );
-
-
-            ctx.globalCompositeOperation =
-                "destination-out";
-
-        }
-
-
-
-        window.addEventListener(
-            "resize",
-            resizeCanvas
-        );
-
-
-        resizeCanvas();
-
-
-
-        /* =====================================================
-           SCRATCH INTERAKCIJA
-        ===================================================== */
-
-        let scratching = false;
-
-
-        function ogrebi(
-            x,
-            y
-        ) {
-
-            ctx.beginPath();
-
-
-            ctx.arc(
-                x,
-                y,
-                24,
-                0,
-                Math.PI * 2
-            );
-
-
-            ctx.fill();
-
-        }
-
-
-
-        function pozicijaDogadjaja(
-            event
-        ) {
-
-            const rect =
-                canvas.getBoundingClientRect();
-
-
-            return {
-
-                x:
-                    event.clientX -
-                    rect.left,
-
-                y:
-                    event.clientY -
-                    rect.top
-
-            };
-
-        }
-
-
-
-        canvas.addEventListener(
-            "pointerdown",
-            function(event) {
-
-                scratching = true;
-
-
-                canvas.setPointerCapture(
-                    event.pointerId
-                );
-
-
-                const position =
-                    pozicijaDogadjaja(
-                        event
+                const broj =
+                    Math.floor(
+                        1000 +
+                        Math.random() *
+                        9000
                     );
 
 
-                ogrebi(
-                    position.x,
-                    position.y
+                const kod =
+                    "BANE26-" + broj;
+
+
+                scratchResult.textContent =
+                    "Vaš kod: " + kod;
+
+
+                scratchResult.style.display =
+                    "block";
+
+
+                napraviZvuk(
+                    800,
+                    0.12
                 );
 
 
@@ -2809,50 +2479,46 @@
         );
 
 
+        /* ==========================================
+           SMOOTH SCROLL
+        ========================================== */
 
-        canvas.addEventListener(
-            "pointermove",
-            function(event) {
-
-                if (!scratching) {
-                    return;
-                }
-
-
-                const position =
-                    pozicijaDogadjaja(
-                        event
-                    );
+        document
+            .querySelectorAll(
+                'a[href^="#"]'
+            )
+            .forEach(function(anchor) {
 
 
-                ogrebi(
-                    position.x,
-                    position.y
+                anchor.addEventListener(
+                    "click",
+                    function(e) {
+
+
+                        const target =
+                            document.querySelector(
+                                this.getAttribute(
+                                    "href"
+                                )
+                            );
+
+
+                        if (target) {
+
+                            e.preventDefault();
+
+
+                            target.scrollIntoView({
+                                behavior:
+                                    "smooth"
+                            });
+
+                        }
+
+                    }
                 );
 
-            }
-        );
-
-
-
-        canvas.addEventListener(
-            "pointerup",
-            function() {
-
-                scratching = false;
-
-            }
-        );
-
-
-        canvas.addEventListener(
-            "pointercancel",
-            function() {
-
-                scratching = false;
-
-            }
-        );
+            });
 
 
     </script>
