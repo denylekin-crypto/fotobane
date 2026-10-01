@@ -1,18 +1,32 @@
+```html
 <!DOCTYPE html>
 <html lang="sr">
 <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
     <title>Foto Bane | Despotovac</title>
 
-    <!-- Fontovi -->
+    <!-- ==========================================
+         FONTOVI
+    =========================================== -->
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
-    <!-- Ikonice -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap"
+          rel="stylesheet">
+
+    <!-- ==========================================
+         IKONICE
+    =========================================== -->
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
 
     <style>
 
@@ -21,6 +35,7 @@
         ===================================================== */
 
         :root {
+
             --primary-green: #1a7a58;
             --primary-green-dark: #135d42;
             --primary-green-light: #eaf6f1;
@@ -49,44 +64,75 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+
             font-family: 'Montserrat', sans-serif;
+
             scroll-behavior: smooth;
         }
 
+
         body {
+
             background: var(--bg-white);
+
             color: var(--text-dark);
+
             line-height: 1.6;
+
             overflow-x: hidden;
         }
 
+
         a {
+
             text-decoration: none;
+
             color: inherit;
         }
 
-        h1, h2, h3 {
+
+        h1,
+        h2,
+        h3 {
+
             font-weight: 700;
         }
 
+
         h2 {
+
             font-size: 2.2rem;
+
             text-align: center;
+
             margin-bottom: 45px;
+
             color: var(--primary-green);
+
             position: relative;
+
             padding-bottom: 12px;
         }
 
+
         h2::after {
+
             content: "";
+
             position: absolute;
+
             bottom: 0;
+
             left: 50%;
+
             transform: translateX(-50%);
+
             width: 55px;
+
             height: 3px;
+
             border-radius: 10px;
+
             background: var(--accent-gold);
         }
 
@@ -96,28 +142,82 @@
         ===================================================== */
 
         .btn {
+
             display: inline-flex;
+
             align-items: center;
+
             justify-content: center;
+
             padding: 14px 28px;
+
             border-radius: 50px;
+
             font-weight: 600;
+
             letter-spacing: .3px;
+
             transition: .3s ease;
+
             cursor: pointer;
+
             border: none;
         }
 
+
         .btn-primary {
+
             background: var(--primary-green);
+
             color: white;
-            box-shadow: 0 8px 25px rgba(26,122,88,.22);
+
+            box-shadow:
+                0 8px 25px rgba(26,122,88,.22);
         }
 
+
         .btn-primary:hover {
+
             background: var(--primary-green-dark);
+
             transform: translateY(-2px);
-            box-shadow: 0 12px 30px rgba(26,122,88,.30);
+
+            box-shadow:
+                0 12px 30px rgba(26,122,88,.30);
+        }
+
+
+        .btn-map {
+
+            margin-top: 15px;
+
+            background: var(--primary-green);
+
+            color: white;
+
+            display: inline-flex;
+
+            align-items: center;
+
+            gap: 9px;
+
+            padding: 12px 20px;
+
+            border-radius: 30px;
+
+            font-size: .85rem;
+
+            font-weight: 600;
+
+            transition: .3s ease;
+        }
+
+
+        .btn-map:hover {
+
+            background: var(--primary-green-dark);
+
+            transform: translateY(-2px);
         }
 
 
@@ -126,48 +226,82 @@
         ===================================================== */
 
         nav {
+
             position: fixed;
+
             top: 0;
+
             width: 100%;
+
             height: 80px;
+
             background: rgba(255,255,255,.90);
+
             backdrop-filter: blur(18px);
+
             -webkit-backdrop-filter: blur(18px);
+
             display: flex;
+
             align-items: center;
+
             justify-content: space-between;
+
             padding: 0 5%;
+
             z-index: 1000;
-            border-bottom: 1px solid rgba(0,0,0,.04);
+
+            border-bottom:
+                1px solid rgba(0,0,0,.04);
         }
 
+
         .logo-container img {
+
             height: 50px;
+
             width: auto;
         }
 
+
         .nav-links {
+
             display: flex;
+
             gap: 30px;
+
             list-style: none;
+
             align-items: center;
         }
 
+
         .nav-links a {
+
             font-size: .85rem;
+
             font-weight: 600;
+
             color: var(--text-dark);
+
             transition: .25s ease;
         }
 
+
         .nav-links a:hover {
+
             color: var(--primary-green);
         }
 
+
         .menu-toggle {
+
             display: none;
+
             font-size: 1.5rem;
+
             color: var(--primary-green);
+
             cursor: pointer;
         }
 
@@ -177,6 +311,7 @@
         ===================================================== */
 
         section {
+
             padding: 100px 5%;
         }
 
@@ -186,55 +321,91 @@
         ===================================================== */
 
         .hero {
+
             min-height: 100vh;
+
             display: flex;
+
             align-items: center;
+
             justify-content: center;
+
             text-align: center;
 
             background:
+
                 linear-gradient(
                     rgba(255,255,255,.88),
                     rgba(255,255,255,.96)
                 ),
+
                 url("https://images.unsplash.com/photo-1511895426328-dc8714191300?auto=format&fit=crop&w=1920&q=80")
+
                 center/cover no-repeat;
         }
 
+
         .hero-content {
+
             max-width: 850px;
+
             padding: 40px 20px;
         }
 
+
         .badge {
+
             display: inline-flex;
+
             align-items: center;
+
             gap: 8px;
+
             background: var(--accent-gold);
+
             color: white;
+
             padding: 8px 18px;
+
             border-radius: 30px;
+
             font-size: .75rem;
+
             font-weight: 700;
+
             margin-bottom: 25px;
+
             letter-spacing: .7px;
         }
 
+
         .hero h1 {
-            font-size: clamp(2.5rem, 6vw, 4.3rem);
+
+            font-size:
+                clamp(2.5rem, 6vw, 4.3rem);
+
             line-height: 1.1;
+
             margin-bottom: 25px;
+
             color: var(--text-dark);
         }
 
+
         .hero h1 span {
+
             color: var(--primary-green);
         }
 
+
         .hero p {
+
             max-width: 700px;
+
             margin: 0 auto 35px;
+
             color: var(--text-light);
+
             font-size: 1.15rem;
         }
 
@@ -244,44 +415,72 @@
         ===================================================== */
 
         #portfolio {
+
             background: var(--bg-light);
         }
 
+
         .portfolio-grid {
+
             max-width: 1100px;
+
             margin: auto;
+
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
             gap: 25px;
         }
 
+
         .portfolio-item {
+
             background: white;
+
             border-radius: 20px;
+
             overflow: hidden;
+
             box-shadow: var(--shadow-soft);
+
             transition: .35s ease;
         }
 
+
         .portfolio-item:hover {
+
             transform: translateY(-8px);
+
             box-shadow: var(--shadow-medium);
         }
 
+
         .portfolio-item img {
+
             width: 100%;
+
             height: 260px;
+
             object-fit: cover;
+
             display: block;
         }
 
+
         .portfolio-info {
+
             padding: 22px;
+
             text-align: center;
         }
 
+
         .portfolio-info h3 {
+
             color: var(--primary-green);
+
             font-size: 1rem;
         }
 
@@ -291,47 +490,79 @@
         ===================================================== */
 
         #kalkulator {
+
             background: white;
         }
 
+
         .calculator-intro {
+
             text-align: center;
+
             color: var(--text-light);
+
             max-width: 650px;
-            margin: -25px auto 40px;
+
+            margin:
+                -25px auto 40px;
         }
 
+
         .kalkulator-container {
+
             max-width: 700px;
+
             margin: auto;
+
             padding: 45px;
+
             border-radius: 28px;
+
             background: rgba(255,255,255,.95);
-            border: 1px solid var(--border);
+
+            border:
+                1px solid var(--border);
+
             box-shadow: var(--shadow-medium);
         }
 
+
         .calculator-header {
+
             text-align: center;
+
             margin-bottom: 35px;
         }
 
+
         .calculator-header small {
+
             color: var(--text-light);
+
             font-size: .8rem;
         }
 
+
         .calculator-event {
+
             margin-top: 8px;
+
             font-size: 1.7rem;
+
             color: var(--primary-green);
+
             font-weight: 800;
         }
 
+
         .calculator-price {
+
             margin-top: 5px;
+
             font-size: 2.3rem;
+
             font-weight: 800;
+
             color: var(--text-dark);
         }
 
@@ -341,52 +572,91 @@
         ===================================================== */
 
         .main-slider {
-            margin: 35px 0 45px;
+
+            margin:
+                35px 0 45px;
         }
 
+
         .main-slider input[type=range] {
+
             width: 100%;
         }
 
+
         input[type=range] {
+
             appearance: none;
+
             -webkit-appearance: none;
+
             height: 6px;
+
             border-radius: 10px;
-            background: linear-gradient(
-                to right,
-                var(--primary-green) 0%,
-                var(--primary-green) 0%,
-                #e3e8e5 0%,
-                #e3e8e5 100%
-            );
+
+            background:
+
+                linear-gradient(
+                    to right,
+                    var(--primary-green) 0%,
+                    var(--primary-green) 0%,
+                    #e3e8e5 0%,
+                    #e3e8e5 100%
+                );
+
             outline: none;
         }
 
+
         input[type=range]::-webkit-slider-thumb {
+
             appearance: none;
+
             -webkit-appearance: none;
+
             width: 28px;
+
             height: 28px;
+
             border-radius: 50%;
+
             background: white;
-            border: 7px solid var(--primary-green);
-            box-shadow: 0 3px 12px rgba(0,0,0,.18);
+
+            border:
+                7px solid var(--primary-green);
+
+            box-shadow:
+                0 3px 12px rgba(0,0,0,.18);
+
             cursor: pointer;
-            transition: transform .15s ease;
+
+            transition:
+                transform .15s ease;
         }
 
+
         input[type=range]::-webkit-slider-thumb:active {
+
             transform: scale(1.18);
         }
 
+
         input[type=range]::-moz-range-thumb {
+
             width: 20px;
+
             height: 20px;
+
             border-radius: 50%;
+
             background: var(--primary-green);
-            border: 5px solid white;
-            box-shadow: 0 3px 12px rgba(0,0,0,.18);
+
+            border:
+                5px solid white;
+
+            box-shadow:
+                0 3px 12px rgba(0,0,0,.18);
+
             cursor: pointer;
         }
 
@@ -396,21 +666,34 @@
         ===================================================== */
 
         .package-labels {
+
             display: grid;
-            grid-template-columns: repeat(5,1fr);
+
+            grid-template-columns:
+                repeat(5,1fr);
+
             margin-top: 15px;
+
             gap: 5px;
         }
 
+
         .package-label {
+
             text-align: center;
+
             font-size: .68rem;
+
             color: var(--text-light);
+
             transition: .2s ease;
         }
 
+
         .package-label.active {
+
             color: var(--primary-green);
+
             font-weight: 700;
         }
 
@@ -420,28 +703,44 @@
         ===================================================== */
 
         .options {
+
             margin-top: 30px;
         }
 
+
         .option {
+
             display: flex;
+
             align-items: center;
+
             justify-content: space-between;
+
             padding: 18px 0;
-            border-bottom: 1px solid var(--border);
+
+            border-bottom:
+                1px solid var(--border);
         }
 
+
         .option:last-child {
+
             border-bottom: none;
         }
 
+
         .option-text strong {
+
             display: block;
+
             font-size: .95rem;
         }
 
+
         .option-text span {
+
             color: var(--text-light);
+
             font-size: .75rem;
         }
 
@@ -451,44 +750,77 @@
         ===================================================== */
 
         .switch {
+
             position: relative;
+
             width: 52px;
+
             height: 31px;
+
             flex-shrink: 0;
         }
 
+
         .switch input {
+
             display: none;
         }
 
+
         .switch-track {
+
             position: absolute;
+
             inset: 0;
+
             border-radius: 30px;
+
             background: #d9dfdc;
+
             cursor: pointer;
+
             transition: .3s ease;
         }
+
 
         .switch-track::before {
+
             content: "";
+
             position: absolute;
+
             width: 25px;
+
             height: 25px;
+
             left: 3px;
+
             top: 3px;
+
             background: white;
+
             border-radius: 50%;
-            box-shadow: 0 2px 7px rgba(0,0,0,.2);
+
+            box-shadow:
+                0 2px 7px rgba(0,0,0,.2);
+
             transition: .3s ease;
         }
 
-        .switch input:checked + .switch-track {
-            background: var(--primary-green);
+
+        .switch input:checked +
+        .switch-track {
+
+            background:
+                var(--primary-green);
         }
 
-        .switch input:checked + .switch-track::before {
-            transform: translateX(21px);
+
+        .switch input:checked +
+        .switch-track::before {
+
+            transform:
+                translateX(21px);
         }
 
 
@@ -497,19 +829,32 @@
         ===================================================== */
 
         .total-price {
+
             margin-top: 35px;
+
             padding: 25px;
+
             border-radius: 18px;
-            background: var(--primary-green-light);
+
+            background:
+                var(--primary-green-light);
+
             text-align: center;
+
             color: var(--primary-green);
+
             font-size: 1rem;
         }
 
+
         .total-price span {
+
             display: block;
+
             font-size: 2.2rem;
+
             font-weight: 800;
+
             margin-top: 3px;
         }
 
@@ -519,70 +864,122 @@
         ===================================================== */
 
         .greb-sekcija {
-            background: var(--primary-green);
+
+            background:
+                var(--primary-green);
+
             color: white;
+
             text-align: center;
         }
 
+
         .greb-sekcija h2 {
+
             color: white;
         }
 
+
         .greb-sekcija p {
+
             max-width: 650px;
-            margin: 0 auto 30px;
+
+            margin:
+                0 auto 30px;
+
             opacity: .92;
         }
 
+
         .scratch-container {
+
             position: relative;
+
             width: 320px;
+
             height: 160px;
+
             margin: auto;
+
             background: white;
-            border: 4px solid var(--accent-gold);
+
+            border:
+                4px solid var(--accent-gold);
+
             border-radius: 18px;
+
             overflow: hidden;
+
             display: flex;
+
             align-items: center;
+
             justify-content: center;
-            box-shadow: 0 15px 35px rgba(0,0,0,.2);
+
+            box-shadow:
+                0 15px 35px rgba(0,0,0,.2);
+
             user-select: none;
         }
 
+
         .scratch-content {
+
             text-align: center;
+
             color: var(--primary-green);
         }
 
+
         .scratch-content h4 {
+
             font-size: .8rem;
+
             color: var(--text-light);
+
             margin-bottom: 5px;
         }
 
+
         .scratch-code {
+
             font-size: 1.7rem;
+
             font-weight: 800;
         }
 
+
         canvas {
+
             position: absolute;
+
             inset: 0;
+
             width: 100%;
+
             height: 100%;
+
             cursor: crosshair;
+
             touch-action: none;
         }
 
+
         .discount-note {
-            margin: 25px auto 0;
+
+            margin:
+                25px auto 0;
+
             max-width: 600px;
+
             font-size: .85rem;
+
             line-height: 1.6;
         }
 
+
         .discount-note strong {
+
             color: #ffeaa0;
         }
 
@@ -592,87 +989,167 @@
         ===================================================== */
 
         #kontakt {
-            background: var(--bg-light);
+
+            background:
+                var(--bg-light);
         }
+
 
         .contact-container {
+
             max-width: 1100px;
+
             margin: auto;
+
             display: grid;
-            grid-template-columns: 1fr 1fr;
+
+            grid-template-columns:
+                1fr 1fr;
+
             gap: 30px;
+
             background: white;
+
             padding: 35px;
+
             border-radius: 25px;
-            box-shadow: var(--shadow-soft);
+
+            box-shadow:
+                var(--shadow-soft);
         }
 
+
         .info-item {
+
             display: flex;
+
             gap: 18px;
+
             margin-bottom: 28px;
         }
 
+
         .info-icon {
+
             width: 50px;
+
             height: 50px;
+
             border-radius: 50%;
-            background: var(--primary-green-light);
-            color: var(--primary-green);
+
+            background:
+                var(--primary-green-light);
+
+            color:
+                var(--primary-green);
+
             display: flex;
+
             align-items: center;
+
             justify-content: center;
+
             font-size: 1.2rem;
+
             flex-shrink: 0;
         }
 
+
         .info-item h3 {
+
             font-size: 1rem;
+
             margin-bottom: 5px;
-            color: var(--primary-green);
+
+            color:
+                var(--primary-green);
         }
 
+
         .info-item p {
-            color: var(--text-light);
+
+            color:
+                var(--text-light);
+
             font-size: .9rem;
         }
 
+
         .social-buttons {
+
             display: flex;
+
             gap: 8px;
+
             margin-top: 12px;
+
             flex-wrap: wrap;
         }
 
+
         .btn-viber,
         .btn-whatsapp {
+
             padding: 8px 13px;
+
             border-radius: 8px;
+
             color: white;
+
             font-size: .8rem;
+
             font-weight: 600;
         }
 
+
         .btn-viber {
-            background: #7360f2;
+
+            background:
+                #7360f2;
         }
+
 
         .btn-whatsapp {
-            background: #25D366;
+
+            background:
+                #25D366;
         }
 
+
+        /* =====================================================
+           GOOGLE MAPS
+        ===================================================== */
+
+        .map-wrapper {
+
+            display: flex;
+
+            flex-direction: column;
+
+            align-items: flex-start;
+        }
+
+
         .map-container {
+
             width: 100%;
-            min-height: 330px;
+
+            height: 330px;
+
             border-radius: 18px;
+
             overflow: hidden;
+
             background: #eee;
         }
 
+
         .map-container iframe {
+
             width: 100%;
+
             height: 100%;
-            min-height: 330px;
+
             border: 0;
         }
 
@@ -682,10 +1159,16 @@
         ===================================================== */
 
         footer {
-            background: #181b1a;
+
+            background:
+                #181b1a;
+
             color: #999;
+
             text-align: center;
+
             padding: 30px 20px;
+
             font-size: .85rem;
         }
 
@@ -695,6 +1178,7 @@
         ===================================================== */
 
         @keyframes pricePulse {
+
             0% {
                 transform: scale(1);
             }
@@ -708,8 +1192,11 @@
             }
         }
 
+
         .price-change {
-            animation: pricePulse .25s ease;
+
+            animation:
+                pricePulse .25s ease;
         }
 
 
@@ -720,11 +1207,15 @@
         @media(max-width:900px) {
 
             .portfolio-grid {
+
                 grid-template-columns: 1fr;
+
                 max-width: 500px;
             }
 
+
             .contact-container {
+
                 grid-template-columns: 1fr;
             }
         }
@@ -733,63 +1224,111 @@
         @media(max-width:768px) {
 
             nav {
+
                 height: 70px;
             }
 
+
             .logo-container img {
+
                 height: 43px;
             }
 
+
             .menu-toggle {
+
                 display: block;
             }
 
+
             .nav-links {
+
                 position: fixed;
+
                 top: 70px;
+
                 right: -100%;
+
                 width: 270px;
-                height: calc(100vh - 70px);
-                background: rgba(255,255,255,.96);
-                backdrop-filter: blur(18px);
+
+                height:
+                    calc(100vh - 70px);
+
+                background:
+                    rgba(255,255,255,.96);
+
+                backdrop-filter:
+                    blur(18px);
+
                 flex-direction: column;
+
                 align-items: flex-start;
-                padding: 40px 30px;
+
+                padding:
+                    40px 30px;
+
                 gap: 25px;
-                box-shadow: -10px 0 30px rgba(0,0,0,.08);
-                transition: .4s ease;
+
+                box-shadow:
+                    -10px 0 30px rgba(0,0,0,.08);
+
+                transition:
+                    .4s ease;
             }
 
+
             .nav-links.active {
+
                 right: 0;
             }
 
+
             .hero {
+
                 min-height: 90vh;
             }
 
+
             section {
+
                 padding: 80px 5%;
             }
 
+
             h2 {
+
                 font-size: 1.9rem;
             }
 
+
             .kalkulator-container {
-                padding: 30px 22px;
+
+                padding:
+                    30px 22px;
             }
 
+
             .package-label {
+
                 font-size: .55rem;
             }
 
+
             .contact-container {
+
                 padding: 25px;
             }
+
+
+            .map-container {
+
+                height: 300px;
+            }
+
         }
 
     </style>
+
 </head>
 
 
@@ -803,35 +1342,74 @@
 <nav>
 
     <div class="logo-container">
-        <img src="image_95375e.png" alt="Foto Bane logo">
+
+        <img
+            src="image_95375e.png"
+            alt="Foto Bane logo">
+
     </div>
 
-    <div class="menu-toggle" onclick="toggleMenu()">
+
+    <div
+        class="menu-toggle"
+        onclick="toggleMenu()">
+
         <i class="fas fa-bars"></i>
+
     </div>
+
 
     <ul class="nav-links">
 
         <li>
-            <a href="#pocetna" onclick="toggleMenu()">Početna</a>
-        </li>
-
-        <li>
-            <a href="#portfolio" onclick="toggleMenu()">Portfolio</a>
-        </li>
-
-        <li>
-            <a href="#kalkulator" onclick="toggleMenu()">Izračunaj cenu</a>
-        </li>
-
-        <li>
-            <a href="#popust" onclick="toggleMenu()" style="color:var(--accent-gold);">
-                <i class="fas fa-gift"></i> Popust
+            <a
+                href="#pocetna"
+                onclick="toggleMenu()">
+                Početna
             </a>
         </li>
 
+
         <li>
-            <a href="#kontakt" onclick="toggleMenu()">Kontakt</a>
+            <a
+                href="#portfolio"
+                onclick="toggleMenu()">
+                Portfolio
+            </a>
+        </li>
+
+
+        <li>
+            <a
+                href="#kalkulator"
+                onclick="toggleMenu()">
+                Izračunaj cenu
+            </a>
+        </li>
+
+
+        <li>
+            <a
+                href="#popust"
+                onclick="toggleMenu()"
+                style="color:var(--accent-gold);">
+
+                <i class="fas fa-gift"></i>
+
+                Popust
+
+            </a>
+        </li>
+
+
+        <li>
+            <a
+                href="#kontakt"
+                onclick="toggleMenu()">
+
+                Kontakt
+
+            </a>
         </li>
 
     </ul>
@@ -843,28 +1421,53 @@
      HERO
 ===================================================== -->
 
-<section id="pocetna" class="hero">
+<section
+    id="pocetna"
+    class="hero">
+
 
     <div class="hero-content">
 
+
         <div class="badge">
+
             <i class="fas fa-camera"></i>
+
             Tradicija duža od 40 godina
+
         </div>
 
+
         <h1>
+
             Čuvamo vaše
-            <span>najvažnije uspomene</span>
+
+            <span>
+                najvažnije uspomene
+            </span>
+
         </h1>
 
+
         <p>
-            Profesionalna fotografija i video produkcija u srcu Despotovca.
-            Iskustvo, savremena oprema i posvećenost svakom detalju.
+
+            Profesionalna fotografija i video produkcija
+            u srcu Despotovca.
+
+            Iskustvo, savremena oprema i posvećenost
+            svakom detalju.
+
         </p>
 
-        <a href="#kontakt" class="btn btn-primary">
+
+        <a
+            href="#kontakt"
+            class="btn btn-primary">
+
             Zakažite snimanje
+
         </a>
+
 
     </div>
 
@@ -877,19 +1480,28 @@
 
 <section id="portfolio">
 
-    <h2>Naš rad</h2>
+
+    <h2>
+        Naš rad
+    </h2>
+
 
     <div class="portfolio-grid">
+
 
         <div class="portfolio-item">
 
             <img
                 src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=800&q=80"
-                alt="Venčanja"
-            >
+                alt="Venčanja">
+
 
             <div class="portfolio-info">
-                <h3>Venčanja</h3>
+
+                <h3>
+                    Venčanja
+                </h3>
+
             </div>
 
         </div>
@@ -899,11 +1511,15 @@
 
             <img
                 src="https://images.unsplash.com/photo-1519689680058-324335c77eba?auto=format&fit=crop&w=800&q=80"
-                alt="Krštenja i rođendani"
-            >
+                alt="Krštenja i rođendani">
+
 
             <div class="portfolio-info">
-                <h3>Krštenja i rođendani</h3>
+
+                <h3>
+                    Krštenja i rođendani
+                </h3>
+
             </div>
 
         </div>
@@ -913,14 +1529,19 @@
 
             <img
                 src="https://images.unsplash.com/photo-1554048612-b6a482bc67e5?auto=format&fit=crop&w=800&q=80"
-                alt="Studijski portreti"
-            >
+                alt="Studijski portreti">
+
 
             <div class="portfolio-info">
-                <h3>Studijski portreti</h3>
+
+                <h3>
+                    Studijski portreti
+                </h3>
+
             </div>
 
         </div>
+
 
     </div>
 
@@ -933,27 +1554,50 @@
 
 <section id="kalkulator">
 
-    <h2>Kreirajte svoj paket</h2>
+
+    <h2>
+        Kreirajte svoj paket
+    </h2>
+
 
     <p class="calculator-intro">
-        Pomerite klizač, izaberite vrstu događaja i dodajte usluge
-        koje želite. Cena se automatski izračunava.
+
+        Pomerite klizač, izaberite vrstu događaja
+        i dodajte usluge koje želite.
+
+        Cena se automatski izračunava.
+
     </p>
 
 
     <div class="kalkulator-container">
 
+
         <div class="calculator-header">
 
-            <small>IZABRANI PAKET</small>
 
-            <div class="calculator-event" id="paket-naziv">
+            <small>
+                IZABRANI PAKET
+            </small>
+
+
+            <div
+                class="calculator-event"
+                id="paket-naziv">
+
                 Izaberite paket
+
             </div>
 
-            <div class="calculator-price" id="paket-cijena">
+
+            <div
+                class="calculator-price"
+                id="paket-cena">
+
                 0 €
+
             </div>
+
 
         </div>
 
@@ -962,36 +1606,54 @@
 
         <div class="main-slider">
 
+
             <input
                 type="range"
                 id="paket-slider"
                 min="0"
                 max="4"
                 value="0"
-                step="1"
-            >
+                step="1">
+
 
             <div class="package-labels">
 
-                <div class="package-label active">
+
+                <div
+                    class="package-label active">
+
                     Izbor
+
                 </div>
 
+
                 <div class="package-label">
+
                     Studijsko
+
                 </div>
 
+
                 <div class="package-label">
+
                     Rođendan
+
                 </div>
 
+
                 <div class="package-label">
+
                     Krštenje
+
                 </div>
 
+
                 <div class="package-label">
+
                     Venčanje
+
                 </div>
+
 
             </div>
 
@@ -1002,11 +1664,15 @@
 
         <div class="options">
 
+
             <div class="option">
+
 
                 <div class="option-text">
 
-                    <strong>Profesionalni video</strong>
+                    <strong>
+                        Profesionalni video
+                    </strong>
 
                     <span>
                         Dodatna video produkcija · +150 €
@@ -1014,25 +1680,31 @@
 
                 </div>
 
+
                 <label class="switch">
 
                     <input
                         type="checkbox"
-                        id="video-opcija"
-                    >
+                        id="video-opcija">
 
-                    <span class="switch-track"></span>
+                    <span
+                        class="switch-track">
+                    </span>
 
                 </label>
+
 
             </div>
 
 
             <div class="option">
 
+
                 <div class="option-text">
 
-                    <strong>Snimanje dronom</strong>
+                    <strong>
+                        Snimanje dronom
+                    </strong>
 
                     <span>
                         Atraktivni snimci iz vazduha · +80 €
@@ -1040,33 +1712,43 @@
 
                 </div>
 
+
                 <label class="switch">
 
                     <input
                         type="checkbox"
-                        id="dron-opcija"
-                    >
+                        id="dron-opcija">
 
-                    <span class="switch-track"></span>
+                    <span
+                        class="switch-track">
+                    </span>
 
                 </label>
 
+
             </div>
+
 
         </div>
 
 
-        <!-- UKUPNO -->
+        <!-- UKUPNA CENA -->
 
         <div class="total-price">
 
+
             Procena ukupne cene
 
-            <span id="ukupna-cijena">
+
+            <span id="ukupna-cena">
+
                 0 €
+
             </span>
 
+
         </div>
+
 
     </div>
 
@@ -1077,44 +1759,70 @@
      GREB GREB POPUST
 ===================================================== -->
 
-<section id="popust" class="greb-sekcija">
+<section
+    id="popust"
+    class="greb-sekcija">
 
-    <h2>Osvojite popust</h2>
+
+    <h2>
+        Osvojite popust
+    </h2>
+
 
     <p>
-        Pređite prstom preko zlatnog polja i otkrijte svoj
-        promotivni kod.
+
+        Pređite prstom preko zlatnog polja
+        i otkrijte svoj promotivni kod.
+
     </p>
 
 
     <div class="scratch-container">
 
+
         <div class="scratch-content">
 
-            <h4>VAŠ PROMO KOD</h4>
+
+            <h4>
+                VAŠ PROMO KOD
+            </h4>
+
 
             <div
                 class="scratch-code"
-                id="kod-prikaz"
-            >
+                id="kod-prikaz">
+
             </div>
+
 
         </div>
 
-        <canvas id="scratch-canvas"></canvas>
+
+        <canvas
+            id="scratch-canvas">
+        </canvas>
+
 
     </div>
 
 
     <p class="discount-note">
 
-        <strong>Popust ostvarujete donošenjem screenshota ovog
-        promotivnog koda.</strong>
+
+        <strong>
+            Popust ostvarujete donošenjem screenshota
+            ovog promotivnog koda.
+        </strong>
+
 
         Popust važi za usluge čija je ukupna vrednost
-        <strong>veća od 150 €</strong>.
+        <strong>
+            veća od 150 €
+        </strong>.
+
 
     </p>
+
 
 </section>
 
@@ -1125,7 +1833,10 @@
 
 <section id="kontakt">
 
-    <h2>Kontaktirajte nas</h2>
+
+    <h2>
+        Kontaktirajte nas
+    </h2>
 
 
     <div class="contact-container">
@@ -1136,33 +1847,54 @@
 
             <div class="info-item">
 
+
                 <div class="info-icon">
+
                     <i class="fas fa-map-marker-alt"></i>
+
                 </div>
+
 
                 <div>
 
-                    <h3>Naša adresa</h3>
+
+                    <h3>
+                        Naša adresa
+                    </h3>
+
 
                     <p>
+
                         Despota Stefana Lazarevića 76,<br>
+
                         35213 Despotovac
+
                     </p>
 
+
                 </div>
+
 
             </div>
 
 
             <div class="info-item">
 
+
                 <div class="info-icon">
+
                     <i class="fas fa-phone-alt"></i>
+
                 </div>
+
 
                 <div>
 
-                    <h3>Telefon</h3>
+
+                    <h3>
+                        Telefon
+                    </h3>
+
 
                     <p>
                         +381 63 140 8171
@@ -1171,43 +1903,75 @@
 
                     <div class="social-buttons">
 
+
                         <a
                             href="viber://chat?number=+381631408171"
-                            class="btn-viber"
-                        >
+                            class="btn-viber">
+
                             <i class="fab fa-viber"></i>
+
                             Viber
+
                         </a>
 
 
                         <a
                             href="https://wa.me/381631408171"
                             target="_blank"
-                            class="btn-whatsapp"
-                        >
+                            class="btn-whatsapp">
+
                             <i class="fab fa-whatsapp"></i>
+
                             WhatsApp
+
                         </a>
+
 
                     </div>
 
+
                 </div>
 
+
             </div>
+
 
         </div>
 
 
         <!-- GOOGLE MAPS -->
 
-        <div class="map-container">
+        <div class="map-wrapper">
 
-            <iframe
-                src="https://www.google.com/maps?q=Despota%20Stefana%20Lazarevi%C4%87a%2076,%20Despotovac,%20Serbia&output=embed"
-                allowfullscreen=""
-                loading="lazy"
-                referrerpolicy="no-referrer-when-downgrade">
-            </iframe>
+
+            <div class="map-container">
+
+
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2865.495740647732!2d21.440419975681756!3d44.093761923826165!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4756ca3773afc17f%3A0xc4913d4b85feabf5!2sFoto%20Bane%20Despotovac!5e0!3m2!1ssr!2srs!4v1790847129925!5m2!1ssr!2srs"
+                    width="100%"
+                    height="100%"
+                    style="border:0;"
+                    allowfullscreen=""
+                    loading="lazy"
+                    referrerpolicy="strict-origin-when-cross-origin">
+                </iframe>
+
+
+            </div>
+
+
+            <a
+                href="https://maps.app.goo.gl/1JY6z4WowRy2xrtGA"
+                target="_blank"
+                class="btn-map">
+
+                <i class="fas fa-location-arrow"></i>
+
+                Otvori u Google Maps
+
+            </a>
+
 
         </div>
 
@@ -1223,13 +1987,22 @@
 
 <footer>
 
+
     <p>
-        &copy; 2026 Foto Bane Despotovac. Sva prava zadržana.
+
+        &copy; 2026 Foto Bane Despotovac.
+        Sva prava zadržana.
+
     </p>
 
-    <p style="font-size:.75rem;margin-top:5px;color:#666;">
+
+    <p
+        style="font-size:.75rem;margin-top:5px;color:#666;">
+
         Izrada: DL Biznis Konsalting
+
     </p>
+
 
 </footer>
 
@@ -1266,7 +2039,7 @@ const paketi = [
     },
 
     {
-        naziv: "Studijsko slikanje",
+        naziv: "Studijsko fotografisanje",
         cijena: 50
     },
 
@@ -1288,82 +2061,122 @@ const paketi = [
 ];
 
 
-const slider = document.getElementById("paket-slider");
+const slider =
+    document.getElementById(
+        "paket-slider"
+    );
+
 
 const paketNaziv =
-    document.getElementById("paket-naziv");
+    document.getElementById(
+        "paket-naziv"
+    );
+
 
 const paketCena =
-    document.getElementById("paket-cijena");
+    document.getElementById(
+        "paket-cena"
+    );
+
 
 const ukupnaCena =
-    document.getElementById("ukupna-cijena");
+    document.getElementById(
+        "ukupna-cena"
+    );
+
 
 const videoOpcija =
-    document.getElementById("video-opcija");
+    document.getElementById(
+        "video-opcija"
+    );
+
 
 const dronOpcija =
-    document.getElementById("dron-opcija");
+    document.getElementById(
+        "dron-opcija"
+    );
+
 
 const packageLabels =
-    document.querySelectorAll(".package-label");
+    document.querySelectorAll(
+        ".package-label"
+    );
 
 
 /* =====================================================
-   ZVUK
-   Diskretan "tap" zvuk bez eksternih fajlova
+   DISKRETNI ZVUK
 ===================================================== */
 
 let audioContext = null;
 
 
-function napraviZvuk(frekvencija = 500, trajanje = 0.05) {
+function napraviZvuk(
+    frekvencija = 500,
+    trajanje = 0.05
+) {
 
     try {
 
         if (!audioContext) {
 
             audioContext =
-                new (window.AudioContext ||
-                window.webkitAudioContext)();
+                new (
+                    window.AudioContext ||
+                    window.webkitAudioContext
+                )();
 
         }
+
 
         const oscillator =
             audioContext.createOscillator();
 
+
         const gain =
             audioContext.createGain();
 
-        oscillator.type = "sine";
+
+        oscillator.type =
+            "sine";
+
 
         oscillator.frequency.value =
             frekvencija;
+
 
         gain.gain.setValueAtTime(
             0.0001,
             audioContext.currentTime
         );
 
+
         gain.gain.exponentialRampToValueAtTime(
             0.035,
             audioContext.currentTime + 0.01
         );
+
 
         gain.gain.exponentialRampToValueAtTime(
             0.0001,
             audioContext.currentTime + trajanje
         );
 
+
         oscillator.connect(gain);
 
-        gain.connect(audioContext.destination);
+        gain.connect(
+            audioContext.destination
+        );
+
 
         oscillator.start();
 
+
         oscillator.stop(
-            audioContext.currentTime + trajanje
+            audioContext.currentTime +
+            trajanje
         );
+
 
     } catch(e) {}
 
@@ -1371,7 +2184,7 @@ function napraviZvuk(frekvencija = 500, trajanje = 0.05) {
 
 
 /* =====================================================
-   VIBRACIJA TELEFONA
+   VIBRACIJA
 ===================================================== */
 
 function vibriraj() {
@@ -1389,10 +2202,16 @@ function vibriraj() {
    KALKULATOR
 ===================================================== */
 
-function azurirajKalkulator(zvuk = false) {
+function azurirajKalkulator(
+    zvuk = false
+) {
+
 
     const vrednost =
-        parseInt(slider.value);
+        parseInt(
+            slider.value
+        );
+
 
     const paket =
         paketi[vrednost];
@@ -1400,6 +2219,7 @@ function azurirajKalkulator(zvuk = false) {
 
     paketNaziv.innerText =
         paket.naziv;
+
 
     paketCena.innerText =
         paket.cijena > 0
@@ -1413,23 +2233,34 @@ function azurirajKalkulator(zvuk = false) {
 
     if (paket.cijena > 0) {
 
-        if (videoOpcija.checked) {
+
+        if (
+            videoOpcija.checked
+        ) {
 
             ukupno += 150;
 
         }
 
-        if (dronOpcija.checked) {
+
+        if (
+            dronOpcija.checked
+        ) {
 
             ukupno += 80;
 
         }
 
+
     } else {
 
-        videoOpcija.checked = false;
 
-        dronOpcija.checked = false;
+        videoOpcija.checked =
+            false;
+
+
+        dronOpcija.checked =
+            false;
 
     }
 
@@ -1452,12 +2283,14 @@ function azurirajKalkulator(zvuk = false) {
     );
 
 
-    /* Boja popunjenog slidera */
+    /* Popunjen slider */
 
     const procenat =
         (vrednost / 4) * 100;
 
+
     slider.style.background =
+
         `linear-gradient(
             to right,
             var(--primary-green) 0%,
@@ -1467,13 +2300,15 @@ function azurirajKalkulator(zvuk = false) {
         )`;
 
 
-    /* Animacija cene */
+    /* Animacija */
 
     ukupnaCena.classList.remove(
         "price-change"
     );
 
+
     void ukupnaCena.offsetWidth;
+
 
     ukupnaCena.classList.add(
         "price-change"
@@ -1482,7 +2317,10 @@ function azurirajKalkulator(zvuk = false) {
 
     if (zvuk) {
 
-        napraviZvuk(500, .045);
+        napraviZvuk(
+            500,
+            .045
+        );
 
         vibriraj();
 
@@ -1492,33 +2330,43 @@ function azurirajKalkulator(zvuk = false) {
 
 
 /* =====================================================
-   SLIDER
+   GLAVNI SLIDER
 ===================================================== */
 
 slider.addEventListener(
     "input",
     () => {
 
-        azurirajKalkulator(true);
+        azurirajKalkulator(
+            true
+        );
 
     }
 );
 
 
 /* =====================================================
-   SWITCH OPCIJE
+   VIDEO SWITCH
 ===================================================== */
 
 videoOpcija.addEventListener(
     "change",
     () => {
 
+
         napraviZvuk(
-            videoOpcija.checked ? 650 : 400,
+
+            videoOpcija.checked
+                ? 650
+                : 400,
+
             .07
+
         );
 
+
         vibriraj();
+
 
         azurirajKalkulator();
 
@@ -1526,16 +2374,28 @@ videoOpcija.addEventListener(
 );
 
 
+/* =====================================================
+   DRON SWITCH
+===================================================== */
+
 dronOpcija.addEventListener(
     "change",
     () => {
 
+
         napraviZvuk(
-            dronOpcija.checked ? 700 : 420,
+
+            dronOpcija.checked
+                ? 700
+                : 420,
+
             .07
+
         );
 
+
         vibriraj();
+
 
         azurirajKalkulator();
 
@@ -1552,19 +2412,23 @@ document.addEventListener(
     () => {
 
 
-        /* Početno stanje kalkulatora */
+        /* Početno stanje */
 
-        azurirajKalkulator(false);
+        azurirajKalkulator(
+            false
+        );
 
 
         /* Promo kod */
 
         const kod =
+
             "BANE26-" +
+
             Math.random()
-            .toString(36)
-            .substring(2,6)
-            .toUpperCase();
+                .toString(36)
+                .substring(2,6)
+                .toUpperCase();
 
 
         document.getElementById(
@@ -1579,18 +2443,26 @@ document.addEventListener(
                 "scratch-canvas"
             );
 
+
         const ctx =
-            canvas.getContext("2d");
+            canvas.getContext(
+                "2d"
+            );
 
 
-        canvas.width = 320;
-        canvas.height = 160;
+        canvas.width =
+            320;
 
 
-        /* Zlatna površina */
+        canvas.height =
+            160;
+
+
+        /* Zlatni sloj */
 
         ctx.fillStyle =
             "#d4af37";
+
 
         ctx.fillRect(
             0,
@@ -1605,17 +2477,21 @@ document.addEventListener(
         ctx.font =
             "700 21px Montserrat";
 
+
         ctx.fillStyle =
             "#ffffff";
 
+
         ctx.textAlign =
             "center";
+
 
         ctx.fillText(
             "PREĐITE PRSTOM",
             160,
             75
         );
+
 
         ctx.fillText(
             "OVDE",
@@ -1624,12 +2500,15 @@ document.addEventListener(
         );
 
 
-        let isDrawing = false;
+        let isDrawing =
+            false;
 
 
         function scratch(e) {
 
-            if (!isDrawing) return;
+
+            if (!isDrawing)
+                return;
 
 
             e.preventDefault();
@@ -1640,26 +2519,36 @@ document.addEventListener(
 
 
             let x;
+
             let y;
 
 
             if (e.touches) {
 
+
                 x =
+
                     e.touches[0].clientX -
                     rect.left;
 
+
                 y =
+
                     e.touches[0].clientY -
                     rect.top;
 
+
             } else {
 
+
                 x =
+
                     e.clientX -
                     rect.left;
 
+
                 y =
+
                     e.clientY -
                     rect.top;
 
@@ -1672,16 +2561,22 @@ document.addEventListener(
 
             ctx.beginPath();
 
+
             ctx.arc(
+
                 x,
                 y,
                 25,
                 0,
                 Math.PI * 2
+
             );
+
 
             ctx.fill();
 
+
+            /* Veoma tih zvuk */
 
             napraviZvuk(
                 250,
@@ -1697,7 +2592,8 @@ document.addEventListener(
             "mousedown",
             e => {
 
-                isDrawing = true;
+                isDrawing =
+                    true;
 
                 scratch(e);
 
@@ -1715,7 +2611,8 @@ document.addEventListener(
             "mouseup",
             () => {
 
-                isDrawing = false;
+                isDrawing =
+                    false;
 
             }
         );
@@ -1725,7 +2622,8 @@ document.addEventListener(
             "mouseleave",
             () => {
 
-                isDrawing = false;
+                isDrawing =
+                    false;
 
             }
         );
@@ -1737,7 +2635,8 @@ document.addEventListener(
             "touchstart",
             e => {
 
-                isDrawing = true;
+                isDrawing =
+                    true;
 
                 scratch(e);
 
@@ -1761,7 +2660,8 @@ document.addEventListener(
             "touchend",
             () => {
 
-                isDrawing = false;
+                isDrawing =
+                    false;
 
             }
         );
@@ -1772,5 +2672,7 @@ document.addEventListener(
 
 </script>
 
+
 </body>
 </html>
+```
